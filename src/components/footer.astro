@@ -4,7 +4,12 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const l = (path: string) => `/${lang}${path}`;
+const l = (path: string) => {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  return `${base}/${lang}${path}`.replace(/\/+$/, "/");
+};
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <footer class="footer">
@@ -14,7 +19,7 @@ const l = (path: string) => `/${lang}${path}`;
     <!-- Col 1: Logo + tagline -->
     <div class="footer-brand">
       <a href={l("/")} class="footer-logo-link" aria-label="Departamentos Costanera – Inicio">
-        <img src="/logo.svg" alt="Departamentos Costanera" class="footer-logo" />
+        <img src={`${baseUrl}/logo.svg`} alt="Departamentos Costanera" class="footer-logo" />
       </a>
       <p class="footer-tagline">
         La mejor experiencia de alojamiento en Punta Arenas, Chile.
@@ -87,7 +92,7 @@ const l = (path: string) => `/${lang}${path}`;
     <!-- Col 4: Métodos de pago -->
     <div class="footer-pay">
       <h3 class="footer-heading">Métodos de pago</h3>
-      <img src="/paylogos.svg" alt="Métodos de pago aceptados" class="footer-paylogos" />
+      <img src={`${baseUrl}/paylogos.svg`} alt="Métodos de pago aceptados" class="footer-paylogos" />
     </div>
 
   </div>

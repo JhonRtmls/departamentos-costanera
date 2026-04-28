@@ -9,7 +9,7 @@ const t = useTranslations(lang);
   <div class="container intro-inner">
     <div class="intro-image">
       <!-- Reemplaza con tu imagen real -->
-      <img src="/intro.jpg" alt={t("intro.img_alt") as string} loading="lazy" />
+      <img src={`${import.meta.env.BASE_URL}intro.jpg`} alt={t("intro.img_alt") as string} loading="lazy" />
     </div>
 
     <div class="intro-text">

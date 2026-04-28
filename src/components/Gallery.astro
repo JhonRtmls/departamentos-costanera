@@ -5,34 +5,36 @@ import GalleryReact from "./GalleryReact";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const images = [
   {
-    src: "/gallery/slide1.webp",
+    src: `${base}/gallery/slide1.webp`,
     alt: t("gallery.alt_1") as string,
     caption: t("gallery.caption_1") as string,
   },
   {
-    src: "/gallery/slide2.webp",
+    src: `${base}/gallery/slide2.webp`,
     alt: t("gallery.alt_2") as string,
     caption: t("gallery.caption_2") as string,
   },
   {
-    src: "/gallery/slide3.webp",
+    src: `${base}/gallery/slide3.webp`,
     alt: t("gallery.alt_3") as string,
     caption: t("gallery.caption_3") as string,
   },
   {
-    src: "/gallery/slide4.webp",
+    src: `${base}/gallery/slide4.webp`,
     alt: t("gallery.alt_4") as string,
     caption: t("gallery.caption_4") as string,
   },
   {
-    src: "/gallery/slide5.webp",
+    src: `${base}/gallery/slide5.webp`,
     alt: t("gallery.alt_5") as string,
     caption: t("gallery.caption_5") as string,
   },
   {
-    src: "/gallery/slide6.webp",
+    src: `${base}/gallery/slide6.webp`,
     alt: t("gallery.alt_6") as string,
     caption: t("gallery.caption_6") as string,
   },

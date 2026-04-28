@@ -5,16 +5,19 @@ import { languages } from "../i18n/ui";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Utility to prepend lang to paths
+// Utility to prepend base and lang to paths
 const l = (path: string) => {
-  return `/${lang}${path}`;
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  return `${base}/${lang}${path}`.replace(/\/+$/, "/");
 };
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <header class="navbar">
   <div class="container navbar-content">
     <a href={l("/")} class="logo">
-      <img src="/logo.svg" alt="logo costanera" />
+      <img src={`${baseUrl}/logo.svg`} alt="logo costanera" />
     </a>
 
     <nav class="nav-links">
@@ -52,15 +55,20 @@ const l = (path: string) => {
         </button>
         <div class="lang-menu" id="lang-menu">
           {
-            Object.entries(languages).map(([code, label]) => (
-              <a
-                href={Astro.url.pathname.replace(`/${lang}`, `/${code}`)}
-                class={lang === code ? "active" : ""}
-              >
-                <span class="lang-code">{code.toUpperCase()}</span>
-                <span class="lang-label">{label}</span>
-              </a>
-            ))
+            Object.entries(languages).map(([code, label]) => {
+              // Reemplazamos el idioma actual por el nuevo en la URL
+              const parts = Astro.url.pathname.split('/');
+              const langIndex = parts.findIndex(p => p === lang);
+              if (langIndex !== -1) parts[langIndex] = code;
+              const newPath = parts.join('/') || "/";
+              
+              return (
+                <a href={newPath} class={lang === code ? "active" : ""}>
+                  <span class="lang-code">{code.toUpperCase()}</span>
+                  <span class="lang-label">{label}</span>
+                </a>
+              );
+            })
           }
         </div>
       </div>

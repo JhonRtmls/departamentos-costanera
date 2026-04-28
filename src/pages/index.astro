@@ -21,12 +21,12 @@
 
       const locale = supported.includes(browserLang) ? browserLang : "en";
 
-      // Redirige sin dejar historial (replace)
-      window.location.replace("/" + locale + "/");
+      // Redirige usando una ruta relativa para soportar subcarpetas
+      window.location.replace("./" + locale + "/");
     </script>
     <noscript>
       <!-- Fallback para navegadores sin JS -->
-      <meta http-equiv="refresh" content="0;url=/es/" />
+      <meta http-equiv="refresh" content="0;url=./es/" />
     </noscript>
   </head>
   <body></body>
