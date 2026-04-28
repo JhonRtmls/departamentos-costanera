@@ -101,6 +101,13 @@ export const ui = {
     'contact.form_message': 'Mensaje',
     'contact.form_message_placeholder': 'Cuéntanos sobre tu estadía...',
     'contact.form_submit': 'Enviar consulta',
+    // Footer
+    'footer.tagline': 'La mejor experiencia de alojamiento en Punta Arenas, Chile.',
+    'footer.map_title': 'Mapa del sitio',
+    'footer.contact_title': 'Contáctanos',
+    'footer.payment_title': 'Métodos de pago',
+    'footer.rights': 'DEPARTAMENTOS COSTANERA © 2026 Todos los derechos reservados',
+    'footer.powered_by': 'Desarrollado por',
   },
   en: {
     // Navbar
@@ -196,6 +203,13 @@ export const ui = {
     'contact.form_message': 'Message',
     'contact.form_message_placeholder': 'Tell us about your stay...',
     'contact.form_submit': 'Send inquiry',
+    // Footer
+    'footer.tagline': 'The best accommodation experience in Punta Arenas, Chile.',
+    'footer.map_title': 'Sitemap',
+    'footer.contact_title': 'Contact us',
+    'footer.payment_title': 'Payment methods',
+    'footer.rights': 'COSTANERA APARTMENTS © 2026 All Rights Reserved',
+    'footer.powered_by': 'Powered by',
   },
   zh: {
     // Navbar
@@ -291,5 +305,12 @@ export const ui = {
     'contact.form_message': '留言',
     'contact.form_message_placeholder': '告诉我们您的住宿需求...',
     'contact.form_submit': '发送咨询',
+    // Footer
+    'footer.tagline': '智利蓬塔阿雷纳斯最佳住宿体验。',
+    'footer.map_title': '网站地图',
+    'footer.contact_title': '联系我们',
+    'footer.payment_title': '付款方式',
+    'footer.rights': 'COSTANERA 公寓 © 2026 版权所有',
+    'footer.powered_by': '技术支持',
   },
 } as const;

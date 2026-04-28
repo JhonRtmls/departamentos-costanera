@@ -22,7 +22,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         <img src={`${baseUrl}/logo.svg`} alt="Departamentos Costanera" class="footer-logo" />
       </a>
       <p class="footer-tagline">
-        La mejor experiencia de alojamiento en Punta Arenas, Chile.
+        {t("footer.tagline")}
       </p>
       <!-- Redes sociales -->
       <div class="footer-social">
@@ -54,19 +54,19 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     </div>
 
     <!-- Col 2: Mapa del sitio -->
-    <nav class="footer-nav" aria-label="Mapa del sitio">
-      <h3 class="footer-heading">Mapa del sitio</h3>
+    <nav class="footer-nav" aria-label={t("footer.map_title") as string}>
+      <h3 class="footer-heading">{t("footer.map_title")}</h3>
       <ul class="footer-links">
-        <li><a href={l("/")}>Inicio</a></li>
-        <li><a href={l("/departamentos")}>Departamentos</a></li>
-        <li><a href="https://direct-book.com/properties/departamentoscostaneradirect" target="_blank" rel="noopener noreferrer">Reservas</a></li>
-        <li><a href={l("/contacto")}>Contacto</a></li>
+        <li><a href={l("/")}>{t("nav.inicio")}</a></li>
+        <li><a href={l("/departamentos")}>{t("nav.departamentos")}</a></li>
+        <li><a href="https://direct-book.com/properties/departamentoscostaneradirect" target="_blank" rel="noopener noreferrer">{t("nav.reservas")}</a></li>
+        <li><a href={l("/contacto")}>{t("nav.contacto")}</a></li>
       </ul>
     </nav>
 
     <!-- Col 3: Contáctanos -->
     <div class="footer-contact">
-      <h3 class="footer-heading">Contáctanos</h3>
+      <h3 class="footer-heading">{t("footer.contact_title")}</h3>
       <ul class="footer-contact-list">
         <li>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -91,7 +91,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
     <!-- Col 4: Métodos de pago -->
     <div class="footer-pay">
-      <h3 class="footer-heading">Métodos de pago</h3>
+      <h3 class="footer-heading">{t("footer.payment_title")}</h3>
       <img src={`${baseUrl}/paylogos.svg`} alt="Métodos de pago aceptados" class="footer-paylogos" />
     </div>
 
@@ -101,10 +101,10 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
       <span class="footer-copy">
-        DEPARTAMENTOS COSTANERA &copy; 2026 All Rights Reserved
+        {t("footer.rights")}
       </span>
       <span class="footer-powered">
-        Powered by <a href="https://gestoo.cl" target="_blank" rel="noopener noreferrer">Gestoo Agencia Creativa</a>
+        {t("footer.powered_by")} <a href="https://gestoo.cl" target="_blank" rel="noopener noreferrer">Gestoo Agencia Creativa</a>
       </span>
     </div>
   </div>
