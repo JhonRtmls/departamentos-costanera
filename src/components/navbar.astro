@@ -1,0 +1,326 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { languages } from "../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Utility to prepend lang to paths
+const l = (path: string) => {
+  return `/${lang}${path}`;
+};
+---
+
+<header class="navbar">
+  <div class="container navbar-content">
+    <a href={l("/")} class="logo">
+      <img src="/logo.svg" alt="logo costanera" />
+    </a>
+
+    <nav class="nav-links">
+      <ul>
+        <li><a href={l("/")}>{t("nav.inicio")}</a></li>
+        <li><a href={l("/departamentos")}>{t("nav.departamentos")}</a></li>
+        <li><a href="#servicios">{t("nav.servicios")}</a></li>
+        <li><a href={l("/contacto")}>{t("nav.contacto")}</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="https://direct-book.com/properties/departamentoscostaneradirect" target="_blank" rel="noopener noreferrer" class="btn-primary">{t("nav.reservar_ahora")}</a>
+
+      <div class="lang-dropdown">
+        <button
+          class="lang-selected"
+          id="lang-btn"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span class="current-lang">{lang.toUpperCase()}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="chevron"><path d="m6 9 6 6 6-6"></path></svg
+          >
+        </button>
+        <div class="lang-menu" id="lang-menu">
+          {
+            Object.entries(languages).map(([code, label]) => (
+              <a
+                href={Astro.url.pathname.replace(`/${lang}`, `/${code}`)}
+                class={lang === code ? "active" : ""}
+              >
+                <span class="lang-code">{code.toUpperCase()}</span>
+                <span class="lang-label">{label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <button class="mobile-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+  }
+
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+  }
+
+  .logo img {
+    height: 40px;
+    width: auto;
+  }
+
+  .nav-links ul {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    position: relative;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent);
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: var(--transition);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.2);
+  }
+
+  .lang-dropdown {
+    position: relative;
+  }
+
+  .lang-selected {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(15, 23, 42, 0.05);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    transition: var(--transition);
+  }
+
+  .lang-selected:hover {
+    background: rgba(15, 23, 42, 0.08);
+    border-color: var(--accent);
+  }
+
+  .chevron {
+    transition: transform 0.3s ease;
+  }
+
+  .lang-dropdown:hover .chevron {
+    transform: rotate(180deg);
+  }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    width: 160px;
+    background: white;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow:
+      0 10px 25px -5px rgba(0, 0, 0, 0.1),
+      0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1001;
+  }
+
+  .lang-dropdown:hover .lang-menu,
+  .lang-selected[aria-expanded="true"] + .lang-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lang-selected[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .lang-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+  }
+
+  .lang-menu a:hover {
+    background: rgba(59, 130, 246, 0.05);
+    color: var(--accent);
+  }
+
+  .lang-menu a.active {
+    background: rgba(15, 23, 42, 0.03);
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .lang-code {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+    background: rgba(15, 23, 42, 0.05);
+    border-radius: 4px;
+    color: var(--primary);
+  }
+
+  .lang-label {
+    flex: 1;
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .btn-primary {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Simple scroll effect for navbar
+  const navbar = document.querySelector(".navbar") as HTMLElement;
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        navbar.style.padding = "0.5rem 0";
+        navbar.style.background = "rgba(255, 255, 255, 0.95)";
+      } else {
+        navbar.style.padding = "0";
+        navbar.style.background = "rgba(255, 255, 255, 0.8)";
+      }
+    });
+  }
+  // Language dropdown toggle for mobile/click
+  const langBtn = document.getElementById("lang-btn");
+  if (langBtn) {
+    langBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const expanded = langBtn.getAttribute("aria-expanded") === "true";
+      langBtn.setAttribute("aria-expanded", (!expanded).toString());
+    });
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", () => {
+    if (langBtn) langBtn.setAttribute("aria-expanded", "false");
+  });
+</script>

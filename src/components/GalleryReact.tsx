@@ -1,0 +1,285 @@
+import { useState, useEffect, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+
+interface Image {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+interface GalleryProps {
+  images: Image[];
+  tag: string;
+  title: string;
+  subtitle: string;
+  desc: string;
+}
+
+export default function GalleryReact({ images, tag, title, subtitle, desc }: GalleryProps) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(true);
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollTo  = useCallback((i: number) => emblaApi?.scrollTo(i), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+      setCanPrev(emblaApi.canScrollPrev());
+      setCanNext(emblaApi.canScrollNext());
+    };
+    emblaApi.on("select", onSelect);
+    onSelect();
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi]);
+
+  return (
+    <section className="gallery-section" id="galeria">
+      <div className="gallery-layout">
+
+        {/* Left — sticky text column */}
+        <div className="gallery-left">
+          <span className="gallery-tag">{tag}</span>
+          <h2 className="gallery-title">{title}</h2>
+          <p className="gallery-subtitle">{subtitle}</p>
+          <p className="gallery-desc">{desc}</p>
+
+          {/* Controls inside left column */}
+          <div className="gallery-controls">
+            <button
+              className={`gallery-btn${!canPrev ? " disabled" : ""}`}
+              onClick={scrollPrev}
+              aria-label="Anterior"
+            >‹</button>
+
+            <div className="gallery-dots">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  className={`gallery-dot${i === selectedIndex ? " active" : ""}`}
+                  onClick={() => scrollTo(i)}
+                  aria-label={`Ir a imagen ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              className={`gallery-btn${!canNext ? " disabled" : ""}`}
+              onClick={scrollNext}
+              aria-label="Siguiente"
+            >›</button>
+          </div>
+        </div>
+
+        {/* Right — Embla carousel */}
+        <div className="gallery-right">
+          <div className="gallery-viewport" ref={emblaRef}>
+            <div className="gallery-track">
+              {images.map((img, index) => (
+                <div className="gallery-slide" key={index}>
+                  <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
+                  <div className="gallery-caption-bar">
+                    <p className="gallery-caption">{img.caption}</p>
+                    <span className="gallery-count">{index + 1} / {images.length}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <style>{`
+        .gallery-section {
+          background: #fdfbf7;
+          padding: 6rem 0;
+        }
+
+        .gallery-layout {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 2rem;
+          display: grid;
+          grid-template-columns: 1fr 1.6fr;
+          gap: 4rem;
+          align-items: center;
+        }
+
+        /* ── Left column ── */
+        .gallery-left {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+        }
+
+        .gallery-tag {
+          display: inline-block;
+          color: #3b82f6;
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+        }
+
+        .gallery-title {
+          font-size: clamp(1.9rem, 3vw, 2.75rem);
+          font-family: Georgia, 'Times New Roman', serif;
+          font-weight: 700;
+          color: #1a3a5a;
+          line-height: 1.15;
+          margin: 0;
+        }
+
+        .gallery-subtitle {
+          color: #0f172a;
+          font-size: 1rem;
+          font-weight: 600;
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        .gallery-desc {
+          color: #64748b;
+          font-size: 0.97rem;
+          line-height: 1.8;
+          margin: 0;
+        }
+
+        .gallery-controls {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-top: 0.5rem;
+        }
+
+        .gallery-btn {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: 2px solid #1a3a5a;
+          background: transparent;
+          color: #1a3a5a;
+          font-size: 1.6rem;
+          line-height: 1;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.25s ease;
+          flex-shrink: 0;
+        }
+
+        .gallery-btn:hover {
+          background: #1a3a5a;
+          color: white;
+        }
+
+        .gallery-btn.disabled {
+          opacity: 0.3;
+          cursor: default;
+        }
+
+        .gallery-dots {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+
+        .gallery-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #cbd5e1;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          transition: all 0.25s ease;
+        }
+
+        .gallery-dot.active {
+          background: #1a3a5a;
+          width: 24px;
+          border-radius: 4px;
+        }
+
+        /* ── Right column ── */
+        .gallery-right {
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .gallery-viewport {
+          overflow: hidden;
+        }
+
+        .gallery-track {
+          display: flex;
+          touch-action: pan-y;
+        }
+
+        .gallery-slide {
+          flex: 0 0 100%;
+          min-width: 0;
+          position: relative;
+          height: 520px;
+        }
+
+        .gallery-slide img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          background: #e2e8f0;
+        }
+
+        .gallery-caption-bar {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+          padding: 2.5rem 1.75rem 1.5rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
+
+        .gallery-caption {
+          color: white;
+          font-size: 1rem;
+          margin: 0;
+          max-width: 75%;
+          line-height: 1.5;
+          text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .gallery-count {
+          color: rgba(255,255,255,0.65);
+          font-size: 0.8rem;
+          font-weight: 500;
+          white-space: nowrap;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+          .gallery-layout {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+          }
+          .gallery-slide { height: 320px; }
+        }
+
+        @media (max-width: 480px) {
+          .gallery-slide { height: 240px; }
+          .gallery-caption { font-size: 0.85rem; }
+        }
+      `}</style>
+    </section>
+  );
+}

@@ -1,0 +1,102 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="sustainability" id="sustentabilidad">
+  <div class="container">
+    <div class="sustainability-inner">
+      <div class="sustainability-text">
+        <span class="section-tag">{t("sustain.tag")}</span>
+        <h2>{t("sustain.title")}</h2>
+        <p>{t("sustain.desc")}</p>
+        <ul class="sustain-list">
+          <li>✓ {t("sustain.point_1")}</li>
+          <li>✓ {t("sustain.point_2")}</li>
+          <li>✓ {t("sustain.point_3")}</li>
+        </ul>
+      </div>
+      <div class="sustainability-visual">
+        <div class="sustain-placeholder">
+          <img src="/sustain.jpg" alt="Sustentabilidad Costanera" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sustainability {
+    padding: 6rem 0;
+    background: var(--primary);
+    color: white;
+  }
+
+  .sustainability-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .section-tag {
+    display: inline-block;
+    color: #93c5fd;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .sustainability-text h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .sustainability-text p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .sustain-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .sustain-list li {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .sustain-placeholder {
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .sustain-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 768px) {
+    .sustainability-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

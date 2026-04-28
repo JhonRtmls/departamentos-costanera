@@ -1,0 +1,49 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import GalleryReact from "./GalleryReact";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const images = [
+  {
+    src: "/gallery/slide1.webp",
+    alt: t("gallery.alt_1") as string,
+    caption: t("gallery.caption_1") as string,
+  },
+  {
+    src: "/gallery/slide2.webp",
+    alt: t("gallery.alt_2") as string,
+    caption: t("gallery.caption_2") as string,
+  },
+  {
+    src: "/gallery/slide3.webp",
+    alt: t("gallery.alt_3") as string,
+    caption: t("gallery.caption_3") as string,
+  },
+  {
+    src: "/gallery/slide4.webp",
+    alt: t("gallery.alt_4") as string,
+    caption: t("gallery.caption_4") as string,
+  },
+  {
+    src: "/gallery/slide5.webp",
+    alt: t("gallery.alt_5") as string,
+    caption: t("gallery.caption_5") as string,
+  },
+  {
+    src: "/gallery/slide6.webp",
+    alt: t("gallery.alt_6") as string,
+    caption: t("gallery.caption_6") as string,
+  },
+];
+---
+
+<GalleryReact
+  client:load
+  images={images}
+  tag={t("gallery.tag") as string}
+  title={t("gallery.title") as string}
+  subtitle={t("gallery.subtitle") as string}
+  desc={t("gallery.desc") as string}
+/>

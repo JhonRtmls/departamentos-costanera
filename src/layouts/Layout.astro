@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+import { getLangFromUrl } from "../i18n/utils";
+import Footer from "../components/footer.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Departamentos Costanera – La mejor experiencia de alojamiento en Punta Arenas.",
+} = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <Footer />
+
+    <script>
+      import Lenis from "lenis";
+
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        touchMultiplier: 1.5,
+        smoothWheel: true,
+      });
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+
+      // Pausa Lenis cuando el foco está en el iframe del mapa
+      document.querySelectorAll("iframe").forEach((iframe) => {
+        iframe.addEventListener("mouseenter", () => lenis.stop());
+        iframe.addEventListener("mouseleave", () => lenis.start());
+      });
+    </script>
+  </body>
+</html>

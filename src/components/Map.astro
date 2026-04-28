@@ -1,0 +1,21 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import MapReact from "./MapReact";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const embedSrc =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2392.0832895497074!2d-70.89547562255922!3d-53.16254485601396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdb26382d857d0b5%3A0xf07282749e2798a4!2sDepartamentos%20Costanera!5e0!3m2!1ses-419!2scl!4v1777386140935!5m2!1ses-419!2scl";
+---
+
+<MapReact
+  client:load
+  tag={t("map.tag") as string}
+  title={t("map.title") as string}
+  subtitle={t("map.subtitle") as string}
+  address={t("contact.address") as string}
+  phone={t("contact.phone") as string}
+  email={t("contact.email") as string}
+  embedSrc={embedSrc}
+/>

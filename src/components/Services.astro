@@ -1,0 +1,132 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const services = [
+  { icon: "🔥", key: "calefaccion" },
+  { icon: "🅿️", key: "parking" },
+  { icon: "🍳", key: "cocina" },
+  { icon: "🛏️", key: "ropa" },
+  { icon: "🔒", key: "caja" },
+  { icon: "📶", key: "wifi" },
+  { icon: "📺", key: "tv" },
+  { icon: "🧹", key: "mucama" },
+  { icon: "🧴", key: "amenities" },
+];
+---
+
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">{t("services.tag")}</span>
+      <h2>{t("services.title")}</h2>
+      <p>{t("services.subtitle")}</p>
+    </div>
+    <div class="services-grid">
+      {
+        services.map((s) => (
+          <div class="service-card">
+            <div class="service-icon">{s.icon}</div>
+            <h3>{t(`services.${s.key}_title` as any)}</h3>
+            <p>{t(`services.${s.key}_desc` as any)}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: 6rem 0;
+    background: white;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    transition: var(--transition);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .service-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    display: grid;
+    text-align: center;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    display: grid;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
