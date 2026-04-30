@@ -38,7 +38,7 @@ export default function GalleryReact({ images, tag, title, subtitle, desc }: Gal
   }, [emblaApi]);
 
   return (
-    <section className="gallery-section" id="galeria">
+    <section className="gallery" id="galeria" style={{ background: '#FBFAF2' }}>
       <div className="gallery-layout">
 
         {/* Left — sticky text column */}
@@ -95,9 +95,9 @@ export default function GalleryReact({ images, tag, title, subtitle, desc }: Gal
       </div>
 
       <style>{`
-        .gallery-section {
-          background: #fdfbf7;
-          padding: 6rem 0;
+        .gallery {
+          background: #C2843E;
+          padding: 8rem 0;
         }
 
         .gallery-layout {
@@ -118,52 +118,52 @@ export default function GalleryReact({ images, tag, title, subtitle, desc }: Gal
         }
 
         .gallery-tag {
-          display: inline-block;
-          color: #3b82f6;
-          font-size: 0.75rem;
+          color: #E86D2D;
+          font-size: 0.8rem;
           font-weight: 700;
-          letter-spacing: 0.15em;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
+          margin-bottom: 1rem;
+          display: block;
         }
 
         .gallery-title {
-          font-size: clamp(1.9rem, 3vw, 2.75rem);
-          font-family: Georgia, 'Times New Roman', serif;
-          font-weight: 700;
-          color: #1a3a5a;
-          line-height: 1.15;
-          margin: 0;
+          font-size: clamp(2rem, 4vw, 3rem);
+          font-weight: 800;
+          color: #8B452D;
+          margin-bottom: 0.75rem;
+          line-height: 1.1;
         }
 
         .gallery-subtitle {
-          color: #0f172a;
-          font-size: 1rem;
-          font-weight: 600;
-          line-height: 1.6;
+          color: #0B1215;
+          font-size: 1.1rem;
+          font-weight: 700;
+          line-height: 1.5;
           margin: 0;
         }
 
         .gallery-desc {
-          color: #64748b;
-          font-size: 0.97rem;
-          line-height: 1.8;
+          color: #4A4A4A;
+          font-size: 1.05rem;
+          line-height: 1.7;
           margin: 0;
         }
 
         .gallery-controls {
           display: flex;
           align-items: center;
-          gap: 1rem;
-          margin-top: 0.5rem;
+          gap: 1.5rem;
+          margin-top: 1.5rem;
         }
 
         .gallery-btn {
           width: 44px;
           height: 44px;
           border-radius: 50%;
-          border: 2px solid #1a3a5a;
+          border: 1.5px solid #C2843E;
           background: transparent;
-          color: #1a3a5a;
+          color: #C2843E;
           font-size: 1.6rem;
           line-height: 1;
           cursor: pointer;
@@ -175,18 +175,18 @@ export default function GalleryReact({ images, tag, title, subtitle, desc }: Gal
         }
 
         .gallery-btn:hover {
-          background: #1a3a5a;
-          color: white;
+          background: #C2843E;
+          color: #FBFAF2;
         }
 
         .gallery-btn.disabled {
-          opacity: 0.3;
+          opacity: 0.2;
           cursor: default;
         }
 
         .gallery-dots {
           display: flex;
-          gap: 0.5rem;
+          gap: 0.6rem;
           align-items: center;
         }
 
@@ -194,7 +194,7 @@ export default function GalleryReact({ images, tag, title, subtitle, desc }: Gal
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: #cbd5e1;
+          background: rgba(194, 132, 62, 0.3);
           border: none;
           cursor: pointer;
           padding: 0;
@@ -202,7 +202,7 @@ export default function GalleryReact({ images, tag, title, subtitle, desc }: Gal
         }
 
         .gallery-dot.active {
-          background: #1a3a5a;
+          background: #C2843E;
           width: 24px;
           border-radius: 4px;
         }

@@ -80,7 +80,7 @@ export const ui = {
     // Policies
     'policies.tag': 'Políticas y Pagos',
     'policies.title': 'Métodos de pago aceptados',
-    'policies.desc': 'Aceptamos transferencias, tarjetas de crédito y convenios con empresas.',
+    'policies.desc': 'Aceptamos transferencias y tarjetas de crédito.',
     // Map
     'map.tag': 'Ubicación',
     'map.title': 'Encuéntranos en Punta Arenas',
@@ -182,7 +182,7 @@ export const ui = {
     // Policies
     'policies.tag': 'Policies & Payments',
     'policies.title': 'Accepted payment methods',
-    'policies.desc': 'We accept bank transfers, credit cards and corporate agreements.',
+    'policies.desc': 'We accept bank transfers and credit cards.',
     // Map
     'map.tag': 'Location',
     'map.title': 'Find us in Punta Arenas',
@@ -284,7 +284,7 @@ export const ui = {
     // Policies
     'policies.tag': '政策与付款',
     'policies.title': '接受的付款方式',
-    'policies.desc': '我们接受银行转账、信用卡和企业协议。',
+    'policies.desc': '我们接受银行转账和信用卡。',
     // Map
     'map.tag': '位置',
     'map.title': '在蓬塔阿雷纳斯找到我们',

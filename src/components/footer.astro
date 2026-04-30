@@ -15,11 +15,18 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 <footer class="footer">
   <!-- Main footer grid -->
   <div class="footer-main container">
-
     <!-- Col 1: Logo + tagline -->
     <div class="footer-brand">
-      <a href={l("/")} class="footer-logo-link" aria-label="Departamentos Costanera – Inicio">
-        <img src={`${baseUrl}/logo.svg`} alt="Departamentos Costanera" class="footer-logo" />
+      <a
+        href={l("/")}
+        class="footer-logo-link"
+        aria-label="Departamentos Costanera – Inicio"
+      >
+        <img
+          src={`${baseUrl}/logo.svg`}
+          alt="Departamentos Costanera"
+          class="footer-logo"
+        />
       </a>
       <p class="footer-tagline">
         {t("footer.tagline")}
@@ -33,8 +40,17 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
           rel="noopener noreferrer"
           aria-label="Facebook"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+            ></path>
           </svg>
         </a>
         <a
@@ -44,10 +60,21 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
           rel="noopener noreferrer"
           aria-label="Instagram"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
           </svg>
         </a>
       </div>
@@ -59,7 +86,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       <ul class="footer-links">
         <li><a href={l("/")}>{t("nav.inicio")}</a></li>
         <li><a href={l("/departamentos")}>{t("nav.departamentos")}</a></li>
-        <li><a href="https://direct-book.com/properties/departamentoscostaneradirect" target="_blank" rel="noopener noreferrer">{t("nav.reservas")}</a></li>
+        <li>
+          <a
+            href="https://direct-book.com/properties/departamentoscostaneradirect"
+            target="_blank"
+            rel="noopener noreferrer">{t("nav.reservas")}</a>
+        </li>
         <li><a href={l("/contacto")}>{t("nav.contacto")}</a></li>
       </ul>
     </nav>
@@ -69,18 +101,38 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       <h3 class="footer-heading">{t("footer.contact_title")}</h3>
       <ul class="footer-contact-list">
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/>
-            <circle cx="12" cy="10" r="3"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
           </svg>
           <span>Mejicana Nº&nbsp;1481, Punta Arenas, Chile</span>
         </li>
         <li>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect width="20" height="16" x="2" y="4" rx="2"/>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
           </svg>
           <a href="mailto:contacto@departamentoscostanera.com">
             contacto@departamentoscostanera.com
@@ -92,9 +144,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     <!-- Col 4: Métodos de pago -->
     <div class="footer-pay">
       <h3 class="footer-heading">{t("footer.payment_title")}</h3>
-      <img src={`${baseUrl}/paylogos.svg`} alt="Métodos de pago aceptados" class="footer-paylogos" />
+      <img
+        src={`${baseUrl}/paylogos.svg`}
+        alt="Métodos de pago aceptados"
+        class="footer-paylogos"
+      />
     </div>
-
   </div>
 
   <!-- Bottom bar -->
@@ -104,7 +159,10 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         {t("footer.rights")}
       </span>
       <span class="footer-powered">
-        {t("footer.powered_by")} <a href="https://gestoo.cl" target="_blank" rel="noopener noreferrer">Gestoo Agencia Creativa</a>
+        {t("footer.powered_by")}
+        <a href="https://gestoo.cl" target="_blank" rel="noopener noreferrer"
+          >Gestoo Agencia Creativa</a
+        >
       </span>
     </div>
   </div>
@@ -165,7 +223,9 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   .footer-links a {
     color: rgba(255, 255, 255, 0.7);
-    transition: color 0.25s ease, padding-left 0.25s ease;
+    transition:
+      color 0.25s ease,
+      padding-left 0.25s ease;
   }
 
   .footer-links a:hover {
@@ -208,8 +268,6 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     width: 100%;
     height: auto;
   }
-
-
 
   /* ── Bottom bar ───────────────────────────────────────────── */
   .footer-bottom {
@@ -269,7 +327,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   .footer-social-btn:hover {
     background: var(--accent);
     border-color: var(--accent);
-    color: white;
+    color: #fbfaf2;
     transform: translateY(-2px);
   }
 

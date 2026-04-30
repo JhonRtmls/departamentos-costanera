@@ -67,7 +67,7 @@ export default function MapReact({ tag, title, subtitle, address, phone, email, 
       <style>{`
         .map-section {
           padding: 6rem 0 0;
-          background: #f8fafc;
+          background: #FBFAF2;
         }
         .section-header {
           text-align: center;
@@ -75,7 +75,7 @@ export default function MapReact({ tag, title, subtitle, address, phone, email, 
         }
         .section-tag {
           display: inline-block;
-          color: #3b82f6;
+          color: #E86D2D;
           font-size: 0.8rem;
           font-weight: 700;
           letter-spacing: 0.15em;
@@ -85,11 +85,11 @@ export default function MapReact({ tag, title, subtitle, address, phone, email, 
         .section-header h2 {
           font-size: clamp(1.8rem, 3.5vw, 2.75rem);
           font-weight: 800;
-          color: #0f172a;
+          color: #8B452D;
           margin-bottom: 0.75rem;
         }
         .section-header p {
-          color: #64748b;
+          color: #4A4A4A;
           font-size: 1.05rem;
           max-width: 500px;
           margin: 0 auto;
@@ -124,8 +124,8 @@ export default function MapReact({ tag, title, subtitle, address, phone, email, 
           display: flex;
           align-items: center;
           gap: 0.5rem;
-          background: white;
-          color: #0f172a;
+          background: #FBFAF2;
+          color: #0B1215;
           font-size: 0.875rem;
           font-weight: 600;
           padding: 0.55rem 1.1rem;
@@ -143,9 +143,10 @@ export default function MapReact({ tag, title, subtitle, address, phone, email, 
 
         /* ── Static info strip ── */
         .map-info-panel {
-          background: white;
+          background: #FBFAF2;
           padding: 1.25rem 2rem;
           box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+          border-top: 1px solid rgba(139, 69, 45, 0.1);
         }
         .map-info-panel ul {
           list-style: none;
@@ -160,12 +161,13 @@ export default function MapReact({ tag, title, subtitle, address, phone, email, 
           display: flex;
           align-items: center;
           gap: 0.5rem;
-          color: #64748b;
+          color: #4A4A4A;
           font-size: 0.9rem;
         }
         .map-info-panel a {
-          color: #3b82f6;
+          color: #C2843E;
           text-decoration: none;
+          font-weight: 600;
         }
         .map-info-panel a:hover {
           text-decoration: underline;

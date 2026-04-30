@@ -30,7 +30,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     </nav>
 
     <div class="nav-actions">
-      <a href="https://direct-book.com/properties/departamentoscostaneradirect" target="_blank" rel="noopener noreferrer" class="btn-primary">{t("nav.reservar_ahora")}</a>
+      <a
+        href="https://direct-book.com/properties/departamentoscostaneradirect"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary">{t("nav.reservar_ahora")}</a
+      >
 
       <div class="lang-dropdown">
         <button
@@ -57,11 +62,11 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
           {
             Object.entries(languages).map(([code, label]) => {
               // Reemplazamos el idioma actual por el nuevo en la URL
-              const parts = Astro.url.pathname.split('/');
-              const langIndex = parts.findIndex(p => p === lang);
+              const parts = Astro.url.pathname.split("/");
+              const langIndex = parts.findIndex((p) => p === lang);
               if (langIndex !== -1) parts[langIndex] = code;
-              const newPath = parts.join('/') || "/";
-              
+              const newPath = parts.join("/") || "/";
+
               return (
                 <a href={newPath} class={lang === code ? "active" : ""}>
                   <span class="lang-code">{code.toUpperCase()}</span>
@@ -158,13 +163,13 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   .btn-primary {
-    background: var(--primary);
-    color: white;
+    background: var(--accent);
+    color: #fbfaf2;
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     font-size: 0.9rem;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
+    box-shadow: 0 4px 12px rgba(11, 18, 21, 0.1);
   }
 
   .btn-primary:hover {
@@ -181,8 +186,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(15, 23, 42, 0.05);
-    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: rgba(11, 18, 21, 0.05);
+    border: 1px solid rgba(11, 18, 21, 0.1);
     padding: 0.4rem 0.6rem;
     border-radius: 8px;
     cursor: pointer;
@@ -194,7 +199,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   .lang-selected:hover {
-    background: rgba(15, 23, 42, 0.08);
+    background: rgba(11, 18, 21, 0.08);
     border-color: var(--accent);
   }
 
@@ -211,7 +216,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     top: calc(100% + 0.5rem);
     right: 0;
     width: 160px;
-    background: white;
+    background: #fbfaf2;
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     box-shadow:
@@ -252,7 +257,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   .lang-menu a.active {
-    background: rgba(15, 23, 42, 0.03);
+    background: rgba(11, 18, 21, 0.03);
     color: var(--primary);
     font-weight: 600;
   }
@@ -260,7 +265,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   .lang-code {
     font-size: 0.75rem;
     padding: 2px 4px;
-    background: rgba(15, 23, 42, 0.05);
+    background: rgba(11, 18, 21, 0.05);
     border-radius: 4px;
     color: var(--primary);
   }

@@ -37,8 +37,17 @@ const t = useTranslations(lang);
             rel="noopener noreferrer"
             aria-label="Facebook"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+              ></path>
             </svg>
             Facebook
           </a>
@@ -49,10 +58,21 @@ const t = useTranslations(lang);
             rel="noopener noreferrer"
             aria-label="Instagram"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
             </svg>
             Instagram
           </a>
@@ -62,11 +82,23 @@ const t = useTranslations(lang);
       <form class="contact-form" id="contact-form" novalidate>
         <div class="form-group">
           <label for="name">{t("contact.form_name")}</label>
-          <input type="text" id="name" name="name" placeholder={t("contact.form_name_placeholder") as string} required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder={t("contact.form_name_placeholder") as string}
+            required
+          />
         </div>
         <div class="form-group">
           <label for="email">{t("contact.form_email")}</label>
-          <input type="email" id="email" name="email" placeholder={t("contact.form_email_placeholder") as string} required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder={t("contact.form_email_placeholder") as string}
+            required
+          />
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -80,9 +112,16 @@ const t = useTranslations(lang);
         </div>
         <div class="form-group">
           <label for="message">{t("contact.form_message")}</label>
-          <textarea id="message" name="message" rows={4} placeholder={t("contact.form_message_placeholder") as string}></textarea>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            placeholder={t("contact.form_message_placeholder") as string}
+          ></textarea>
         </div>
-        <button type="submit" class="btn-submit">{t("contact.form_submit")}</button>
+        <button type="submit" class="btn-submit"
+          >{t("contact.form_submit")}</button
+        >
       </form>
     </div>
   </div>
@@ -91,7 +130,7 @@ const t = useTranslations(lang);
 <style>
   .contact {
     padding: 6rem 0;
-    background: white;
+    background: #fbfaf2;
   }
 
   .contact-inner {
@@ -114,13 +153,13 @@ const t = useTranslations(lang);
   .contact-text h2 {
     font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 800;
-    color: var(--primary);
+    color: var(--title-color);
     margin-bottom: 0.75rem;
     line-height: 1.2;
   }
 
   .contact-text p {
-    color: var(--text-muted);
+    color: var(--text-main);
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 2rem;
@@ -136,7 +175,7 @@ const t = useTranslations(lang);
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--text-muted);
+    color: var(--text-main);
     font-size: 0.95rem;
   }
 
@@ -145,13 +184,14 @@ const t = useTranslations(lang);
   }
 
   .contact-form {
-    background: #f8fafc;
+    background: rgba(59, 130, 246, 0.1);
     border-radius: 20px;
-    padding: 2rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    border: 1px solid rgba(15,23,42,0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 20px 40px rgba(11, 18, 21, 0.05);
   }
 
   .form-row {
@@ -169,18 +209,19 @@ const t = useTranslations(lang);
   .form-group label {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--primary);
+    color: var(--text-main);
   }
 
   .form-group input,
   .form-group textarea {
     padding: 0.75rem 1rem;
-    border: 1px solid rgba(15,23,42,0.1);
+    border: 1px solid rgba(15, 23, 42, 0.1);
     border-radius: 10px;
     font-family: inherit;
     font-size: 0.95rem;
     color: var(--text-main);
-    background: white;
+    background: #ffffff;
+    border: 1.5px solid rgba(11, 18, 21, 0.08);
     transition: var(--transition);
     outline: none;
     resize: vertical;
@@ -189,11 +230,11 @@ const t = useTranslations(lang);
   .form-group input:focus,
   .form-group textarea:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+    box-shadow: 0 0 0 4px rgba(194, 132, 62, 0.15);
   }
 
   .btn-submit {
-    background: var(--primary);
+    background: var(--accent);
     color: white;
     border: none;
     padding: 1rem;
@@ -203,13 +244,13 @@ const t = useTranslations(lang);
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    box-shadow: 0 4px 12px rgba(15,23,42,0.15);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
   }
 
   .btn-submit:hover {
     background: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59,130,246,0.3);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
   }
 
   @media (max-width: 768px) {
@@ -235,7 +276,7 @@ const t = useTranslations(lang);
     gap: 0.5rem;
     padding: 0.55rem 1.1rem;
     border-radius: 50px;
-    border: 1.5px solid rgba(15, 23, 42, 0.12);
+    border: 1.5px solid rgba(11, 18, 21, 0.12);
     color: var(--text-muted);
     font-size: 0.85rem;
     font-weight: 600;

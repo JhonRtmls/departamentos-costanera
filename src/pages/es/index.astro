@@ -13,7 +13,10 @@ import { useTranslations } from "../../i18n/utils";
 const t = useTranslations("es");
 ---
 
-<Layout title="Departamentos Costanera | Punta Arenas" description={t("home.welcome") as string}>
+<Layout
+  title="Departamentos Costanera | Punta Arenas"
+  description={t("home.welcome") as string}
+>
   <Navbar />
   <main>
     <Hero />
@@ -48,11 +51,11 @@ const t = useTranslations("es");
   .policies h2 {
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
     font-weight: 800;
-    color: var(--primary);
+    color: var(--title-color);
     margin-bottom: 0.75rem;
   }
   .policies p {
-    color: var(--text-muted);
+    color: var(--text-main);
     font-size: 1.05rem;
     max-width: 500px;
     margin: 0 auto;

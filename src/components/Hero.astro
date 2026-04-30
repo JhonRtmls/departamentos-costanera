@@ -15,8 +15,14 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
     <h1 class="hero-title">{t("hero.title")}</h1>
     <p class="hero-subtitle">{t("hero.subtitle")}</p>
     <div class="hero-actions">
-      <a href="https://direct-book.com/properties/departamentoscostaneradirect" target="_blank" rel="noopener noreferrer" class="btn-hero-primary">{t("hero.cta_primary")}</a>
-      <a href="#galeria" class="btn-hero-secondary">{t("hero.cta_secondary")}</a>
+      <a
+        href="https://direct-book.com/properties/departamentoscostaneradirect"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-hero-primary">{t("hero.cta_primary")}</a
+      >
+      <a href="#galeria" class="btn-hero-secondary">{t("hero.cta_secondary")}</a
+      >
     </div>
   </div>
   <div class="hero-scroll">
@@ -38,8 +44,12 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   .hero-bg {
     position: absolute;
     inset: 0;
-    background: 
-      linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%),
+    background:
+      linear-gradient(
+        135deg,
+        rgba(11, 18, 21, 0.9) 0%,
+        rgba(30, 41, 59, 0.7) 100%
+      ),
       var(--heroBg) center/cover no-repeat;
     z-index: 0;
   }
@@ -54,15 +64,21 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hero-badge {
     display: inline-block;
-    background: rgba(59, 130, 246, 0.15);
-    border: 1px solid rgba(59, 130, 246, 0.4);
-    color: #93c5fd;
+    background: rgba(232, 109, 45, 0.15);
+    border: 1px solid rgba(232, 109, 45, 0.4);
+    color: #e86d2d;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -75,7 +91,7 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   .hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 800;
-    color: white;
+    color: #fbfaf2;
     line-height: 1.1;
     margin-bottom: 1.25rem;
   }
@@ -96,35 +112,35 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
 
   .btn-hero-primary {
     background: var(--accent);
-    color: white;
+    color: #fbfaf2;
     padding: 1rem 2rem;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1rem;
     transition: var(--transition);
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 20px rgba(194, 132, 62, 0.4);
     text-decoration: none;
   }
 
   .btn-hero-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 8px 28px rgba(232, 109, 45, 0.5);
   }
 
   .btn-hero-secondary {
-    background: rgba(255,255,255,0.08);
-    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fbfaf2;
     padding: 1rem 2rem;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1rem;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: var(--transition);
     text-decoration: none;
   }
 
   .btn-hero-secondary:hover {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
     transform: translateY(-3px);
   }
 
@@ -146,8 +162,18 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   }
 
   @keyframes scrollLine {
-    0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
-    50%  { opacity: 1; }
-    100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+    0% {
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
   }
 </style>
