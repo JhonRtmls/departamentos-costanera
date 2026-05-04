@@ -1,19 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --primary: #0b1215;
-  --accent: #c2843e;
-  --accent-hover: #e86d2d;
-  --secondary: #c2843e;
-  --secondary-hover: #a66d2f;
-  --title-color: #8b452d;
-  --text-main: #4a4a4a;
-  --text-muted: #64748b;
-  --bg-body: #fbfaf2;
+  /* Terracotta Sunset Palette */
+  --espresso: #4e2c23;
+  --burnt-peach: #e2725b;
+  --soft-apricot: #ffdab9;
+
+  --primary: var(--espresso);
+  --accent: var(--burnt-peach);
+  --accent-hover: #c25a45;
+  --secondary: var(--burnt-peach);
+  --secondary-hover: #c25a45;
+  --title-color: var(--espresso);
+  --text-main: rgba(78, 44, 35, 0.9);
+  --text-muted: rgba(78, 44, 35, 0.6);
+  --bg-body: var(--soft-apricot);
+  --bg-gradient: linear-gradient(
+    135deg,
+    #ffdab9 0%,
+    #f8c8a0 50%,
+    #e2725b 100%
+  );
+  --mesh-gradient: radial-gradient(at 0% 0%, rgba(226, 114, 91, 0.15) 0, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(78, 44, 35, 0.1) 0, transparent 50%);
+
   --navbar-height: 80px;
-  --glass-bg: rgba(251, 250, 242, 0.8);
-  --glass-border: rgba(11, 18, 21, 0.1);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --glass-bg: rgba(255, 218, 185, 0.85);
+  --glass-border: rgba(78, 44, 35, 0.1);
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -26,8 +40,15 @@ body {
   font-family: "Inter", sans-serif;
   color: var(--text-main);
   background-color: var(--bg-body);
+  background-image: var(--mesh-gradient);
+  background-attachment: fixed;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--espresso);
+  color: var(--soft-apricot);
 }
 
 h1,

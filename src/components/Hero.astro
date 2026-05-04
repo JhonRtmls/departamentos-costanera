@@ -47,8 +47,8 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
     background:
       linear-gradient(
         135deg,
-        rgba(11, 18, 21, 0.9) 0%,
-        rgba(30, 41, 59, 0.7) 100%
+        rgba(78, 44, 35, 0.85) 0%,
+        rgba(226, 114, 91, 0.6) 100%
       ),
       var(--heroBg) center/cover no-repeat;
     z-index: 0;
@@ -76,9 +76,9 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
 
   .hero-badge {
     display: inline-block;
-    background: rgba(232, 109, 45, 0.15);
-    border: 1px solid rgba(232, 109, 45, 0.4);
-    color: #e86d2d;
+    background: rgba(226, 114, 91, 0.15);
+    border: 1px solid rgba(226, 114, 91, 0.4);
+    color: var(--accent);
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -91,14 +91,14 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   .hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 800;
-    color: #fbfaf2;
+    color: var(--soft-apricot);
     line-height: 1.1;
     margin-bottom: 1.25rem;
   }
 
   .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 218, 185, 0.8);
     margin-bottom: 2.5rem;
     line-height: 1.7;
   }
@@ -112,7 +112,7 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
 
   .btn-hero-primary {
     background: var(--accent);
-    color: #fbfaf2;
+    color: var(--soft-apricot);
     padding: 1rem 2rem;
     border-radius: 50px;
     font-weight: 600;
@@ -128,8 +128,8 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   }
 
   .btn-hero-secondary {
-    background: rgba(255, 255, 255, 0.08);
-    color: #fbfaf2;
+    background: rgba(255, 218, 185, 0.08);
+    color: var(--soft-apricot);
     padding: 1rem 2rem;
     border-radius: 50px;
     font-weight: 600;
