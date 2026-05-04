@@ -39,7 +39,7 @@ export default function GalleryReact({ images, tag, title, subtitle, desc }: Gal
   }, [emblaApi]);
 
   return (
-    <section className="gallery" id="galeria">
+    <section className="gallery reveal" id="galeria">
       <div className="gallery-layout">
 
         {/* Left — sticky text column */}

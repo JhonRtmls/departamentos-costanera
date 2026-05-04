@@ -1,0 +1,98 @@
+---
+---
+
+<div class="bg-effect-container" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<style>
+  .bg-effect-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    background-color: var(--soft-apricot);
+    pointer-events: none;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(180px);
+    opacity: 0.5;
+    transition: transform 0.2s linear;
+    will-change: left, top, transform;
+    left: 50%;
+    top: 50%;
+  }
+
+  .blob-1 {
+    width: 100vw;
+    height: 100vw;
+    background-color: var(--burnt-peach);
+    opacity: 0.35;
+    z-index: 1;
+  }
+
+  .blob-2 {
+    width: 80vw;
+    height: 80vw;
+    background-color: var(--espresso);
+    opacity: 0.2;
+    z-index: 0;
+  }
+
+  .blob-3 {
+    width: 70vw;
+    height: 70vw;
+    background-color: var(--soft-apricot);
+    opacity: 0.5;
+    filter: blur(200px);
+    z-index: -1;
+  }
+
+  @media (max-width: 768px) {
+    .blob {
+      filter: blur(50px);
+    }
+  }
+</style>
+
+<script>
+  const blobs = document.querySelectorAll('.blob');
+  
+  window.addEventListener('scroll', () => {
+    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    
+    // Path logic: Stick to edges
+    // Start (p=0): x=50, y=100 (Bottom Center)
+    // Mid (p=0.5): x=0, y=50   (Left Center)
+    // End (p=1):   x=50, y=0    (Top Center)
+    
+    const xBase = 50 - 50 * Math.sin(scrollPercent * Math.PI);
+    const yBase = 100 - (scrollPercent * 100);
+    
+    blobs.forEach((blob, index) => {
+      const isMain = index === 0;
+      const factor = index + 1;
+      
+      // Main blob follows the edge-to-edge path
+      const xPos = isMain ? xBase : xBase + (Math.cos(scrollPercent * Math.PI) * 10);
+      const yPos = isMain ? yBase : yBase + (Math.sin(scrollPercent * Math.PI) * 10); 
+
+      // @ts-ignore
+      blob.style.left = `${xPos}%`;
+      // @ts-ignore
+      blob.style.top = `${yPos}%`;
+      // @ts-ignore
+      blob.style.transform = `translate(-50%, -50%) rotate(${scrollPercent * 90}deg) scale(${1.2 + Math.sin(scrollPercent * Math.PI) * 0.4})`;
+    });
+  }, { passive: true });
+</script>
+
+

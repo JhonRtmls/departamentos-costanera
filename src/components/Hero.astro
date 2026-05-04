@@ -47,8 +47,8 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
     background:
       linear-gradient(
         135deg,
-        rgba(78, 44, 35, 0.85) 0%,
-        rgba(226, 114, 91, 0.6) 100%
+        rgba(78, 44, 35, 0.1) 0%,
+        rgba(226, 114, 91, 0.1) 100%
       ),
       var(--heroBg) center/cover no-repeat;
     z-index: 0;
@@ -76,9 +76,9 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
 
   .hero-badge {
     display: inline-block;
-    background: rgba(226, 114, 91, 0.15);
-    border: 1px solid rgba(226, 114, 91, 0.4);
-    color: var(--accent);
+    background: rgba(78, 44, 35, 0.1);
+    border: 1px solid rgba(78, 44, 35, 0.3);
+    color: var(--espresso);
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -111,20 +111,20 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   }
 
   .btn-hero-primary {
-    background: var(--accent);
+    background: var(--espresso);
     color: var(--soft-apricot);
     padding: 1rem 2rem;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1rem;
     transition: var(--transition);
-    box-shadow: 0 4px 20px rgba(194, 132, 62, 0.4);
+    box-shadow: 0 4px 20px rgba(78, 44, 35, 0.2);
     text-decoration: none;
   }
 
   .btn-hero-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(232, 109, 45, 0.5);
+    box-shadow: 0 8px 28px rgba(226, 114, 91, 0.4);
   }
 
   .btn-hero-secondary {

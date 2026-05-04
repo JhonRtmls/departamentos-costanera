@@ -21,8 +21,7 @@
     #f8c8a0 50%,
     #e2725b 100%
   );
-  --mesh-gradient: radial-gradient(at 0% 0%, rgba(226, 114, 91, 0.15) 0, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(78, 44, 35, 0.1) 0, transparent 50%);
+  --mesh-gradient: transparent; /* Handled by BackgroundEffect.astro */
 
   --navbar-height: 80px;
   --glass-bg: rgba(255, 218, 185, 0.85);
@@ -40,8 +39,6 @@ body {
   font-family: "Inter", sans-serif;
   color: var(--text-main);
   background-color: var(--bg-body);
-  background-image: var(--mesh-gradient);
-  background-attachment: fixed;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -71,3 +68,15 @@ a {
 ul {
   list-style: none;
 }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+

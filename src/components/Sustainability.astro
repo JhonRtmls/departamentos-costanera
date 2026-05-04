@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="sustainability" id="sustentabilidad">
+<section class="sustainability reveal" id="sustentabilidad">
   <div class="container">
     <div class="sustainability-inner">
       <div class="sustainability-text">
@@ -34,8 +34,8 @@ const t = useTranslations(lang);
 <style>
   .sustainability {
     padding: 6rem 0;
-    background: var(--espresso);
-    color: var(--soft-apricot);
+    background: transparent;
+    color: var(--text-main);
   }
 
   .sustainability-inner {
@@ -47,7 +47,7 @@ const t = useTranslations(lang);
 
   .section-tag {
     display: inline-block;
-    color: var(--soft-apricot);
+    color: var(--accent);
     opacity: 0.9;
     font-size: 0.8rem;
     font-weight: 700;
@@ -59,13 +59,13 @@ const t = useTranslations(lang);
   .sustainability-text h2 {
     font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 800;
-    color: var(--soft-apricot);
+    color: var(--espresso);
     margin-bottom: 1rem;
     line-height: 1.2;
   }
 
   .sustainability-text p {
-    color: rgba(255, 218, 185, 0.8);
+    color: var(--text-main);
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 1.5rem;
@@ -79,7 +79,7 @@ const t = useTranslations(lang);
   }
 
   .sustain-list li {
-    color: rgba(255, 218, 185, 0.9);
+    color: var(--text-main);
     font-size: 0.95rem;
     font-weight: 500;
   }

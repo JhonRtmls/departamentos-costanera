@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { getLangFromUrl } from "../i18n/utils";
 import Footer from "../components/footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
+import BackgroundEffect from "../components/BackgroundEffect.astro";
 
 interface Props {
   title: string;
@@ -34,6 +35,7 @@ const lang = getLangFromUrl(Astro.url);
     <title>{title}</title>
   </head>
   <body>
+    <BackgroundEffect />
     <slot />
     <Footer />
     <WhatsAppButton />
@@ -60,6 +62,23 @@ const lang = getLangFromUrl(Astro.url);
         iframe.addEventListener("mouseenter", () => lenis.stop());
         iframe.addEventListener("mouseleave", () => lenis.start());
       });
+
+      // Reveal animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
     </script>
   </body>
 </html>

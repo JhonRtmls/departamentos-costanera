@@ -12,7 +12,7 @@ interface MapProps {
 
 export default function MapReact({ tag, title, subtitle, address, phone, email, embedSrc }: MapProps) {
   return (
-    <section className="map-section" id="ubicacion">
+    <section className="map-section reveal" id="ubicacion">
       <div className="container">
         <div className="section-header">
           <span className="section-tag">{tag}</span>

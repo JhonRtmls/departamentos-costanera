@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="contact" id="contacto">
+<section class="contact reveal" id="contacto">
   <div class="container">
     <div class="contact-inner">
       <div class="contact-text">
@@ -130,7 +130,7 @@ const t = useTranslations(lang);
 <style>
   .contact {
     padding: 6rem 0;
-    background: var(--soft-apricot);
+    background: transparent;
   }
 
   .contact-inner {
@@ -142,7 +142,7 @@ const t = useTranslations(lang);
 
   .section-tag {
     display: inline-block;
-    color: var(--accent);
+    color: var(--espresso);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -184,14 +184,14 @@ const t = useTranslations(lang);
   }
 
   .contact-form {
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(78, 44, 35, 0.05);
     border-radius: 20px;
     padding: 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    box-shadow: 0 20px 40px rgba(11, 18, 21, 0.05);
+    border: 1px solid rgba(78, 44, 35, 0.1);
+    box-shadow: 0 20px 40px rgba(78, 44, 35, 0.05);
   }
 
   .form-row {
@@ -229,13 +229,13 @@ const t = useTranslations(lang);
 
   .form-group input:focus,
   .form-group textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(194, 132, 62, 0.15);
+    border-color: var(--espresso);
+    box-shadow: 0 0 0 4px rgba(78, 44, 35, 0.08);
   }
 
   .btn-submit {
-    background: var(--accent);
-    color: white;
+    background: var(--espresso);
+    color: var(--soft-apricot);
     border: none;
     padding: 1rem;
     border-radius: 50px;
@@ -244,13 +244,13 @@ const t = useTranslations(lang);
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    box-shadow: 0 4px 12px rgba(78, 44, 35, 0.15);
   }
 
   .btn-submit:hover {
-    background: var(--accent);
+    background: var(--primary);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 6px 20px rgba(78, 44, 35, 0.3);
   }
 
   @media (max-width: 768px) {
@@ -284,9 +284,9 @@ const t = useTranslations(lang);
   }
 
   .social-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--espresso);
+    color: var(--espresso);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 4px 12px rgba(78, 44, 35, 0.1);
   }
 </style>

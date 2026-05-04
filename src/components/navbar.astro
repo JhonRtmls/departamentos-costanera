@@ -93,7 +93,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     left: 0;
     width: 100%;
     height: var(--navbar-height);
-    background: var(--glass-bg);
+    background: transparent;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--glass-border);
@@ -163,7 +163,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   .btn-primary {
-    background: var(--accent);
+    background: var(--espresso);
     color: var(--soft-apricot);
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
@@ -313,12 +313,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   const navbar = document.querySelector(".navbar") as HTMLElement;
   if (navbar) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 20) {
-        navbar.style.padding = "0.5rem 0";
-        navbar.style.background = "rgba(255, 255, 255, 0.95)";
+      if (window.scrollY > 50) {
+        navbar.style.background = "rgba(255, 218, 185, 0.8)";
+        navbar.style.borderBottom = "1px solid rgba(78, 44, 35, 0.1)";
       } else {
-        navbar.style.padding = "0";
-        navbar.style.background = "rgba(255, 255, 255, 0.8)";
+        navbar.style.background = "transparent";
+        navbar.style.borderBottom = "1px solid transparent";
       }
     });
   }
