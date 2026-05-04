@@ -79,50 +79,79 @@ const t = useTranslations(lang);
         </div>
       </div>
 
-      <form class="contact-form" id="contact-form" novalidate>
-        <div class="form-group">
-          <label for="name">{t("contact.form_name")}</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder={t("contact.form_name_placeholder") as string}
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="email">{t("contact.form_email")}</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder={t("contact.form_email_placeholder") as string}
-            required
-          />
-        </div>
+      <form class="contact-form" id="booking-form" novalidate>
         <div class="form-row">
           <div class="form-group">
             <label for="checkin">{t("contact.form_checkin")}</label>
-            <input type="date" id="checkin" name="checkin" />
+            <input type="date" id="checkin" name="checkin" required />
           </div>
           <div class="form-group">
             <label for="checkout">{t("contact.form_checkout")}</label>
-            <input type="date" id="checkout" name="checkout" />
+            <input type="date" id="checkout" name="checkout" required />
           </div>
         </div>
-        <div class="form-group">
-          <label for="message">{t("contact.form_message")}</label>
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            placeholder={t("contact.form_message_placeholder") as string}
-          ></textarea>
+        <div class="form-row guests-row">
+          <div class="form-group">
+            <label for="adults">Adultos / Adults</label>
+            <select id="adults" name="adults">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="children">Niños / Children</label>
+            <select id="children" name="children">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="infants">Bebés / Infants</label>
+            <select id="infants" name="infants">
+              <option value="0" selected>0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
         </div>
-        <button type="submit" class="btn-submit"
-          >{t("contact.form_submit")}</button
-        >
+        <button type="submit" class="btn-submit">
+          {lang === 'es' ? 'Consultar Disponibilidad' : lang === 'en' ? 'Check Availability' : '检查可用性'}
+        </button>
       </form>
+
+      <script>
+        const bookingForm = document.getElementById('booking-form');
+        if (bookingForm) {
+          bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const checkin = (document.getElementById('checkin') as HTMLInputElement).value;
+            const checkout = (document.getElementById('checkout') as HTMLInputElement).value;
+            const adults = (document.getElementById('adults') as HTMLSelectElement).value;
+            const children = (document.getElementById('children') as HTMLSelectElement).value;
+            const infants = (document.getElementById('infants') as HTMLSelectElement).value;
+            
+            if (!checkin || !checkout) {
+              const msg = {
+                es: "Por favor selecciona las fechas",
+                en: "Please select dates",
+                zh: "请选择日期"
+              };
+              // @ts-ignore
+              alert(msg[document.documentElement.lang] || msg.en);
+              return;
+            }
+            
+            const baseUrl = "https://direct-book.com/properties/departamentoscostaneradirect";
+            const url = `${baseUrl}?locale=${document.documentElement.lang}&items[0][adults]=${adults}&items[0][children]=${children}&items[0][infants]=${infants}&currency=USD&checkInDate=${checkin}&checkOutDate=${checkout}&trackPage=yes`;
+            
+            window.open(url, '_blank');
+          });
+        }
+      </script>
     </div>
   </div>
 </section>
@@ -206,6 +235,16 @@ const t = useTranslations(lang);
     gap: 0.4rem;
   }
 
+  .guests-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    .guests-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .form-group label {
     font-size: 0.85rem;
     font-weight: 600;
@@ -213,21 +252,22 @@ const t = useTranslations(lang);
   }
 
   .form-group input,
+  .form-group select,
   .form-group textarea {
     padding: 0.75rem 1rem;
-    border: 1px solid rgba(15, 23, 42, 0.1);
     border-radius: 10px;
     font-family: inherit;
     font-size: 0.95rem;
     color: var(--text-main);
     background: #ffffff;
-    border: 1.5px solid rgba(11, 18, 21, 0.08);
+    border: 1.5px solid rgba(78, 44, 35, 0.1);
     transition: var(--transition);
     outline: none;
-    resize: vertical;
+    cursor: pointer;
   }
 
   .form-group input:focus,
+  .form-group select:focus,
   .form-group textarea:focus {
     border-color: var(--espresso);
     box-shadow: 0 0 0 4px rgba(78, 44, 35, 0.08);
