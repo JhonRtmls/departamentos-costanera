@@ -77,11 +77,31 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
           }
         </div>
       </div>
-      <button class="mobile-toggle" aria-label="Menu">
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
+    </div>
+  </div>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-nav-links">
+      <ul>
+        <li><a href={l("/")}>{t("nav.inicio")}</a></li>
+        <li><a href={l("/departamentos")}>{t("nav.departamentos")}</a></li>
+        <li><a href="#servicios">{t("nav.servicios")}</a></li>
+        <li><a href={l("/contacto")}>{t("nav.contacto")}</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a
+        href="https://direct-book.com/properties/departamentoscostaneradirect"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary mobile-btn-reserva">{t("nav.reservar_ahora")}</a
+      >
     </div>
   </div>
 </header>
@@ -175,7 +195,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   .btn-primary:hover {
     background: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 6px 16px rgba(78, 44, 35, 0.2);
   }
 
   .lang-dropdown {
@@ -306,6 +326,71 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       display: none;
     }
   }
+
+  /* ── Mobile Menu Styles ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: var(--soft-apricot);
+    overflow: hidden;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-direction: column;
+    z-index: 999;
+    border-bottom: 0px solid var(--espresso);
+  }
+
+  .mobile-menu.active {
+    display: flex;
+    height: calc(100vh - var(--navbar-height));
+    border-bottom-width: 1px;
+  }
+
+  .mobile-nav-links {
+    padding: 2rem;
+  }
+
+  .mobile-nav-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .mobile-nav-links a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--espresso);
+    text-decoration: none;
+  }
+
+  .mobile-menu-footer {
+    margin-top: auto;
+    padding: 2rem;
+    border-top: 1px solid rgba(78, 44, 35, 0.1);
+  }
+
+  .mobile-btn-reserva {
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Burger animation */
+  .mobile-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .mobile-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 </style>
 
 <script>
@@ -322,7 +407,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       }
     });
   }
-  // Language dropdown toggle for mobile/click
+  // Language dropdown toggle
   const langBtn = document.getElementById("lang-btn");
   if (langBtn) {
     langBtn.addEventListener("click", (e) => {
@@ -332,7 +417,31 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     });
   }
 
-  // Close dropdown when clicking outside
+  // Mobile menu toggle
+  const mobileToggle = document.getElementById("mobile-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  
+  if (mobileToggle && mobileMenu) {
+    mobileToggle.addEventListener("click", () => {
+      const expanded = mobileToggle.getAttribute("aria-expanded") === "true";
+      mobileToggle.setAttribute("aria-expanded", (!expanded).toString());
+      mobileMenu.classList.toggle("active");
+      
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = !expanded ? "hidden" : "";
+    });
+
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.setAttribute("aria-expanded", "false");
+        mobileMenu.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+    });
+  }
+
+  // Close everything when clicking outside
   document.addEventListener("click", () => {
     if (langBtn) langBtn.setAttribute("aria-expanded", "false");
   });

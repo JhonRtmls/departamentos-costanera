@@ -171,9 +171,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 <style>
   /* ── Footer shell ─────────────────────────────────────────── */
   .footer {
-    background: transparent;
-    color: var(--text-main);
-    border-top: 1px solid rgba(78, 44, 35, 0.1);
+    background: var(--espresso);
+    color: rgba(255, 218, 185, 0.8);
     font-size: 0.9rem;
     line-height: 1.7;
   }
@@ -200,7 +199,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   .footer-tagline {
-    color: var(--text-muted);
+    color: rgba(255, 218, 185, 0.6);
     max-width: 240px;
     font-size: 0.875rem;
   }
@@ -211,7 +210,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--espresso);
+    color: var(--soft-apricot);
     margin-bottom: 1.25rem;
   }
 
@@ -223,7 +222,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   .footer-links a {
-    color: var(--text-main);
+    color: rgba(255, 218, 185, 0.8);
     transition:
       color 0.25s ease,
       padding-left 0.25s ease;
@@ -245,7 +244,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     display: flex;
     align-items: flex-start;
     gap: 0.6rem;
-    color: var(--text-main);
+    color: rgba(255, 218, 185, 0.8);
   }
 
   .footer-contact-list svg {
@@ -255,7 +254,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   .footer-contact-list a {
-    color: var(--text-main);
+    color: rgba(255, 218, 185, 0.8);
     word-break: break-all;
   }
 
@@ -272,7 +271,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   /* ── Bottom bar ───────────────────────────────────────────── */
   .footer-bottom {
-    background: rgba(78, 44, 35, 0.05);
+    background: rgba(0, 0, 0, 0.2);
     padding: 1.25rem 0;
   }
 
@@ -287,14 +286,14 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   .footer-copy {
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--text-muted);
+    color: rgba(255, 218, 185, 0.5);
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
 
   .footer-powered {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: rgba(255, 218, 185, 0.4);
   }
 
   .footer-powered a {

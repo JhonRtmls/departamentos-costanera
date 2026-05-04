@@ -12,7 +12,7 @@ const faqs = [
 ];
 ---
 
-<section class="faq" id="faq">
+<section class="faq reveal" id="faq">
   <div class="container content-contained">
     <div class="section-header">
       <span class="section-tag">{t("faq.tag")}</span>
@@ -77,7 +77,7 @@ const faqs = [
 <style>
   .faq {
     padding: 6rem 0;
-    background-color: var(--white);
+    background-color: transparent;
   }
 
   .content-contained {
@@ -92,7 +92,7 @@ const faqs = [
 
   .section-tag {
     display: inline-block;
-    color: var(--accent);
+    color: var(--espresso);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -113,7 +113,7 @@ const faqs = [
   }
 
   .faq-item {
-    border-bottom: 1px solid rgba(11, 18, 21, 0.1);
+    border-bottom: 1px solid rgba(78, 44, 35, 0.1);
   }
 
   .faq-question {
@@ -133,7 +133,7 @@ const faqs = [
   }
 
   .faq-question:hover {
-    color: var(--secondary);
+    color: var(--accent);
   }
 
   .faq-icon {
@@ -150,7 +150,7 @@ const faqs = [
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--accent);
+    background-color: var(--espresso);
     transition: all 0.3s ease;
   }
 
@@ -170,7 +170,7 @@ const faqs = [
   }
 
   .faq-question[aria-expanded="true"] {
-    color: var(--accent);
+    color: var(--espresso);
   }
 
   .faq-answer {

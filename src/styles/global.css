@@ -35,6 +35,10 @@
   box-sizing: border-box;
 }
 
+section {
+  scroll-margin-top: var(--navbar-height);
+}
+
 body {
   font-family: "Inter", sans-serif;
   color: var(--text-main);

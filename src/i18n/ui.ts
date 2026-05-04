@@ -8,6 +8,7 @@ export const defaultLang = 'es';
 
 export const ui = {
   es: {
+    'site.description': 'Departamentos Costanera – La mejor experiencia de alojamiento en Punta Arenas, Patagonia Chilena. Comodidad y ubicación privilegiada.',
     // Navbar
     'nav.inicio': 'Inicio',
     'nav.departamentos': 'Departamentos',
@@ -121,6 +122,7 @@ export const ui = {
     'footer.powered_by': 'Desarrollado por',
   },
   en: {
+    'site.description': 'Departamentos Costanera – The best accommodation experience in Punta Arenas, Chilean Patagonia. Comfort and prime location.',
     // Navbar
     'nav.inicio': 'Home',
     'nav.departamentos': 'Apartments',
@@ -234,6 +236,7 @@ export const ui = {
     'footer.powered_by': 'Powered by',
   },
   zh: {
+    'site.description': 'Departamentos Costanera – 蓬塔阿雷纳斯（智利巴塔哥尼亚）的最佳住宿体验。舒适且地理位置优越。',
     // Navbar
     'nav.inicio': '首页',
     'nav.departamentos': '公寓',
