@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import "../styles/Gallery.css";
 
 interface Image {
   src: string;
@@ -38,7 +39,7 @@ export default function GalleryReact({ images, tag, title, subtitle, desc }: Gal
   }, [emblaApi]);
 
   return (
-    <section className="gallery" id="galeria" style={{ background: '#FBFAF2' }}>
+    <section className="gallery" id="galeria">
       <div className="gallery-layout">
 
         {/* Left — sticky text column */}
@@ -93,193 +94,6 @@ export default function GalleryReact({ images, tag, title, subtitle, desc }: Gal
         </div>
 
       </div>
-
-      <style>{`
-        .gallery {
-          background: #C2843E;
-          padding: 8rem 0;
-        }
-
-        .gallery-layout {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 2rem;
-          display: grid;
-          grid-template-columns: 1fr 1.6fr;
-          gap: 4rem;
-          align-items: center;
-        }
-
-        /* ── Left column ── */
-        .gallery-left {
-          display: flex;
-          flex-direction: column;
-          gap: 1.25rem;
-        }
-
-        .gallery-tag {
-          color: #E86D2D;
-          font-size: 0.8rem;
-          font-weight: 700;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-          margin-bottom: 1rem;
-          display: block;
-        }
-
-        .gallery-title {
-          font-size: clamp(2rem, 4vw, 3rem);
-          font-weight: 800;
-          color: #8B452D;
-          margin-bottom: 0.75rem;
-          line-height: 1.1;
-        }
-
-        .gallery-subtitle {
-          color: #0B1215;
-          font-size: 1.1rem;
-          font-weight: 700;
-          line-height: 1.5;
-          margin: 0;
-        }
-
-        .gallery-desc {
-          color: #4A4A4A;
-          font-size: 1.05rem;
-          line-height: 1.7;
-          margin: 0;
-        }
-
-        .gallery-controls {
-          display: flex;
-          align-items: center;
-          gap: 1.5rem;
-          margin-top: 1.5rem;
-        }
-
-        .gallery-btn {
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-          border: 1.5px solid #C2843E;
-          background: transparent;
-          color: #C2843E;
-          font-size: 1.6rem;
-          line-height: 1;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.25s ease;
-          flex-shrink: 0;
-        }
-
-        .gallery-btn:hover {
-          background: #C2843E;
-          color: #FBFAF2;
-        }
-
-        .gallery-btn.disabled {
-          opacity: 0.2;
-          cursor: default;
-        }
-
-        .gallery-dots {
-          display: flex;
-          gap: 0.6rem;
-          align-items: center;
-        }
-
-        .gallery-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: rgba(194, 132, 62, 0.3);
-          border: none;
-          cursor: pointer;
-          padding: 0;
-          transition: all 0.25s ease;
-        }
-
-        .gallery-dot.active {
-          background: #C2843E;
-          width: 24px;
-          border-radius: 4px;
-        }
-
-        /* ── Right column ── */
-        .gallery-right {
-          border-radius: 16px;
-          overflow: hidden;
-          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .gallery-viewport {
-          overflow: hidden;
-        }
-
-        .gallery-track {
-          display: flex;
-          touch-action: pan-y;
-        }
-
-        .gallery-slide {
-          flex: 0 0 100%;
-          min-width: 0;
-          position: relative;
-          height: 520px;
-        }
-
-        .gallery-slide img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-          background: #e2e8f0;
-        }
-
-        .gallery-caption-bar {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
-          padding: 2.5rem 1.75rem 1.5rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-        }
-
-        .gallery-caption {
-          color: white;
-          font-size: 1rem;
-          margin: 0;
-          max-width: 75%;
-          line-height: 1.5;
-          text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-
-        .gallery-count {
-          color: rgba(255,255,255,0.65);
-          font-size: 0.8rem;
-          font-weight: 500;
-          white-space: nowrap;
-        }
-
-        /* ── Responsive ── */
-        @media (max-width: 900px) {
-          .gallery-layout {
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-          }
-          .gallery-slide { height: 320px; }
-        }
-
-        @media (max-width: 480px) {
-          .gallery-slide { height: 240px; }
-          .gallery-caption { font-size: 0.85rem; }
-        }
-      `}</style>
     </section>
   );
 }

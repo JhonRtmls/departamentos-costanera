@@ -8,6 +8,7 @@ import Services from "../../components/Services.astro";
 import Sustainability from "../../components/Sustainability.astro";
 import Map from "../../components/Map.astro";
 import ContactForm from "../../components/ContactForm.astro";
+import FAQ from "../../components/FAQ.astro";
 import { useTranslations } from "../../i18n/utils";
 
 const t = useTranslations("es");
@@ -24,6 +25,7 @@ const t = useTranslations("es");
     <Gallery />
     <Services />
     <Sustainability />
+    <FAQ />
     <section class="policies container" id="politicas">
       <span class="section-tag">{t("policies.tag")}</span>
       <h2>{t("policies.title")}</h2>
