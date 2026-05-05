@@ -48,45 +48,42 @@ const t = useTranslations(lang);
     </div>
 
     <div class="policies-grid">
-      <!-- Payments & VAT -->
+      <!-- Payments -->
       <div class="policy-card glass-card reveal">
         <div class="policy-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
         </div>
         <h3>{t("policies.payment_title")}</h3>
         <p>{t("policies.payment_desc")}</p>
-        
-        <div class="vat-exemption">
-          <span class="vat-badge">{t("policies.vat_exemption_title")}</span>
-          <p class="vat-text">{t("policies.vat_exemption_desc")}</p>
-        </div>
-
         <div class="payment-icons">
            <img src={`${import.meta.env.BASE_URL}paylogos.svg`} alt="Métodos de pago" class="payment-logo-full" />
         </div>
       </div>
 
+      <!-- VAT Exemption -->
+      <div class="policy-card glass-card reveal" style="animation-delay: 0.1s;">
+        <div class="policy-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4c0-.5.2-1 .5-1.5s.8-.5 1.5-.5h8c.7 0 1.2.2 1.5.5s.5 1 .5 1.5v18l-4-2-4 2-4-2Z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 8h4"/></svg>
+        </div>
+        <h3>{t("policies.vat_exemption_title")}</h3>
+        <p class="vat-text-main">{t("policies.vat_exemption_desc")}</p>
+      </div>
+
       <!-- Times -->
-      <div class="policy-card glass-card reveal">
+      <div class="policy-card glass-card reveal" style="animation-delay: 0.2s;">
         <div class="policy-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3>{t("policies.check_title")}</h3>
-        <ul>
-          <li>{t("policies.check_in")}</li>
-          <li>{t("policies.check_out")}</li>
-        </ul>
-      </div>
-
-      <!-- House Rules -->
-      <div class="policy-card glass-card reveal">
-        <div class="policy-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 21v-9h6v9"/></svg>
-        </div>
-        <h3>{t("policies.rules_title")}</h3>
-        <ul>
-          <li>{t("policies.no_pets")}</li>
-          <li>{t("policies.no_smoking")}</li>
+        <ul class="times-list">
+          <li>
+            <span class="time-label">Check-in</span>
+            <span class="time-value">3:00 PM</span>
+          </li>
+          <li>
+            <span class="time-label">Check-out</span>
+            <span class="time-value">11:00 AM</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -219,30 +216,37 @@ const t = useTranslations(lang);
     border-color: var(--espresso);
   }
 
-  .vat-exemption {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background: rgba(78, 44, 35, 0.03);
-    border-radius: 12px;
-    border: 1px dashed rgba(78, 44, 35, 0.1);
+  .vat-text-main {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    color: var(--text-main);
+    opacity: 0.9;
   }
 
-  .vat-badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: white;
-    background: var(--espresso);
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    margin-bottom: 0.5rem;
+  .times-list {
+    width: 100%;
+    margin-top: 0.5rem;
   }
 
-  .vat-text {
-    font-size: 0.8rem !important;
-    line-height: 1.4 !important;
-    opacity: 0.8;
+  .times-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(78, 44, 35, 0.05);
+  }
+
+  .times-list li:last-child {
+    border-bottom: none;
+  }
+
+  .time-label {
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .time-value {
+    font-weight: 700;
+    color: var(--espresso);
   }
 
   .policy-icon {

@@ -1,0 +1,90 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="reviews" id="reseñas">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Booking.com</span>
+      <h2 class="section-title">{t("reviews.title")}</h2>
+    </div>
+
+    <div class="reviews-widget reveal" style="animation-delay: 0.2s;">
+      <!-- Elfsight Booking.com Reviews -->
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div
+        class="elfsight-app-121310aa-3a1f-4d12-9980-cd8ed5ba882c"
+        data-elfsight-app-lazy
+      >
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews {
+    padding: 8rem 0;
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--espresso);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--espresso);
+  }
+
+  .reviews-widget {
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 400px;
+  }
+
+  /* ── Estilos para intentar forzar la estética en el widget de Elfsight ── */
+  :global(.elfsight-app-121310aa-3a1f-4d12-9980-cd8ed5ba882c) {
+    --e-reviews-widget-primary-color: var(--espresso) !important;
+    --e-reviews-widget-border-radius: 24px !important;
+  }
+
+  /* Si el widget se inyecta en el DOM (no iframe), estos estilos ayudarán */
+  :global([class*="elfsight-app"] [class*="CarouselItem__Component"]) {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 24px !important;
+    box-shadow: var(--glass-shadow) !important;
+  }
+
+  :global([class*="elfsight-app"] [class*="Text__TextComponent"]) {
+    color: var(--text-main) !important;
+  }
+
+  :global([class*="elfsight-app"] [class*="Name__NameComponent"]) {
+    color: var(--espresso) !important;
+    font-weight: 700 !important;
+  }
+
+  @media (max-width: 768px) {
+    .reviews {
+      padding: 5rem 0;
+    }
+  }
+</style>

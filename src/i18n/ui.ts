@@ -49,6 +49,8 @@ export const ui = {
     'gallery.caption_4': 'Comedor para disfrutar de tus comidas',
     'gallery.caption_5': 'Cuarto con camarote',
     'gallery.caption_6': 'Dormitorio principal con cama matrimonial',
+    // Reviews
+    'reviews.title': 'Lo que dicen nuestros huéspedes',
     // Services
     'services.tag': 'Servicios',
     'services.title': 'Todo lo que necesitas',
@@ -178,6 +180,8 @@ export const ui = {
     'gallery.caption_4': 'Comfortable and bright bedroom',
     'gallery.caption_5': 'Apartment exterior and surroundings',
     'gallery.caption_6': 'Modern and functional bathroom',
+    // Reviews
+    'reviews.title': 'What our guests say',
     // Services
     'services.tag': 'Services',
     'services.title': 'Everything you need',
@@ -307,6 +311,8 @@ export const ui = {
     'gallery.caption_4': '舒适明亮的卧室',
     'gallery.caption_5': '公寓外部空间与周边环境',
     'gallery.caption_6': '现代实用的浴室',
+    // Reviews
+    'reviews.title': '客人的评价',
     // Services
     'services.tag': '服务',
     'services.title': '一切您所需要的',
