@@ -44,13 +44,16 @@ const attractions = [
 
     <div class="attractions-grid">
       {attractions.map((item, index) => (
-        <div class="attraction-card reveal" style={`animation-delay: ${index * 0.1}s;`}>
+        <div class="attraction-card glass-card reveal" style={`animation-delay: ${index * 0.1}s;`}>
           <div class="card-image">
             <img src={item.image} alt={item.title} loading="lazy" />
           </div>
           <div class="card-content">
             <h3>{item.title}</h3>
-            <span class="distance">{item.dist}</span>
+            <div class="distance-tag">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>{item.dist}</span>
+            </div>
             <p>{item.desc}</p>
           </div>
         </div>
@@ -79,7 +82,7 @@ const attractions = [
 
   .section-tag {
     display: inline-block;
-    color: var(--espresso);
+    color: var(--soft-apricot);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.2em;
@@ -90,7 +93,7 @@ const attractions = [
   .section-title {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
-    color: var(--espresso);
+    color: var(--title-color);
     margin-bottom: 1.5rem;
   }
 
@@ -106,23 +109,31 @@ const attractions = [
   .attractions-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 1.5rem; /* Slightly reduced gap to give more room to text */
     margin-bottom: 5rem;
+    align-items: stretch;
   }
 
   .attraction-card {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
     transition: var(--transition);
+    padding: 1rem; 
+    border-radius: 28px;
+  }
+
+  .attraction-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--soft-apricot);
   }
 
   .card-image {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    border-radius: 24px;
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
   }
 
   .card-image img {
@@ -136,23 +147,33 @@ const attractions = [
     transform: scale(1.1);
   }
 
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+  }
+
   .card-content h3 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--espresso);
-    margin-bottom: 0.25rem;
+    color: var(--title-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
   }
 
-  .distance {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
+  .distance-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--soft-apricot);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
   }
 
   .card-content p {
-    font-size: 0.9rem;
+    font-size: 0.875rem; /* Slightly smaller for long texts */
     color: var(--text-main);
     line-height: 1.6;
     opacity: 0.9;
@@ -160,7 +181,22 @@ const attractions = [
 
   .attractions-cta {
     display: flex;
-    justify-content: flex-start; /* Aligned left as in the reference image */
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 1200px) {
+    .attractions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .attractions-grid {
+      grid-template-columns: 1fr;
+    }
+    .attractions {
+      padding: 5rem 0;
+    }
   }
 
   /* Button styles duplicated or referenced from global/hero */

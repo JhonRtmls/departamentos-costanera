@@ -38,6 +38,13 @@ const t = useTranslations(lang);
     color: var(--text-main);
   }
 
+  .rates-table td {
+    padding: 1.25rem 1rem;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    border-bottom: 1px solid rgba(78, 44, 35, 0.05);
+  }
+
   .sustainability-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -47,8 +54,7 @@ const t = useTranslations(lang);
 
   .section-tag {
     display: inline-block;
-    color: var(--accent);
-    opacity: 0.9;
+    color: var(--soft-apricot);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -59,7 +65,7 @@ const t = useTranslations(lang);
   .sustainability-text h2 {
     font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 800;
-    color: var(--espresso);
+    color: var(--title-color);
     margin-bottom: 1rem;
     line-height: 1.2;
   }

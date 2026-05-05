@@ -93,7 +93,7 @@ const t = useTranslations(lang);
 <style>
   .policies {
     padding: 6rem 0;
-    background: #fdfdfd;
+    background: transparent;
   }
 
   .section-header {
@@ -103,7 +103,7 @@ const t = useTranslations(lang);
 
   .section-tag {
     display: inline-block;
-    color: var(--accent);
+    color: var(--soft-apricot);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -149,7 +149,7 @@ const t = useTranslations(lang);
   .rates-header h3 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--espresso);
+    color: var(--title-color);
   }
 
   .table-responsive {
@@ -175,7 +175,7 @@ const t = useTranslations(lang);
     padding: 1.25rem 1rem;
     font-size: 1.05rem;
     color: var(--text-main);
-    border-bottom: 1px solid rgba(78, 44, 35, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .rates-table tr:last-child td {
@@ -184,7 +184,7 @@ const t = useTranslations(lang);
 
   .rates-table .price {
     font-weight: 700;
-    color: var(--espresso);
+    color: #ffffff;
   }
 
   .policies-grid {
@@ -250,21 +250,22 @@ const t = useTranslations(lang);
   }
 
   .policy-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(226, 114, 91, 0.1);
-    color: var(--accent);
-    border-radius: 50%;
+    color: var(--soft-apricot);
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
+    justify-content: flex-start;
+  }
+
+  .policy-icon svg {
+    width: 48px; /* Same size as service icons */
+    height: 48px;
   }
 
   .policy-card h3 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--espresso);
+    color: var(--title-color);
     margin-bottom: 1rem;
   }
 

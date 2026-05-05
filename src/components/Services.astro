@@ -86,7 +86,7 @@ const services = [
 
   .section-tag {
     display: inline-block;
-    color: var(--espresso);
+    color: var(--soft-apricot);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -126,14 +126,14 @@ const services = [
 
   .service-card:hover {
     transform: translateY(-8px);
-    border-color: var(--espresso);
+    border-color: var(--soft-apricot);
   }
 
   .service-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--espresso);
+    color: var(--soft-apricot);
     transition: var(--transition);
   }
 
@@ -142,14 +142,14 @@ const services = [
     width: 48px;
     height: 48px;
     object-fit: contain;
-    /* Improved filter to match #4e2c23 (Espresso) regardless of original color */
-    filter: brightness(0) saturate(100%) invert(16%) sepia(20%) saturate(1312%) hue-rotate(324deg) brightness(93%) contrast(90%);
+    /* Filter to match #ffdab9 (Soft Apricot) exactly */
+    filter: brightness(0) saturate(100%) invert(92%) sepia(13%) saturate(1063%) hue-rotate(323deg) brightness(105%) contrast(101%);
   }
 
   .service-card h3 {
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--primary);
+    color: #ffffff;
     margin-bottom: 0.5rem;
     display: grid;
     text-align: center;
