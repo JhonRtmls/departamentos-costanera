@@ -9,6 +9,7 @@ import Sustainability from "../../components/Sustainability.astro";
 import Map from "../../components/Map.astro";
 import ContactForm from "../../components/ContactForm.astro";
 import FAQ from "../../components/FAQ.astro";
+import Policies from "../../components/Policies.astro";
 import { useTranslations } from "../../i18n/utils";
 
 const t = useTranslations("zh");
@@ -23,40 +24,11 @@ const t = useTranslations("zh");
     <Services />
     <Sustainability />
     <FAQ />
-    <section class="policies container" id="politicas">
-      <span class="section-tag">{t("policies.tag")}</span>
-      <h2>{t("policies.title")}</h2>
-      <p>{t("policies.desc")}</p>
-    </section>
+    <Policies />
     <Map />
     <ContactForm />
   </main>
 </Layout>
 
 <style>
-  .policies {
-    padding: 5rem 0;
-    text-align: center;
-  }
-  .section-tag {
-    display: inline-block;
-    color: var(--accent);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-  .policies h2 {
-    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 0.75rem;
-  }
-  .policies p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    max-width: 500px;
-    margin: 0 auto;
-  }
 </style>

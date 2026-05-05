@@ -124,7 +124,7 @@ export default function MapReact({ tag, title, subtitle, address, phone, email, 
           display: flex;
           align-items: center;
           gap: 0.5rem;
-          background: var(--soft-apricot);
+          background: #ffffff;
           color: var(--espresso);
           font-size: 0.875rem;
           font-weight: 600;
@@ -143,7 +143,7 @@ export default function MapReact({ tag, title, subtitle, address, phone, email, 
 
         /* ── Static info strip ── */
         .map-info-panel {
-          background: var(--soft-apricot);
+          background: #ffffff;
           padding: 1.25rem 2rem;
           box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
           border-top: 1px solid rgba(139, 69, 45, 0.1);

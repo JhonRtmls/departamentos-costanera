@@ -14,7 +14,7 @@
   --title-color: var(--espresso);
   --text-main: rgba(78, 44, 35, 0.9);
   --text-muted: rgba(78, 44, 35, 0.6);
-  --bg-body: var(--soft-apricot);
+  --bg-body: #ffffff;
   --bg-gradient: linear-gradient(
     135deg,
     #ffdab9 0%,
@@ -24,7 +24,7 @@
   --mesh-gradient: transparent; /* Handled by BackgroundEffect.astro */
 
   --navbar-height: 80px;
-  --glass-bg: rgba(255, 218, 185, 0.85);
+  --glass-bg: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(78, 44, 35, 0.1);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -82,5 +82,27 @@ ul {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Lenis Recommended Styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 

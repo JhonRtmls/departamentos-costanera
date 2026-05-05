@@ -3,7 +3,7 @@ import "../styles/global.css";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import Footer from "../components/footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
-import BackgroundEffect from "../components/BackgroundEffect.astro";
+
 
 interface Props {
   title: string;
@@ -17,6 +17,46 @@ const {
   title,
   description = t('site.description'),
 } = Astro.props;
+
+// Build FAQ Schema for GEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": t('faq.q1'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t('faq.a1')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": t('faq.q2'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t('faq.a2')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": t('faq.q3'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t('faq.a3')
+      }
+    },
+    {
+      "@type": "Question",
+      "name": t('faq.q4'),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": t('faq.a4')
+      }
+    }
+  ]
+};
 ---
 
 <html lang={lang}>
@@ -54,9 +94,49 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    {/* SEO & GEO Optimizations */}
+    <link rel="canonical" href={Astro.url.href} />
+    <link rel="alternate" hreflang="es" href={new URL('/departamentos-costanera/es/', Astro.site).href} />
+    <link rel="alternate" hreflang="en" href={new URL('/departamentos-costanera/en/', Astro.site).href} />
+    <link rel="alternate" hreflang="zh" href={new URL('/departamentos-costanera/zh/', Astro.site).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/departamentos-costanera/es/', Astro.site).href} />
+
+    {/* Structured Data / JSON-LD for GEO */}
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Departamentos Costanera",
+      "image": `${Astro.url.origin}${import.meta.env.BASE_URL}hero.jpeg`,
+      "description": description,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mejicana Nº 1481",
+        "addressLocality": "Punta Arenas",
+        "addressRegion": "Magallanes",
+        "addressCountry": "CL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -53.1611,
+        "longitude": -70.9081
+      },
+      "url": Astro.url.href,
+      "telephone": "+56968360280",
+      "priceRange": "$$",
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Heating", "value": true }
+      ]
+    })} />
+    
+    {/* FAQ Schema for AI Citations */}
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
   </head>
   <body>
-    <BackgroundEffect />
+
     <slot />
     <Footer />
     <WhatsAppButton />
@@ -64,6 +144,7 @@ const {
     <script>
       import Lenis from "lenis";
 
+      // Initialize Lenis
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -71,6 +152,7 @@ const {
         smoothWheel: true,
       });
 
+      // Frame loop
       function raf(time: number) {
         lenis.raf(time);
         requestAnimationFrame(raf);
@@ -78,7 +160,10 @@ const {
 
       requestAnimationFrame(raf);
 
-      // Pausa Lenis cuando el foco está en el iframe del mapa
+      // Debug: confirm initialization
+      console.log("Lenis initialized", lenis);
+
+      // Handle iframes (map, etc)
       document.querySelectorAll("iframe").forEach((iframe) => {
         iframe.addEventListener("mouseenter", () => lenis.stop());
         iframe.addEventListener("mouseleave", () => lenis.start());
@@ -99,7 +184,6 @@ const {
       }, observerOptions);
 
       document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
     </script>
   </body>
 </html>

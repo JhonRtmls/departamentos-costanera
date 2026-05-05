@@ -21,8 +21,6 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
         rel="noopener noreferrer"
         class="btn-hero-primary">{t("hero.cta_primary")}</a
       >
-      <a href="#galeria" class="btn-hero-secondary">{t("hero.cta_secondary")}</a
-      >
     </div>
   </div>
   <div class="hero-scroll">
@@ -44,6 +42,7 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   .hero-bg {
     position: absolute;
     inset: 0;
+    opacity: 0.4;
     background:
       linear-gradient(
         135deg,
@@ -78,7 +77,7 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
     display: inline-block;
     background: rgba(78, 44, 35, 0.1);
     border: 1px solid rgba(78, 44, 35, 0.3);
-    color: var(--espresso);
+    color: var(--soft-apricot);
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -127,22 +126,7 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
     box-shadow: 0 8px 28px rgba(226, 114, 91, 0.4);
   }
 
-  .btn-hero-secondary {
-    background: rgba(255, 218, 185, 0.08);
-    color: var(--soft-apricot);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: var(--transition);
-    text-decoration: none;
-  }
 
-  .btn-hero-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-3px);
-  }
 
   .hero-scroll {
     position: absolute;
