@@ -106,3 +106,115 @@ html.lenis body {
   pointer-events: none;
 }
 
+/* ── Iridescent Effect Base ── */
+
+@property --active {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: true;
+}
+
+.btn-iridescent,
+.btn-iridescent-sm {
+  --active: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  overflow: hidden;
+  transition: var(--transition), --active 0.5s ease;
+  z-index: 1;
+}
+
+.btn-iridescent {
+  padding: 0.8rem 2rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+  background: var(--espresso);
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(78, 44, 35, 0.2);
+}
+
+.btn-iridescent-sm {
+  padding: 0.6rem;
+  border-radius: 50%;
+  background: rgba(78, 44, 35, 0.05);
+  border: 1px solid rgba(78, 44, 35, 0.1);
+  color: var(--espresso);
+}
+
+.btn-iridescent:hover,
+.btn-iridescent-sm:hover {
+  --active: 1;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.btn-iridescent:hover {
+  box-shadow: 0 8px 30px rgba(78, 44, 35, 0.3);
+}
+
+.btn-iridescent-sm:hover {
+  background: var(--espresso);
+  border-color: var(--espresso);
+}
+
+/* Iridescent Layer */
+.btn-iridescent::before,
+.btn-iridescent-sm::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: linear-gradient(
+    95deg in oklab,
+    oklch(0.6 0.18 30) 0%,
+    oklch(0.7 0.15 60) 25%,
+    oklch(0.8 0.1 90) 50%,
+    oklch(0.7 0.15 60) 75%,
+    oklch(0.6 0.18 30) 100%
+  );
+  background-size: 200% 100%;
+  opacity: calc(var(--active) * 0.8);
+  transition: opacity 0.5s ease;
+  animation: shimmer 4s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Glassy Shine Overlay */
+.btn-iridescent::after,
+.btn-iridescent-sm::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  background-size: 200% 100%;
+  background-position: 150% 0;
+  transition: background-position 0.8s ease;
+  z-index: 0;
+}
+
+.btn-iridescent:hover::after,
+.btn-iridescent-sm:hover::after {
+  background-position: -50% 0;
+}
+
+.btn-iridescent span,
+.btn-iridescent svg,
+.btn-iridescent-sm svg {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
