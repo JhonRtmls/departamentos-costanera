@@ -24,10 +24,21 @@
   --mesh-gradient: transparent; /* Handled by BackgroundEffect.astro */
 
   --navbar-height: 80px;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(78, 44, 35, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(78, 44, 35, 0.08);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.glass-card {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 24px;
+}
+
 
 * {
   margin: 0;
@@ -217,4 +228,53 @@ html.lenis body {
 @keyframes shimmer {
   0% { background-position: 100% 0; }
   100% { background-position: -100% 0; }
+}
+
+/* ── Ambient Background ── */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+  animation: float 25s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  top: -15%;
+  left: -15%;
+  background: var(--soft-apricot);
+}
+
+.blob-2 {
+  bottom: -15%;
+  right: -15%;
+  background: var(--burnt-peach);
+  animation-delay: -7s;
+}
+
+.blob-3 {
+  top: 30%;
+  left: 20%;
+  background: var(--espresso);
+  width: 40vw;
+  height: 40vw;
+  opacity: 0.04;
+  animation-delay: -12s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, 10%) scale(1.05); }
+  100% { transform: translate(-5%, 5%) scale(1); }
 }
