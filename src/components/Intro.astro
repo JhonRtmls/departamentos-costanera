@@ -1,19 +1,28 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import IntroGallery from "./IntroGallery";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const introImages = [
+  { src: `${base}/gallery/U67A9020.jpg`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/U67A8631.jpg`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/U67A8640.jpg`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/U67A8691.jpg`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/U67A8757.jpg`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/U67A9126.jpg`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/U67A9193.jpg`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/U67A9408.jpg`, alt: t("intro.img_alt") as string },
+];
 ---
 
 <section class="intro reveal" id="nosotros">
   <div class="container intro-inner">
     <div class="intro-image">
-      <!-- Reemplaza con tu imagen real -->
-      <img
-        src={`${import.meta.env.BASE_URL}intro.jpg`}
-        alt={t("intro.img_alt") as string}
-        loading="lazy"
-      />
+      <IntroGallery client:load images={introImages} />
     </div>
 
     <div class="intro-text">
