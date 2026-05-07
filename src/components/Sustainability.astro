@@ -1,5 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { Image } from 'astro:assets';
+import sustainImg from '../assets/gallery/U67A8807.jpg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -20,10 +22,12 @@ const t = useTranslations(lang);
       </div>
       <div class="sustainability-visual">
         <div class="sustain-placeholder">
-          <img
-            src={`${import.meta.env.BASE_URL}gallery/U67A8807.jpg`}
+          <Image
+            src={sustainImg}
             alt="Sustentabilidad Costanera"
-            loading="lazy"
+            width={600}
+            height={450}
+            format="webp"
           />
         </div>
       </div>
