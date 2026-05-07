@@ -1,0 +1,92 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import SubPageHero from "../../components/SubPageHero.astro";
+import ApartmentArea from "../../components/ApartmentArea.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("zh");
+---
+
+<Layout
+  title="公寓详情 | Costanera 公寓"
+  description="探索我们公寓的每个角落：客厅、卧室、厨房及其优越的周边环境。"
+>
+  <Navbar />
+  <main>
+    <SubPageHero 
+      title="我们的公寓" 
+      subtitle="探索专为您的住宿而设计的每个空间的舒适与品质。"
+      tag="详情"
+    />
+    
+    <ApartmentArea 
+      tag="公共空间"
+      title="客厅"
+      description="宽敞明亮的休息空间，配有现代家具和温馨氛围，让您宾至如归。"
+      images={['living-1.jpg', 'living-2.jpg', 'living-3.jpg', 'living-4.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="美食"
+      title="用餐区"
+      description="集成的多功能餐饮区，非常适合在优雅且采光良好的环境中享用美食。"
+      images={['comedor-1.jpg', 'comedor-2.jpg', 'comedor-3.jpg', 'comedor.jpg']}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="休息"
+      title="卧室"
+      description="专为深度休息设计的客房，配备高品质床上用品和中央供暖，营造成一个宁静的氛围。"
+      images={['habitacion-1.jpg', 'habitacion-2.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="功能性"
+      title="厨房"
+      description="配备先进家电和现代柜台，提供准备您最喜欢的菜肴所需的一切。"
+      images={['cocina-1.jpg', 'cocina-2.jpg']}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="健康"
+      title="浴室"
+      description="现代简约的浴室，采用高品质饰面，并配备优质洗浴用品，为您提供日常舒适。"
+      images={['baño.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="安全"
+      title="停车场"
+      description="院内设有私人免费停车场，为您提供所需的车辆安全保障。"
+      images={['estacionamiento.jpg', 'estacionamiento-2.jpg']}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="环境"
+      title="海滨"
+      description="距离麦哲伦海峡仅几步之遥，我们的公寓为您提供海边漫步的理想场所。"
+      images={['costanera-1.jpg', 'costanera-2.jpg', 'costanera-3.jpg', 'costanera-4.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="休闲"
+      title="恐龙公园"
+      description="一个适合家庭和儿童的理想休闲空间，距离我们的公寓仅几步之遥，是历史与乐趣在独特的自然环境中交汇的地方。"
+      images={['plaza-1.jpg', 'plaza-2.jpg', 'plaza-3.jpg', 'plaza-4.jpg']}
+      reverse={true}
+    />
+
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 4rem;
+  }
+</style>

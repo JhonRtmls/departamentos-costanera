@@ -1,44 +1,39 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import GalleryReact from "./GalleryReact";
+import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+// Resolve slides from assets
+const allImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/slide*.{webp,jpg}');
 
-const images = [
-  {
-    src: `${base}/gallery/slide1.webp`,
-    alt: t("gallery.alt_1") as string,
-    caption: t("gallery.caption_1") as string,
-  },
-  {
-    src: `${base}/gallery/slide2.webp`,
-    alt: t("gallery.alt_2") as string,
-    caption: t("gallery.caption_2") as string,
-  },
-  {
-    src: `${base}/gallery/slide3.webp`,
-    alt: t("gallery.alt_3") as string,
-    caption: t("gallery.caption_3") as string,
-  },
-  {
-    src: `${base}/gallery/slide4.webp`,
-    alt: t("gallery.alt_4") as string,
-    caption: t("gallery.caption_4") as string,
-  },
-  {
-    src: `${base}/gallery/slide5.webp`,
-    alt: t("gallery.alt_5") as string,
-    caption: t("gallery.caption_5") as string,
-  },
-  {
-    src: `${base}/gallery/slide6.webp`,
-    alt: t("gallery.alt_6") as string,
-    caption: t("gallery.caption_6") as string,
-  },
+const resolveSlide = async (name: string, index: number) => {
+  const path = `/src/assets/gallery/${name}`;
+  if (allImages[path]) {
+    const img = await allImages[path]();
+    const optimized = await getImage({ src: img.default, format: 'webp', width: 1200 });
+    return {
+      src: optimized.src,
+      alt: t(`gallery.alt_${index + 1}`) as string,
+      caption: t(`gallery.caption_${index + 1}`) as string,
+    };
+  }
+  return null;
+};
+
+const imagePromises = [
+  resolveSlide('slide1.webp', 0),
+  resolveSlide('slide2.webp', 1),
+  resolveSlide('slide3.webp', 2),
+  resolveSlide('slide4.webp', 3),
+  resolveSlide('slide5.webp', 4),
+  resolveSlide('slide6.webp', 5), // Checking if it's webp or jpg
 ];
+
+const images = (await Promise.all(imagePromises)).filter(Boolean);
 ---
 
 <GalleryReact

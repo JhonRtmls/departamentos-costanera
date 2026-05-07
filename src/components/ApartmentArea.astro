@@ -1,0 +1,193 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  description: string;
+  images: string[];
+  reverse?: boolean;
+  tag?: string;
+}
+
+const { title, description, images, reverse = false, tag } = Astro.props;
+
+// Import all images from assets
+const allImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/*.{jpeg,jpg,png,gif,webp}');
+
+// Helper to get the image object
+const resolveImage = (path: string) => {
+  const fullPath = `/src/assets/gallery/${path}`;
+  if (!allImages[fullPath]) {
+     console.warn(`Image ${fullPath} not found`);
+     return null;
+  }
+  return allImages[fullPath]();
+};
+
+const mainImagePromise = resolveImage(images[0]);
+const thumbImagesPromises = images.slice(1, 4).map(resolveImage);
+
+const mainImage = await mainImagePromise;
+const thumbImages = await Promise.all(thumbImagesPromises);
+---
+
+<section class={`area-section ${reverse ? 'reverse' : ''}`}>
+  <div class="container area-grid">
+    <div class="area-content reveal">
+      {tag && <span class="area-tag">{tag}</span>}
+      <h2 class="area-title">{title}</h2>
+      <p class="area-description">{description}</p>
+    </div>
+    
+    <div class="area-gallery reveal" style="animation-delay: 0.2s;">
+      <div class="gallery-main">
+        {mainImage && (
+          <Image 
+            src={mainImage.default} 
+            alt={title} 
+            width={800}
+            height={500}
+            format="webp"
+            quality="mid"
+          />
+        )}
+      </div>
+      {thumbImages.length > 0 && (
+        <div class="gallery-thumbs">
+          {thumbImages.map((img) => img && (
+            <div class="thumb">
+              <Image 
+                src={img.default} 
+                alt={title} 
+                width={300}
+                height={300}
+                format="webp"
+                quality="low"
+              />
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .area-section {
+    padding: 6rem 0;
+    overflow: hidden;
+  }
+
+  .area-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .area-section.reverse .area-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .area-section.reverse .area-content {
+    order: 2;
+  }
+  
+  .area-section.reverse .area-gallery {
+    order: 1;
+  }
+
+  .area-tag {
+    display: inline-block;
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .area-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .area-description {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  /* Gallery Styling */
+  .area-gallery {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .gallery-main {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gallery-thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .thumb {
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .area-gallery:hover img {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 992px) {
+    .area-grid, .area-section.reverse .area-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    
+    .area-section.reverse .area-content,
+    .area-section.reverse .area-gallery {
+      order: unset;
+    }
+
+    .area-section {
+      padding: 4rem 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-thumbs {
+      gap: 0.5rem;
+    }
+  }
+</style>

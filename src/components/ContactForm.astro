@@ -158,7 +158,18 @@ const t = useTranslations(lang);
             
             window.open(url, '_blank');
           });
-        }
+          // Trigger date picker on click
+      const dateInputs = bookingForm.querySelectorAll('input[type="date"]');
+      dateInputs.forEach(input => {
+        input.addEventListener('click', () => {
+          try {
+            (input as any).showPicker();
+          } catch (e) {
+            console.log('showPicker not supported');
+          }
+        });
+      });
+    }
       </script>
     </div>
   </div>
@@ -179,7 +190,7 @@ const t = useTranslations(lang);
 
   .section-tag {
     display: inline-block;
-    color: var(--espresso);
+    color: var(--white);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -258,7 +269,7 @@ const t = useTranslations(lang);
   .form-group label {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text-main);
+    color: var(--espresso);
   }
 
   .form-group input,
@@ -268,7 +279,7 @@ const t = useTranslations(lang);
     border-radius: 10px;
     font-family: inherit;
     font-size: 0.95rem;
-    color: var(--text-main);
+    color: var(--espresso);
     background: #ffffff;
     border: 1.5px solid rgba(78, 44, 35, 0.1);
     transition: var(--transition);

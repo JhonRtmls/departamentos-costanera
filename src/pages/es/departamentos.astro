@@ -1,0 +1,92 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import SubPageHero from "../../components/SubPageHero.astro";
+import ApartmentArea from "../../components/ApartmentArea.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("es");
+---
+
+<Layout
+  title="Detalles de los Departamentos | Departamentos Costanera"
+  description="Conoce cada rincón de nuestros departamentos: living, habitaciones, cocina y su entorno privilegiado."
+>
+  <Navbar />
+  <main>
+    <SubPageHero 
+      title="Nuestros Departamentos" 
+      subtitle="Explora el confort y la calidad de cada uno de nuestros espacios diseñados para tu estadía."
+      tag="Detalles"
+    />
+    
+    <ApartmentArea 
+      tag="Espacios Comunes"
+      title="Living"
+      description="Un espacio amplio y luminoso, diseñado para el relax absoluto con mobiliario moderno y una atmósfera acogedora que te hará sentir como en casa."
+      images={['living-1.jpg', 'living-2.jpg', 'living-3.jpg', 'living-4.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="Gastronomía"
+      title="Comedor"
+      description="Área de comedor integrada y funcional, perfecta para disfrutar de tus comidas en un ambiente elegante y bien iluminado."
+      images={['comedor-1.jpg', 'comedor-2.jpg', 'comedor-3.jpg', 'comedor.jpg']}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="Descanso"
+      title="Habitaciones"
+      description="Dormitorios pensados para un descanso profundo, equipados con ropa de cama premium, calefacción central y un diseño que invita a la calma."
+      images={['habitacion-1.jpg', 'habitacion-2.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="Funcionalidad"
+      title="Cocina"
+      description="Totalmente equipada con electrodomésticos de última generación, encimeras modernas y todo lo necesario para preparar tus platos favoritos."
+      images={['cocina-1.jpg', 'cocina-2.jpg']}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="Bienestar"
+      title="Baño"
+      description="Baños modernos y minimalistas, con acabados de alta calidad y equipados con amenities premium para tu comodidad diaria."
+      images={['baño.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="Seguridad"
+      title="Estacionamiento"
+      description="Contamos con estacionamiento privado y gratuito dentro del recinto, brindándote la tranquilidad y seguridad que necesitas para tu vehículo."
+      images={['estacionamiento.jpg', 'estacionamiento-2.jpg']}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="Entorno"
+      title="La Costanera"
+      description="A solo pasos del Estrecho de Magallanes, nuestros departamentos te ofrecen la cercanía ideal para caminatas inolvidables junto al mar."
+      images={['costanera-1.jpg', 'costanera-2.jpg', 'costanera-3.jpg', 'costanera-4.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="Recreación"
+      title="Parque de los Dinosaurios"
+      description="Un espacio recreativo ideal para familias y niños, ubicado a poca distancia de nuestros departamentos, donde la historia y la diversión se encuentran en un entorno natural único."
+      images={['plaza-1.jpg', 'plaza-2.jpg', 'plaza-3.jpg', 'plaza-4.jpg']}
+      reverse={true}
+    />
+
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 4rem;
+  }
+</style>

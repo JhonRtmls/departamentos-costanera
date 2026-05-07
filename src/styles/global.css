@@ -11,33 +11,33 @@
   --accent-hover: #f08d7a;
   --secondary: var(--soft-apricot);
   --secondary-hover: #ffffff;
+  --white: #ffffff;
   --title-color: #ffffff;
   --text-main: rgba(255, 255, 255, 0.85);
   --text-muted: rgba(255, 255, 255, 0.6);
   --bg-body: #0a0706;
-  --bg-gradient: linear-gradient(
-    135deg,
-    #0f0a09 0%,
-    #1a1210 100%
-  );
+  --bg-gradient: linear-gradient(135deg, #0f0a09 0%, #1a1210 100%);
   --mesh-gradient: transparent;
 
   --navbar-height: 80px;
-  --glass-bg: rgba(0, 0, 0, 0.25);
-  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-bg: linear-gradient(
+    135deg,
+    rgba(226, 114, 91, 0.18) 0%,
+    rgba(226, 114, 91, 0.08) 100%
+  );
+  --glass-border: rgba(226, 114, 91, 0.25);
   --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card {
   background: var(--glass-bg);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(50px) saturate(90%);
+  backdrop-filter: blur(50px) saturate(90%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   border-radius: 24px;
 }
-
 
 * {
   margin: 0;
@@ -87,7 +87,9 @@ ul {
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .reveal.active {
@@ -135,7 +137,9 @@ html.lenis body {
   cursor: pointer;
   border: none;
   overflow: hidden;
-  transition: var(--transition), --active 0.5s ease;
+  transition:
+    var(--transition),
+    --active 0.5s ease;
   z-index: 1;
 }
 
@@ -226,8 +230,12 @@ html.lenis body {
 }
 
 @keyframes shimmer {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
 }
 
 /* ── Ambient Background ── */
@@ -261,7 +269,11 @@ html.lenis body {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 100%
+  );
   opacity: 0.3;
 }
 
@@ -300,7 +312,13 @@ html.lenis body {
 }
 
 @keyframes float {
-  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  50% { transform: translate(5%, 8%) scale(1.05) rotate(3deg); }
-  100% { transform: translate(-3%, 4%) scale(1) rotate(-2deg); }
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(5%, 8%) scale(1.05) rotate(3deg);
+  }
+  100% {
+    transform: translate(-3%, 4%) scale(1) rotate(-2deg);
+  }
 }

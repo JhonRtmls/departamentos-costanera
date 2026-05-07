@@ -1,11 +1,13 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getImage } from 'astro:assets';
+import heroImage from '../assets/hero.jpeg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
-const heroBg = `url('${baseUrl}/hero.jpeg')`;
+const optimizedHero = await getImage({ src: heroImage, format: 'webp', quality: 80 });
+const heroBg = `url('${optimizedHero.src}')`;
 ---
 
 <section class="hero" id="inicio">
@@ -78,6 +80,18 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
         
         window.open(url, '_blank');
       });
+
+      // Trigger date picker on click
+      const dateInputs = heroForm.querySelectorAll('input[type="date"]');
+      dateInputs.forEach(input => {
+        input.addEventListener('click', () => {
+          try {
+            (input as any).showPicker();
+          } catch (e) {
+            console.log('showPicker not supported');
+          }
+        });
+      });
     }
   </script>
 
@@ -100,15 +114,20 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   .hero-bg {
     position: absolute;
     inset: 0;
-    opacity: 0.5; /* Slightly higher than original for better color presence */
-    background:
-      linear-gradient(
-        135deg,
-        rgba(78, 44, 35, 0.1) 0%,
-        rgba(226, 114, 91, 0.1) 100%
-      ),
-      var(--heroBg) center/cover no-repeat;
+    background: var(--heroBg) center/cover no-repeat;
     z-index: 0;
+  }
+
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(78, 44, 35, 0.1) 0%,
+      rgba(226, 114, 91, 0.1) 100%
+    );
+    z-index: 1;
   }
 
   .hero-content {
@@ -135,7 +154,7 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
     display: inline-block;
     background: rgba(78, 44, 35, 0.1);
     border: 1px solid rgba(78, 44, 35, 0.3);
-    color: var(--soft-apricot);
+    color: var(--white);
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -148,14 +167,14 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
   .hero-title {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 800;
-    color: var(--soft-apricot);
+    color: var(--white);
     line-height: 1.1;
     margin-bottom: 1.25rem;
   }
 
   .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.25rem);
-    color: rgba(255, 218, 185, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2.5rem;
     line-height: 1.7;
   }
@@ -203,28 +222,42 @@ const heroBg = `url('${baseUrl}/hero.jpeg')`;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--espresso);
-    opacity: 0.8;
+    color: var(--white);
+    opacity: 0.9;
+  }
+
+  .booking-divider {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.15);
   }
 
   .booking-field input,
   .booking-field select {
     background: transparent;
     border: none;
-    color: var(--espresso);
+    padding: 0.5rem 0;
+    color: var(--white);
     font-size: 0.95rem;
     font-weight: 600;
     font-family: inherit;
     outline: none;
     cursor: pointer;
     width: 100%;
+    transition: var(--transition);
   }
 
-  .booking-divider {
-    width: 1px;
-    height: 40px;
-    background: rgba(78, 44, 35, 0.1);
+  /* Style dropdown options specifically for readability */
+  .booking-field select option {
+    background-color: #ffffff;
+    color: var(--espresso);
   }
+
+  .booking-field input:focus,
+  .booking-field select:focus {
+    color: var(--soft-apricot);
+  }
+
 
   .booking-submit {
     width: 50px;

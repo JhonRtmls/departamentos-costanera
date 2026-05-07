@@ -1,0 +1,92 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import SubPageHero from "../../components/SubPageHero.astro";
+import ApartmentArea from "../../components/ApartmentArea.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("en");
+---
+
+<Layout
+  title="Apartment Details | Costanera Apartments"
+  description="Explore every corner of our apartments: living room, bedrooms, kitchen, and its privileged surroundings."
+>
+  <Navbar />
+  <main>
+    <SubPageHero 
+      title="Our Apartments" 
+      subtitle="Explore the comfort and quality of each of our spaces designed for your stay."
+      tag="Details"
+    />
+    
+    <ApartmentArea 
+      tag="Common Spaces"
+      title="Living Room"
+      description="A spacious and bright area, designed for absolute relaxation with modern furniture and a cozy atmosphere that will make you feel at home."
+      images={['living-1.jpg', 'living-2.jpg', 'living-3.jpg', 'living-4.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="Gastronomy"
+      title="Dining Area"
+      description="Integrated and functional dining area, perfect for enjoying your meals in an elegant and well-lit environment."
+      images={['comedor-1.jpg', 'comedor-2.jpg', 'comedor-3.jpg', 'comedor.jpg']}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="Rest"
+      title="Bedrooms"
+      description="Rooms designed for deep rest, equipped with premium bedding, central heating, and a design that invites tranquility."
+      images={['habitacion-1.jpg', 'habitacion-2.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="Functionality"
+      title="Kitchen"
+      description="Fully equipped with state-of-the-art appliances, modern countertops, and everything needed to prepare your favorite dishes."
+      images={['cocina-1.jpg', 'cocina-2.jpg']}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="Wellness"
+      title="Bathroom"
+      description="Modern and minimalist bathrooms, with high-quality finishes and equipped with premium amenities for your daily comfort."
+      images={['baño.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="Security"
+      title="Parking"
+      description="We have private and free parking within the premises, providing you with the peace of mind and security you need for your vehicle."
+      images={['estacionamiento.jpg', 'estacionamiento-2.jpg']}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="Surroundings"
+      title="The Waterfront"
+      description="Just steps from the Strait of Magellan, our apartments offer the ideal proximity for unforgettable walks by the sea."
+      images={['costanera-1.jpg', 'costanera-2.jpg', 'costanera-3.jpg', 'costanera-4.jpg']}
+    />
+
+    <ApartmentArea 
+      tag="Recreation"
+      title="Dinosaur Park"
+      description="An ideal recreational space for families and children, located a short distance from our apartments, where history and fun meet in a unique natural setting."
+      images={['plaza-1.jpg', 'plaza-2.jpg', 'plaza-3.jpg', 'plaza-4.jpg']}
+      reverse={true}
+    />
+
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 4rem;
+  }
+</style>
