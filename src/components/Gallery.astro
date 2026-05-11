@@ -6,34 +6,15 @@ import { getImage } from 'astro:assets';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-// Resolve slides from assets
-const allImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/gallery/slide*.{webp,jpg}');
+const slideNames = ['slide1.webp', 'slide2.webp', 'slide3.webp', 'slide4.webp', 'slide5.webp', 'slide6.webp'];
 
-const resolveSlide = async (name: string, index: number) => {
-  const path = `/src/assets/gallery/${name}`;
-  if (allImages[path]) {
-    const img = await allImages[path]();
-    const optimized = await getImage({ src: img.default, format: 'webp', width: 1200 });
-    return {
-      src: optimized.src,
-      alt: t(`gallery.alt_${index + 1}`) as string,
-      caption: t(`gallery.caption_${index + 1}`) as string,
-    };
-  }
-  return null;
-};
-
-const imagePromises = [
-  resolveSlide('slide1.webp', 0),
-  resolveSlide('slide2.webp', 1),
-  resolveSlide('slide3.webp', 2),
-  resolveSlide('slide4.webp', 3),
-  resolveSlide('slide5.webp', 4),
-  resolveSlide('slide6.webp', 5), // Checking if it's webp or jpg
-];
-
-const images = (await Promise.all(imagePromises)).filter(Boolean);
+const images = slideNames.map((name, index) => ({
+  src: `${baseUrl}/gallery/${name}`,
+  alt: t(`gallery.alt_${index + 1}`) as string,
+  caption: t(`gallery.caption_${index + 1}`) as string,
+}));
 ---
 
 <GalleryReact

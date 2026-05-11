@@ -1,6 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
+import React, { useState, useEffect, useRef } from "react";
 import "../styles/Gallery.css";
 
 interface Image {
@@ -17,51 +15,34 @@ interface GalleryProps {
   desc: string;
 }
 
-export default function GalleryReact({ images: originalImages, tag, title, desc }: GalleryProps) {
-  // Triplicamos las imágenes para que el loop de Embla sea perfecto sin saltos visuales
-  const images = [...originalImages, ...originalImages, ...originalImages];
-  const originalLength = originalImages.length;
-  
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { 
-      loop: true, 
-      align: 'center',
-      skipSnaps: false,
-      startIndex: originalLength // Empezamos en el set del medio
-    }, 
-    [Autoplay({ delay: 5000, stopOnInteraction: false })]
-  );
-  
-  const [selectedIndex, setSelectedIndex] = useState(originalLength);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
+export default function GalleryReact({ images, tag, title, desc }: GalleryProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [carouselTranslate, setCarouselTranslate] = useState(0);
 
   useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-  }, [emblaApi, onSelect]);
+    if (!carouselRef.current) return;
+    
+    const containerWidth = carouselRef.current.offsetWidth;
+    const isMobile = window.innerWidth <= 768;
+    
+    const cardWidthPercent = isMobile ? 0.85 : 0.5;
+    const initialTranslateVal = (containerWidth / 2) - (containerWidth * cardWidthPercent / 2);
+    const diffAmount = containerWidth * cardWidthPercent;
+    
+    const translate = initialTranslateVal - (activeIndex * diffAmount);
+    setCarouselTranslate(translate);
+  }, [activeIndex]);
 
-  const scrollToIndex = useCallback((index: number) => {
-    if (!emblaApi) return;
-    
-    const currentSnap = emblaApi.selectedScrollSnap();
-    const originalCount = originalImages.length;
-    
-    // Posibles destinos en los 3 sets
-    const targets = [index, index + originalCount, index + originalCount * 2];
-    
-    // Encontramos el más cercano al snap actual
-    const closest = targets.reduce((prev, curr) => 
-      Math.abs(curr - currentSnap) < Math.abs(prev - currentSnap) ? curr : prev
-    );
-    
-    emblaApi.scrollTo(closest);
-  }, [emblaApi, originalImages.length]);
+  // Autoplay logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [images.length, activeIndex]); // Reset timer on manual change if we want, or just let it run
+
 
   return (
     <section className="gallery" id="galeria">
@@ -71,21 +52,22 @@ export default function GalleryReact({ images: originalImages, tag, title, desc 
         <p className="gallery-desc">{desc}</p>
       </div>
 
-      <div className="gallery-viewport" ref={emblaRef}>
-        <div className="gallery-container">
-          {images.map((img, index) => (
-            <div 
-              key={index} 
-              className={`gallery-slide ${index === selectedIndex ? "is-selected" : ""}`}
-            >
-              <div className="gallery-slide-inner">
-                <img src={img.src} alt={img.alt} loading="lazy" />
-                <div className="gallery-slide-overlay">
-                  <div className="gallery-slide-content">
-                    <h3>{img.caption}</h3>
-                    <span className="gallery-slide-count">
-                      {(index % originalLength) + 1} / {originalLength}
-                    </span>
+      <div className="carousel-wrapper">
+        <div 
+          className="carousel-main" 
+          ref={carouselRef} 
+          style={{ transform: `translateX(${carouselTranslate}px)` }}
+        >
+          {images.map((img, i) => (
+            <div key={i} className={`carousel-card ${activeIndex === i ? 'active' : ''}`}>
+              <div 
+                className="carousel-card-content" 
+                style={{ backgroundImage: `url("${img.src}")` }}
+              >
+                <div className="carousel-card-overlay">
+                  <div className="carousel-card-title">
+                    <span className="card-index">0{i + 1}</span>
+                    {img.caption}
                   </div>
                 </div>
               </div>
@@ -94,20 +76,37 @@ export default function GalleryReact({ images: originalImages, tag, title, desc 
         </div>
       </div>
 
-      <div className="gallery-dots">
-        {originalImages.map((_, index) => (
-          <button
-            key={index}
-            className={`gallery-dot ${index === (selectedIndex % originalLength) ? "is-active" : ""}`}
-            onClick={() => scrollToIndex(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+      <div className="carousel-controls container">
+        <div className="dots">
+          {images.map((_, i) => (
+            <button 
+              key={i}
+              className={`dot ${activeIndex === i ? 'active' : ''}`} 
+              onClick={() => setActiveIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+        
+        <div className="button-group">
+          <button 
+            type="button" 
+            className="nav-btn prev"
+            disabled={activeIndex === 0} 
+            onClick={() => setActiveIndex(activeIndex - 1)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button 
+            type="button" 
+            className="nav-btn next"
+            disabled={activeIndex === images.length - 1} 
+            onClick={() => setActiveIndex(activeIndex + 1)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
       </div>
     </section>
   );
 }
-
-
-
-

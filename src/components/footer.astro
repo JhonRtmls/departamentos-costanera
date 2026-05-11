@@ -90,7 +90,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
           <a
             href="https://direct-book.com/properties/departamentoscostaneradirect"
             target="_blank"
-            rel="noopener noreferrer">{t("nav.reservas")}</a>
+            rel="noopener noreferrer">{t("nav.reservas")}</a
+          >
         </li>
         <li><a href={l("/contacto")}>{t("nav.contacto")}</a></li>
       </ul>
@@ -156,10 +157,10 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   <div class="footer-partners container">
     <h3 class="footer-heading center">{t("footer.partners_title")}</h3>
     <div class="partners-grid">
-      <img src={`${baseUrl}/crece-sostenible.svg`} alt="Crece Sostenible" class="partner-logo" />
-      <img src={`${baseUrl}/escnna.svg`} alt="ESCNNA" class="partner-logo" />
-      <img src={`${baseUrl}/logo-resimple.svg`} alt="Resimple" class="partner-logo" />
-      <img src={`${baseUrl}/sernatur.svg`} alt="Sernatur" class="partner-logo" />
+      <div class="partner-logo" style={`background-image: url(${baseUrl}/crece-sostenible.svg)`} role="img" aria-label="Crece Sostenible"></div>
+      <div class="partner-logo" style={`background-image: url(${baseUrl}/escnna.svg)`} role="img" aria-label="ESCNNA"></div>
+      <div class="partner-logo" style={`background-image: url(${baseUrl}/logo-resimple.svg)`} role="img" aria-label="Resimple"></div>
+      <div class="partner-logo" style={`background-image: url(${baseUrl}/sernatur.svg)`} role="img" aria-label="Sernatur"></div>
     </div>
   </div>
 
@@ -323,8 +324,6 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     margin-top: 1.25rem;
   }
 
-
-
   /* ── Responsive ───────────────────────────────────────────── */
   @media (max-width: 1024px) {
     .footer-main {
@@ -354,7 +353,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     }
 
     .partner-logo {
-      height: 35px;
+      height: 25px;
+      max-width: 100px;
     }
   }
 
@@ -378,13 +378,16 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
 
   .partner-logo {
-    height: 50px;
-    width: auto;
-    filter: grayscale(1) brightness(2) opacity(0.7);
+    width: 160px;
+    height: 55px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     transition: var(--transition);
+    filter: brightness(1.1);
   }
 
   .partner-logo:hover {
-    filter: grayscale(0) brightness(1) opacity(1);
+    filter: brightness(1.3) scale(1.05);
   }
 </style>

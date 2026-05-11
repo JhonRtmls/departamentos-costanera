@@ -8,14 +8,10 @@ const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const introImages = [
-  { src: `${base}/gallery/U67A9020.jpg`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/U67A9037.jpg`, alt: t("intro.img_alt") as string },
   { src: `${base}/gallery/U67A8631.jpg`, alt: t("intro.img_alt") as string },
   { src: `${base}/gallery/U67A8640.jpg`, alt: t("intro.img_alt") as string },
   { src: `${base}/gallery/U67A8691.jpg`, alt: t("intro.img_alt") as string },
-  { src: `${base}/gallery/U67A8757.jpg`, alt: t("intro.img_alt") as string },
-  { src: `${base}/gallery/U67A9126.jpg`, alt: t("intro.img_alt") as string },
-  { src: `${base}/gallery/U67A9193.jpg`, alt: t("intro.img_alt") as string },
-  { src: `${base}/gallery/U67A9408.jpg`, alt: t("intro.img_alt") as string },
 ];
 ---
 
@@ -51,9 +47,7 @@ const introImages = [
   .intro-image {
     position: relative;
     border-radius: 20px;
-    overflow: hidden;
     aspect-ratio: 4 / 5;
-    box-shadow: 0 24px 60px rgba(11, 18, 21, 0.12);
   }
 
   .intro-image img {

@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import SubPageHero from "../../components/SubPageHero.astro";
+import ApartmentArea from "../../components/ApartmentArea.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("en");
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<Layout
+  title={`${t("nav.sostenibilidad")} | Departamentos Costanera`}
+  description={t("sustain.desc") as string}
+>
+  <Navbar />
+  <main>
+    <SubPageHero 
+      title={t("nav.sostenibilidad") as string} 
+      subtitle={t("sustain.desc") as string}
+      tag={t("sustain.tag") as string}
+    />
+    
+    <ApartmentArea 
+      tag="Our Commitment"
+      title={t("sustain.title") as string}
+      description={t("sustain.p1") as string}
+      images={[
+        `${baseUrl}/gallery/U67A8631.jpg`,
+        `${baseUrl}/gallery/U67A8640.jpg`
+      ]}
+    />
+
+    <ApartmentArea 
+      tag="Clean Energy"
+      title={t("sustain.solar_title") as string}
+      description={t("sustain.solar_desc") as string}
+      images={[
+        `${baseUrl}/gallery/estacionamiento.jpg`,
+        `${baseUrl}/gallery/estacionamiento-2.jpg`
+      ]}
+      reverse={true}
+    />
+
+    <ApartmentArea 
+      tag="Circular Economy"
+      title={t("sustain.recycling_title") as string}
+      description={t("sustain.recycling_desc") as string}
+      images={[
+        `${baseUrl}/gallery/U67A9664.jpg`,
+        `${baseUrl}/gallery/U67A9686.jpg`
+      ]}
+    />
+
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 4rem;
+  }
+</style>

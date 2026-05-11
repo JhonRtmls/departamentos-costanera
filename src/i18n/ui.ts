@@ -12,9 +12,7 @@ export const ui = {
     // Navbar
     'nav.inicio': 'Inicio',
     'nav.departamentos': 'Departamentos',
-    'nav.reservas': 'Reservas',
-    'nav.servicios': 'Servicios',
-    'nav.contacto': 'Contacto',
+    'nav.sostenibilidad': 'Sostenibilidad',
     'nav.que_hacer': '¿Qué hacer?',
     'nav.reservar_ahora': 'Reservar Ahora',
     // Home
@@ -81,6 +79,12 @@ export const ui = {
     'sustain.point_1': 'Energía eficiente y bajo consumo',
     'sustain.point_2': 'Productos de limpieza ecológicos',
     'sustain.point_3': 'Gestión responsable de residuos',
+    'sustain.p1': 'En Departamentos Costanera, nuestro compromiso con el medio ambiente es parte fundamental de nuestra identidad. Implementamos prácticas sustentables para minimizar nuestra huella de carbono y proteger la belleza natural de la Patagonia.',
+    'sustain.p2': 'Contamos con paneles solares para la generación de energía limpia y sistemas de calefacción eficientes. Además, trabajamos con proveedores locales que comparten nuestros valores de respeto por el planeta.',
+    'sustain.solar_title': 'Energía Solar',
+    'sustain.solar_desc': 'Utilizamos paneles fotovoltaicos para reducir nuestra dependencia de combustibles fósiles, aprovechando la luz solar de la región.',
+    'sustain.recycling_title': 'Gestión de Residuos',
+    'sustain.recycling_desc': 'Trabajamos activamente con Resimple y otras entidades para asegurar un reciclaje eficiente de todos nuestros desechos.',
     // Policies
     'policies.tag': 'Políticas y Pagos',
     'policies.title': 'Información para tu estadía',
@@ -175,9 +179,7 @@ export const ui = {
     // Navbar
     'nav.inicio': 'Home',
     'nav.departamentos': 'Apartments',
-    'nav.reservas': 'Booking',
-    'nav.servicios': 'Services',
-    'nav.contacto': 'Contact',
+    'nav.sostenibilidad': 'Sustainability',
     'nav.que_hacer': 'What to do?',
     'nav.reservar_ahora': 'Book Now',
     // Home
@@ -244,6 +246,12 @@ export const ui = {
     'sustain.point_1': 'Energy efficient and low consumption',
     'sustain.point_2': 'Eco-friendly cleaning products',
     'sustain.point_3': 'Responsible waste management',
+    'sustain.p1': 'At Costanera Apartments, our commitment to the environment is a fundamental part of our identity. We implement sustainable practices to minimize our carbon footprint and protect the natural beauty of Patagonia.',
+    'sustain.p2': 'We have solar panels for clean energy generation and efficient heating systems. Additionally, we work with local providers who share our values of respect for the planet.',
+    'sustain.solar_title': 'Solar Energy',
+    'sustain.solar_desc': 'We use photovoltaic panels to reduce our dependence on fossil fuels, taking advantage of the region\'s sunlight.',
+    'sustain.recycling_title': 'Waste Management',
+    'sustain.recycling_desc': 'We actively work with Resimple and other entities to ensure efficient recycling of all our waste.',
     // Policies
     'policies.tag': 'Policies & Payments',
     'policies.title': 'Stay Information',
@@ -338,9 +346,7 @@ export const ui = {
     // Navbar
     'nav.inicio': '首页',
     'nav.departamentos': '公寓',
-    'nav.reservas': '预订',
-    'nav.servicios': '服务',
-    'nav.contacto': '联系我们',
+    'nav.sostenibilidad': '可持续发展',
     'nav.que_hacer': '做什么？',
     'nav.reservar_ahora': '立即预订',
     // Home
@@ -407,6 +413,12 @@ export const ui = {
     'sustain.point_1': '节能低耗',
     'sustain.point_2': '环保清洁产品',
     'sustain.point_3': '负责任的废物管理',
+    'sustain.p1': '在 Costanera 公寓，我们对环境的承诺是我们身份的基本组成部分。我们实施可持续做法，以尽量减少碳足迹，保护巴塔哥尼亚的自然美景。',
+    'sustain.p2': '我们拥有用于清洁能源生成的太阳能电池板和高效的供暖系统。此外，我们与认同我们尊重地球价值观的当地供应商合作。',
+    'sustain.solar_title': '太阳能',
+    'sustain.solar_desc': '我们使用光伏电池板来减少对化石燃料的依赖，利用该地区的阳光。',
+    'sustain.recycling_title': '废物管理',
+    'sustain.recycling_desc': '我们与 Resimple 等机构积极合作，确保所有废物的有效回收。',
     // Policies
     'policies.tag': '政策与付款',
     'policies.title': '住宿信息',
