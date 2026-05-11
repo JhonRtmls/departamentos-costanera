@@ -1,0 +1,54 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import SubPageHero from "../../components/SubPageHero.astro";
+import ApartmentArea from "../../components/ApartmentArea.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("es");
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<Layout
+  title={`${t("que_hacer.title")} | Departamentos Costanera`}
+  description={t("que_hacer.subtitle") as string}
+>
+  <Navbar />
+  <main>
+    <SubPageHero 
+      title={t("que_hacer.title") as string} 
+      subtitle={t("que_hacer.subtitle") as string}
+      tag={t("que_hacer.tag") as string}
+    />
+    
+    <ApartmentArea 
+      tag="Centro Histórico"
+      title={t("que_hacer.circuito_urbano_title") as string}
+      description={t("que_hacer.circuito_urbano_desc") as string}
+      images={[
+        `${baseUrl}/atracciones/Museo-Sara-Brown-Punta-Arenas.png`,
+        `${baseUrl}/atracciones/Monumento-Al-Ovejero-Punta-Arenas-Chile.png`
+      ]}
+    />
+
+    <ApartmentArea 
+      tag="Patagonia"
+      title={t("que_hacer.imperdibles_title") as string}
+      description={t("que_hacer.imperdibles_desc") as string}
+      images={[
+        `${baseUrl}/atracciones/Museo-Nao-Victoria-Magallanes-Chile.png`,
+        `${baseUrl}/atracciones/Cementerio-Municipal-Atracciones-Punta-Arenas.png`
+      ]}
+      reverse={true}
+    />
+
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 4rem;
+  }
+</style>

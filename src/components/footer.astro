@@ -152,6 +152,17 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     </div>
   </div>
 
+  <!-- Partner Logos -->
+  <div class="footer-partners container">
+    <h3 class="footer-heading center">{t("footer.partners_title")}</h3>
+    <div class="partners-grid">
+      <img src={`${baseUrl}/crece-sostenible.svg`} alt="Crece Sostenible" class="partner-logo" />
+      <img src={`${baseUrl}/escnna.svg`} alt="ESCNNA" class="partner-logo" />
+      <img src={`${baseUrl}/logo-resimple.svg`} alt="Resimple" class="partner-logo" />
+      <img src={`${baseUrl}/sernatur.svg`} alt="Sernatur" class="partner-logo" />
+    </div>
+  </div>
+
   <!-- Bottom bar -->
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
@@ -337,5 +348,43 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     .footer-paylogos {
       max-width: 180px;
     }
+
+    .partners-grid {
+      gap: 1.5rem;
+    }
+
+    .partner-logo {
+      height: 35px;
+    }
+  }
+
+  /* ── Partners Section ──────────────────────────────────────── */
+  .footer-partners {
+    padding-bottom: 3.5rem;
+    text-align: center;
+  }
+
+  .footer-heading.center {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .partners-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+
+  .partner-logo {
+    height: 50px;
+    width: auto;
+    filter: grayscale(1) brightness(2) opacity(0.7);
+    transition: var(--transition);
+  }
+
+  .partner-logo:hover {
+    filter: grayscale(0) brightness(1) opacity(1);
   }
 </style>

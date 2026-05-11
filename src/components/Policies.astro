@@ -5,6 +5,7 @@ import payLogos from '../assets/paylogos.svg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <section class="policies reveal" id="politicas">
@@ -34,18 +35,18 @@ const t = useTranslations(lang);
             <tbody>
               <tr>
                 <td>{t("policies.rates_4")}</td>
-                <td class="price">$100.000 CLP</td>
-                <td class="price high-season">$130.000 CLP</td>
+                 <td class="price">$100.000 CLP</td>
+                 <td class="price high-season">$120.000 CLP</td>
               </tr>
               <tr>
                 <td>{t("policies.rates_3")}</td>
-                <td class="price">$90.000 CLP</td>
-                <td class="price high-season">$120.000 CLP</td>
+                 <td class="price">$90.000 CLP</td>
+                 <td class="price high-season">$110.000 CLP</td>
               </tr>
               <tr>
                 <td>{t("policies.rates_2_1")}</td>
-                <td class="price">$80.000 CLP</td>
-                <td class="price high-season">$110.000 CLP</td>
+                 <td class="price">$80.000 CLP</td>
+                 <td class="price high-season">$100.000 CLP</td>
               </tr>
             </tbody>
           </table>
@@ -61,8 +62,9 @@ const t = useTranslations(lang);
         </div>
         <h3>{t("policies.payment_title")}</h3>
         <p>{t("policies.payment_desc")}</p>
+        <p class="policy-note">{t("policies.business_note")}</p>
         <div class="payment-icons">
-           <Image src={payLogos} alt="Métodos de pago" class="payment-logo-full" />
+           <img src={`${baseUrl}/paylogos.svg`} alt="Métodos de pago" class="payment-logo-full" />
         </div>
       </div>
 
@@ -72,7 +74,8 @@ const t = useTranslations(lang);
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4c0-.5.2-1 .5-1.5s.8-.5 1.5-.5h8c.7 0 1.2.2 1.5.5s.5 1 .5 1.5v18l-4-2-4 2-4-2Z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 8h4"/></svg>
         </div>
         <h3>{t("policies.vat_exemption_title")}</h3>
-        <p class="vat-text-main">{t("policies.vat_exemption_desc")}</p>
+         <p class="vat-text-main">{t("policies.vat_exemption_desc")}</p>
+         <p class="policy-note">{t("policies.dollar_note")}</p>
       </div>
 
       <!-- Times -->
@@ -83,12 +86,11 @@ const t = useTranslations(lang);
         <h3>{t("policies.check_title")}</h3>
         <ul class="times-list">
           <li>
-            <span class="time-label">Check-in</span>
-            <span class="time-value">3:00 PM</span>
+            <span class="time-label">{t("policies.check_in")}</span>
+            <span class="early-check">{t("policies.early_check_in")}</span>
           </li>
           <li>
-            <span class="time-label">Check-out</span>
-            <span class="time-value">11:00 AM</span>
+            <span class="time-label">{t("policies.check_out")}</span>
           </li>
         </ul>
         <p class="time-note">{t("policies.check_note")}</p>
@@ -233,6 +235,14 @@ const t = useTranslations(lang);
     line-height: 1.5 !important;
     color: var(--text-main);
     opacity: 0.9;
+    margin-bottom: 0.75rem;
+  }
+
+  .policy-note {
+    font-size: 0.85rem;
+    color: var(--soft-apricot);
+    margin-top: 0.5rem;
+    font-weight: 500;
   }
 
   .times-list {
@@ -242,7 +252,8 @@ const t = useTranslations(lang);
 
   .times-list li {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.25rem;
     padding: 0.75rem 0;
     border-bottom: 1px solid rgba(78, 44, 35, 0.05);
   }
@@ -252,13 +263,16 @@ const t = useTranslations(lang);
   }
 
   .time-label {
-    font-weight: 600;
-    color: var(--text-muted);
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1.05rem;
   }
 
-  .time-value {
-    font-weight: 700;
-    color: var(--espresso);
+  .early-check {
+    font-size: 0.9rem;
+    color: var(--soft-apricot);
+    font-weight: 500;
+    opacity: 0.9;
   }
 
   .time-note {
