@@ -27,21 +27,25 @@ const t = useTranslations(lang);
             <thead>
               <tr>
                 <th>{t("policies.table_guests")}</th>
-                <th>{t("policies.table_price")}</th>
+                <th>{t("policies.low_season")}</th>
+                <th>{t("policies.high_season")}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>{t("policies.rates_4")}</td>
                 <td class="price">$100.000 CLP</td>
+                <td class="price high-season">$130.000 CLP</td>
               </tr>
               <tr>
                 <td>{t("policies.rates_3")}</td>
                 <td class="price">$90.000 CLP</td>
+                <td class="price high-season">$120.000 CLP</td>
               </tr>
               <tr>
                 <td>{t("policies.rates_2_1")}</td>
                 <td class="price">$80.000 CLP</td>
+                <td class="price high-season">$110.000 CLP</td>
               </tr>
             </tbody>
           </table>
@@ -87,6 +91,7 @@ const t = useTranslations(lang);
             <span class="time-value">11:00 AM</span>
           </li>
         </ul>
+        <p class="time-note">{t("policies.check_note")}</p>
       </div>
     </div>
   </div>
@@ -190,6 +195,10 @@ const t = useTranslations(lang);
     color: #ffffff;
   }
 
+  .high-season {
+    color: var(--soft-apricot) !important;
+  }
+
   .policies-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -250,6 +259,14 @@ const t = useTranslations(lang);
   .time-value {
     font-weight: 700;
     color: var(--espresso);
+  }
+
+  .time-note {
+    margin-top: 1rem;
+    font-size: 0.85rem !important;
+    font-style: italic;
+    opacity: 0.8;
+    color: var(--text-main);
   }
 
   .policy-icon {
