@@ -1,13 +1,10 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import { getImage } from 'astro:assets';
-import heroImage from '../assets/hero.jpeg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-const optimizedHero = await getImage({ src: heroImage, format: 'webp', quality: 80 });
-const heroBg = `url('${optimizedHero.src}')`;
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const heroBg = `url('${baseUrl}/hero.jpeg')`;
 ---
 
 <section class="hero" id="inicio">

@@ -1,16 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap");
 
 :root {
-  /* Terracotta Sunset Palette */
-  --espresso: #4e2c23;
-  --burnt-peach: #e2725b;
-  --soft-apricot: #ffdab9;
+  /* Updated Terracotta Palette */
+  --deep-terracotta: #B2593D;
+  --muted-terracotta: #CC695E;
+  --coral-terracotta: #E08A6E;
+  --soft-peach: #EFA78A;
+  --cream-peach: #FBE8D4;
 
-  --primary: var(--burnt-peach);
-  --accent: var(--burnt-peach);
-  --accent-hover: #f08d7a;
-  --secondary: var(--soft-apricot);
-  --secondary-hover: #ffffff;
+  /* Legacy Compatibility Names */
+  --espresso: var(--deep-terracotta);
+  --burnt-peach: var(--muted-terracotta);
+  --soft-apricot: var(--soft-peach);
+
+  --primary: var(--muted-terracotta);
+  --accent: var(--coral-terracotta);
+  --accent-hover: var(--soft-peach);
+  --secondary: var(--soft-peach);
+  --secondary-hover: var(--cream-peach);
   --white: #ffffff;
   --title-color: #ffffff;
   --text-main: rgba(255, 255, 255, 0.85);
@@ -22,10 +29,10 @@
   --navbar-height: 80px;
   --glass-bg: linear-gradient(
     135deg,
-    rgba(226, 114, 91, 0.18) 0%,
-    rgba(226, 114, 91, 0.08) 100%
+    rgba(204, 105, 94, 0.18) 0%,
+    rgba(204, 105, 94, 0.08) 100%
   );
-  --glass-border: rgba(226, 114, 91, 0.25);
+  --glass-border: rgba(204, 105, 94, 0.25);
   --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -159,14 +166,14 @@ html.lenis body {
   color: #ffffff;
   background: var(--espresso);
   border-radius: 50px;
-  box-shadow: 0 4px 20px rgba(78, 44, 35, 0.2);
+  box-shadow: 0 4px 20px rgba(178, 89, 61, 0.2);
 }
 
 .btn-iridescent-sm {
   padding: 0.6rem;
   border-radius: 50%;
-  background: rgba(78, 44, 35, 0.05);
-  border: 1px solid rgba(78, 44, 35, 0.1);
+  background: rgba(178, 89, 61, 0.05);
+  border: 1px solid rgba(178, 89, 61, 0.1);
   color: var(--espresso);
 }
 
@@ -178,7 +185,7 @@ html.lenis body {
 }
 
 .btn-iridescent:hover {
-  box-shadow: 0 8px 30px rgba(78, 44, 35, 0.3);
+  box-shadow: 0 8px 30px rgba(178, 89, 61, 0.3);
 }
 
 .btn-iridescent-sm:hover {
@@ -192,14 +199,14 @@ html.lenis body {
   content: "";
   position: absolute;
   inset: -100%;
-  background: linear-gradient(
-    95deg in oklab,
-    oklch(0.6 0.18 30) 0%,
-    oklch(0.7 0.15 60) 25%,
-    oklch(0.8 0.1 90) 50%,
-    oklch(0.7 0.15 60) 75%,
-    oklch(0.6 0.18 30) 100%
-  );
+    background: linear-gradient(
+      95deg in oklab,
+      oklch(0.6 0.18 15) 0%,
+      oklch(0.7 0.15 30) 25%,
+      oklch(0.8 0.1 45) 50%,
+      oklch(0.7 0.15 30) 75%,
+      oklch(0.6 0.18 15) 100%
+    );
   background-size: 200% 100%;
   opacity: calc(var(--active) * 0.8);
   transition: opacity 0.5s ease;
@@ -256,19 +263,19 @@ html.lenis body {
   /* Restaurado el degradado de precisión original al 100% */
   background: linear-gradient(
     180deg,
-    hsl(13deg 38% 22%) 0%,
-    hsl(12deg 40% 28%) 4%,
-    hsl(12deg 41% 35%) 9%,
-    hsl(11deg 41% 41%) 15%,
-    hsl(11deg 42% 48%) 22%,
-    hsl(11deg 52% 55%) 29%,
-    hsl(10deg 70% 62%) 36%,
-    hsl(14deg 73% 65%) 44%,
-    hsl(18deg 76% 69%) 52%,
-    hsl(21deg 80% 73%) 61%,
-    hsl(23deg 84% 77%) 72%,
-    hsl(26deg 90% 81%) 84%,
-    hsl(28deg 100% 86%) 100%
+    hsl(14deg 49% 20%) 0%,
+    hsl(14deg 49% 28%) 4%,
+    hsl(14deg 49% 35%) 9%,
+    hsl(14deg 49% 41%) 15%,
+    hsl(14deg 49% 47%) 22%,
+    hsl(10deg 50% 52%) 29%,
+    hsl(6deg 52% 58%) 36%,
+    hsl(10deg 58% 61%) 44%,
+    hsl(15deg 65% 65%) 52%,
+    hsl(16deg 71% 69%) 61%,
+    hsl(17deg 78% 74%) 72%,
+    hsl(23deg 79% 82%) 84%,
+    hsl(29deg 81% 91%) 100%
   );
   pointer-events: none;
 }

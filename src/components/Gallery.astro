@@ -1,8 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import GalleryReact from "./GalleryReact";
-import type { ImageMetadata } from 'astro';
-import { getImage } from 'astro:assets';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -12,8 +10,8 @@ const slideNames = ['slide1.webp', 'slide2.webp', 'slide3.webp', 'slide4.webp', 
 
 const images = slideNames.map((name, index) => ({
   src: `${baseUrl}/gallery/${name}`,
-  alt: t(`gallery.alt_${index + 1}`) as string,
-  caption: t(`gallery.caption_${index + 1}`) as string,
+  alt: t(`gallery.alt_${index + 1}` as any) as string,
+  caption: t(`gallery.caption_${index + 1}` as any) as string,
 }));
 ---
 
