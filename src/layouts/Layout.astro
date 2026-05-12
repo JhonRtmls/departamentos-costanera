@@ -18,6 +18,9 @@ const {
   description = t('site.description'),
 } = Astro.props;
 
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+
 // Build FAQ Schema for GEO
 const faqSchema = {
   "@context": "https://schema.org",
@@ -72,23 +75,23 @@ const faqSchema = {
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${Astro.url.origin}${import.meta.env.BASE_URL}hero.jpeg`} />
+    <meta property="og:image" content={`${baseUrl}/hero.jpeg`} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`${Astro.url.origin}${import.meta.env.BASE_URL}hero.jpeg`} />
+    <meta property="twitter:image" content={`${baseUrl}/hero.jpeg`} />
 
     <link
       rel="icon"
       type="image/svg+xml"
-      href={`${Astro.url.origin}${import.meta.env.BASE_URL}favicon.svg`}
+      href={`${baseUrl}/favicon.svg`}
     />
     <link
       rel="icon"
-      href={`${Astro.url.origin}${import.meta.env.BASE_URL}favicon.svg`}
+      href={`${baseUrl}/favicon.svg`}
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -107,7 +110,7 @@ const faqSchema = {
       "@context": "https://schema.org",
       "@type": "LodgingBusiness",
       "name": "Departamentos Costanera",
-      "image": `${Astro.url.origin}${import.meta.env.BASE_URL}hero.jpeg`,
+      "image": `${baseUrl}/hero.jpeg`,
       "description": description,
       "address": {
         "@type": "PostalAddress",

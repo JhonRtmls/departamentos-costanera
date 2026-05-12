@@ -111,17 +111,18 @@ const services = [
   .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2.5rem;
   }
 
   .service-card {
-    padding: 2.5rem 1.5rem;
+    padding: 3.5rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.25rem;
+    gap: 2rem;
     transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .service-card:hover {
@@ -139,15 +140,23 @@ const services = [
 
   .service-icon svg,
   .service-icon img {
-    width: 64px;
-    height: 64px;
+    width: 140px;
+    height: 140px;
     object-fit: contain;
     /* White color for all icons */
     filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .service-card:hover .service-icon img,
+  .service-card:hover .service-icon svg {
+    transform: scale(1.1);
+    opacity: 1;
   }
 
   .service-card h3 {
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 0.5rem;
@@ -156,22 +165,40 @@ const services = [
   }
 
   .service-card p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-main);
     line-height: 1.6;
     display: grid;
     text-align: center;
+    opacity: 0.8;
   }
 
   @media (max-width: 768px) {
     .services-grid {
       grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .service-icon svg,
+    .service-icon img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .service-card {
+      padding: 2.5rem 1rem;
     }
   }
 
   @media (max-width: 480px) {
     .services-grid {
       grid-template-columns: 1fr;
+    }
+
+    .service-icon svg,
+    .service-icon img {
+      width: 120px;
+      height: 120px;
     }
   }
 </style>
