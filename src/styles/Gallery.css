@@ -64,6 +64,7 @@
   border-radius: 24px;
   overflow: hidden;
   transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: transform;
 }
 
 .carousel-card:not(.active) .carousel-card-content {

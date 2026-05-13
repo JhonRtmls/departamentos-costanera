@@ -77,7 +77,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
           }
         </div>
       </div>
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu" aria-expanded="false">
+      <button
+        class="mobile-toggle"
+        id="mobile-toggle"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
         <span></span>
         <span></span>
         <span></span>
@@ -100,7 +105,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         href="https://direct-book.com/properties/departamentoscostaneradirect"
         target="_blank"
         rel="noopener noreferrer"
-        class="btn-iridescent mobile-btn-reserva"><span>{t("nav.reservar_ahora")}</span></a
+        class="btn-iridescent mobile-btn-reserva"
+        ><span>{t("nav.reservar_ahora")}</span></a
       >
     </div>
   </div>
@@ -402,20 +408,20 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   // Mobile menu toggle
   const mobileToggle = document.getElementById("mobile-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
-  
+
   if (mobileToggle && mobileMenu) {
     mobileToggle.addEventListener("click", () => {
       const expanded = mobileToggle.getAttribute("aria-expanded") === "true";
       mobileToggle.setAttribute("aria-expanded", (!expanded).toString());
       mobileMenu.classList.toggle("active");
-      
+
       // Prevent body scroll when menu is open
       document.body.style.overflow = !expanded ? "hidden" : "";
     });
 
     // Close menu when clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
         mobileToggle.setAttribute("aria-expanded", "false");
         mobileMenu.classList.remove("active");
         document.body.style.overflow = "";

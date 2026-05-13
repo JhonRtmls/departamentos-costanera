@@ -20,6 +20,7 @@
 .intro-gallery-container {
   display: flex;
   height: 100%;
+  will-change: transform;
 }
 
 .intro-gallery-slide {
@@ -33,6 +34,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  will-change: transform;
 }
 
 .intro-gallery-dots {

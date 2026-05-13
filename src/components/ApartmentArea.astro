@@ -14,37 +14,41 @@ const mainImage = images[0];
 const thumbImages = images.slice(1, 4);
 ---
 
-<section class={`area-section ${reverse ? 'reverse' : ''}`}>
+<section class={`area-section ${reverse ? "reverse" : ""}`}>
   <div class="container area-grid">
     <div class="area-content reveal">
       {tag && <span class="area-tag">{tag}</span>}
       <h2 class="area-title">{title}</h2>
       <p class="area-description">{description}</p>
     </div>
-    
+
     <div class="area-gallery reveal" style="animation-delay: 0.2s;">
       <div class="gallery-main">
-        {mainImage && (
-          <img 
-            src={`${baseUrl}/gallery/${mainImage}`}
-            alt={title} 
-            loading="lazy"
-          />
-        )}
+        {
+          mainImage && (
+            <img
+              src={`${baseUrl}/gallery/${mainImage}`}
+              alt={title}
+              loading="lazy"
+            />
+          )
+        }
       </div>
-      {thumbImages.length > 0 && (
-        <div class="gallery-thumbs">
-          {thumbImages.map((img: string) => (
-            <div class="thumb">
-              <img 
-                src={`${baseUrl}/gallery/${img}`}
-                alt={title} 
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
-      )}
+      {
+        thumbImages.length > 0 && (
+          <div class="gallery-thumbs">
+            {thumbImages.map((img: string) => (
+              <div class="thumb">
+                <img
+                  src={`${baseUrl}/gallery/${img}`}
+                  alt={title}
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
 </section>
@@ -69,7 +73,7 @@ const thumbImages = images.slice(1, 4);
   .area-section.reverse .area-content {
     order: 2;
   }
-  
+
   .area-section.reverse .area-gallery {
     order: 1;
   }
@@ -146,11 +150,12 @@ const thumbImages = images.slice(1, 4);
   }
 
   @media (max-width: 992px) {
-    .area-grid, .area-section.reverse .area-grid {
+    .area-grid,
+    .area-section.reverse .area-grid {
       grid-template-columns: 1fr;
       gap: 2.5rem;
     }
-    
+
     .area-section.reverse .area-content,
     .area-section.reverse .area-gallery {
       order: unset;

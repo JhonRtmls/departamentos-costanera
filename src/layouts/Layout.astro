@@ -75,14 +75,14 @@ const faqSchema = {
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${baseUrl}/hero.jpeg`} />
+    <meta property="og:image" content={`${baseUrl}/hero.webp`} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`${baseUrl}/hero.jpeg`} />
+    <meta property="twitter:image" content={`${baseUrl}/hero.webp`} />
 
     <link
       rel="icon"
@@ -110,7 +110,7 @@ const faqSchema = {
       "@context": "https://schema.org",
       "@type": "LodgingBusiness",
       "name": "Departamentos Costanera",
-      "image": `${baseUrl}/hero.jpeg`,
+      "image": `${baseUrl}/hero.webp`,
       "description": description,
       "address": {
         "@type": "PostalAddress",
@@ -153,10 +153,10 @@ const faqSchema = {
 
       // Initialize Lenis
       const lenis = new Lenis({
-        duration: 1.2,
+        duration: 1.0,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        touchMultiplier: 1.5,
-        smoothWheel: true,
+        touchMultiplier: 2,
+        infinite: false,
       });
 
       // Frame loop
