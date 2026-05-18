@@ -150,7 +150,7 @@ export const ui = {
     'contact.form_message_placeholder': 'Cuéntanos sobre tu estadía...',
     'contact.form_submit': 'Enviar consulta',
     // Footer
-    'footer.tagline': 'La mejor experiencia de alojamiento en Punta Arenas, Chile.',
+    'footer.tagline': 'Tu refugio en el corazón de Punta Arenas',
     'footer.map_title': 'Mapa del sitio',
     'footer.contact_title': 'Contáctanos',
     'footer.payment_title': 'Métodos de pago',
@@ -325,7 +325,7 @@ export const ui = {
     'contact.form_message_placeholder': 'Tell us about your stay...',
     'contact.form_submit': 'Send inquiry',
     // Footer
-    'footer.tagline': 'The best accommodation experience in Punta Arenas, Chile.',
+    'footer.tagline': 'Your home at the end of the world',
     'footer.map_title': 'Sitemap',
     'footer.contact_title': 'Contact us',
     'footer.payment_title': 'Payment methods',
@@ -500,7 +500,7 @@ export const ui = {
     'contact.form_message_placeholder': '告诉我们您的住宿需求...',
     'contact.form_submit': '发送咨询',
     // Footer
-    'footer.tagline': '智利蓬塔阿雷纳斯最佳住宿体验。',
+    'footer.tagline': '世界尽头的您的家',
     'footer.map_title': '网站地图',
     'footer.contact_title': '联系我们',
     'footer.payment_title': '付款方式',

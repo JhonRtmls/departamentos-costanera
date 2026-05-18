@@ -10,6 +10,19 @@ const faqs = [
   { q: t("faq.q3"), a: t("faq.a3") },
   { q: t("faq.q4"), a: t("faq.a4") },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a,
+    },
+  })),
+};
 ---
 
 <section class="faq reveal" id="faq">
@@ -38,6 +51,8 @@ const faqs = [
     </div>
   </div>
 </section>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
 
 <script>
   function initFAQ() {

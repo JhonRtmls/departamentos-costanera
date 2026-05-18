@@ -20,51 +20,54 @@ const {
 
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
+const ogImageUrl = new URL(`${baseUrl}/hero.webp`, Astro.site).href;
 
-// Build FAQ Schema for GEO
-const faqSchema = {
+// Gallery images for ImageObject schema
+const galleryImageNames = [
+  'u67a9037.webp', 'u67a8631.webp', 'u67a8640.webp', 'u67a8691.webp',
+  'u67a8807.webp', 'living-1.webp', 'living-2.webp', 'living-3.webp', 'living-4.webp',
+  'comedor-1.webp', 'comedor-2.webp', 'comedor-3.webp', 'comedor.webp',
+  'habitacion-1.webp', 'habitacion-2.webp', 'cocina-1.webp', 'cocina-2.webp',
+  'bano.webp', 'estacionamiento.webp', 'estacionamiento-2.webp',
+  'costanera-1.webp', 'costanera-2.webp', 'costanera-3.webp', 'costanera-4.webp',
+  'plaza-1.webp', 'plaza-2.webp', 'plaza-3.webp', 'plaza-4.webp',
+  'slide1.webp', 'slide2.webp', 'slide3.webp', 'slide4.webp', 'slide5.webp', 'slide6.webp',
+];
+const galleryImages = galleryImageNames.map(name => ({
+  "@type": "ImageObject",
+  "contentUrl": new URL(`${baseUrl}/gallery/${name}`, Astro.site).href,
+  "name": `Departamentos Costanera - ${name.replace('.webp', '').replace(/-/g, ' ')}`,
+}));
+
+// BreadcrumbList schema based on current page
+const pathSegments = Astro.url.pathname.replace(/\/$/, "").split("/").filter(Boolean);
+const breadcrumbList = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@type": "BreadcrumbList",
+  "itemListElement": [
     {
-      "@type": "Question",
-      "name": t('faq.q1'),
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": t('faq.a1')
-      }
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": new URL(baseUrl, Astro.site).href,
     },
-    {
-      "@type": "Question",
-      "name": t('faq.q2'),
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": t('faq.a2')
-      }
-    },
-    {
-      "@type": "Question",
-      "name": t('faq.q3'),
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": t('faq.a3')
-      }
-    },
-    {
-      "@type": "Question",
-      "name": t('faq.q4'),
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": t('faq.a4')
-      }
-    }
-  ]
+    ...pathSegments.map((segment, index) => {
+      const label = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
+      return {
+        "@type": "ListItem",
+        "position": index + 2,
+        "name": label,
+        "item": new URL(`${baseUrl}/${pathSegments.slice(0, index + 1).join("/")}/`, Astro.site).href,
+      };
+    }),
+  ],
 };
 ---
 
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="Content-Language" content={lang} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="author" content="Departamentos Costanera" />
@@ -75,14 +78,16 @@ const faqSchema = {
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${baseUrl}/hero.webp`} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`${baseUrl}/hero.webp`} />
+    <meta property="twitter:image" content={ogImageUrl} />
 
     <link
       rel="icon"
@@ -98,9 +103,7 @@ const faqSchema = {
     {/* Performance: Preconnect to font origin */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+    <link rel="preload" as="image" href={`${baseUrl}/hero.webp`} />
     <title>{title}</title>
 
     {/* SEO & GEO Optimizations */}
@@ -110,18 +113,21 @@ const faqSchema = {
     <link rel="alternate" hreflang="zh" href={new URL('/departamentos-costanera/zh/', Astro.site).href} />
     <link rel="alternate" hreflang="x-default" href={new URL('/departamentos-costanera/es/', Astro.site).href} />
 
-    {/* Structured Data / JSON-LD for GEO */}
+    {/* Structured Data / JSON-LD for GEO - LodgingBusiness */}
     <script type="application/ld+json" is:inline set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LodgingBusiness",
       "name": "Departamentos Costanera",
-      "image": `${baseUrl}/hero.webp`,
+      "image": galleryImages.map(img => img.contentUrl),
       "description": description,
+      "datePublished": "2025-01-01",
+      "dateModified": new Date().toISOString().split("T")[0],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Mejicana Nº 1481",
         "addressLocality": "Punta Arenas",
         "addressRegion": "Magallanes",
+        "postalCode": "6200000",
         "addressCountry": "CL"
       },
       "geo": {
@@ -129,19 +135,152 @@ const faqSchema = {
         "latitude": -53.1611,
         "longitude": -70.9081
       },
-      "url": Astro.url.href,
+      "url": new URL(baseUrl, Astro.site).href,
       "telephone": "+56968360280",
+      "email": "contacto@departamentoscostanera.com",
       "priceRange": "$$",
+      "currenciesAccepted": "CLP, USD, EUR",
+      "paymentAccepted": "Cash, Credit Card, Debit Card, Bank Transfer",
       "amenityFeature": [
-        { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Heating", "value": true }
-      ]
+        { "@type": "LocationFeatureSpecification", "name": "WiFi Gratuito de Alta Velocidad", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Estacionamiento Gratuito", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Cocina Full Equipada", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Calefacción Central", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Ropa de cama y toallas", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Caja Fuerte", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Cuna de viaje", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Servicio de Mucama", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Amenities", "value": true }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "9.4",
+        "bestRating": "10",
+        "worstRating": "1",
+        "reviewCount": "150",
+        "ratingExplanation": "Guest rating from Booking.com"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Tarifas por temporada",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "LodgingReservation",
+              "name": "Temporada Baja - 1-2 pasajeros"
+            },
+            "price": "80000",
+            "priceCurrency": "CLP",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "80000",
+              "priceCurrency": "CLP",
+              "unitCode": "DAY"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "LodgingReservation",
+              "name": "Temporada Baja - 3 pasajeros"
+            },
+            "price": "90000",
+            "priceCurrency": "CLP",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "90000",
+              "priceCurrency": "CLP",
+              "unitCode": "DAY"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "LodgingReservation",
+              "name": "Temporada Baja - 4 pasajeros"
+            },
+            "price": "100000",
+            "priceCurrency": "CLP",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "100000",
+              "priceCurrency": "CLP",
+              "unitCode": "DAY"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "LodgingReservation",
+              "name": "Temporada Alta - 1-2 pasajeros"
+            },
+            "price": "100000",
+            "priceCurrency": "CLP",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "100000",
+              "priceCurrency": "CLP",
+              "unitCode": "DAY"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "LodgingReservation",
+              "name": "Temporada Alta - 3 pasajeros"
+            },
+            "price": "110000",
+            "priceCurrency": "CLP",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "110000",
+              "priceCurrency": "CLP",
+              "unitCode": "DAY"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "LodgingReservation",
+              "name": "Temporada Alta - 4 pasajeros"
+            },
+            "price": "120000",
+            "priceCurrency": "CLP",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "120000",
+              "priceCurrency": "CLP",
+              "unitCode": "DAY"
+            }
+          }
+        ]
+      },
+      "makesOffer": galleryImages.map(img => ({
+        "@type": "Offer",
+        "itemOffered": img,
+      }))
     })} />
-    
-    {/* FAQ Schema for AI Citations */}
-    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+
+    {/* WebSite + SearchAction */}
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Departamentos Costanera",
+      "url": new URL(baseUrl, Astro.site).href,
+      "inLanguage": ["es", "en", "zh"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${new URL(baseUrl, Astro.site).href}?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
+    })} />
+
+    {/* BreadcrumbList */}
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbList)} />
   </head>
   <body>
     <div class="ambient-bg" aria-hidden="true">
@@ -156,55 +295,52 @@ const faqSchema = {
     <script>
       import Lenis from "lenis";
 
-      // Initialize Lenis with optimized settings
       const lenis = new Lenis({
         duration: 1.0,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         touchMultiplier: 2,
         infinite: false,
         syncTouch: true,
         syncTouchLerp: 0.075,
-        touchInertiaMultiplier: 35,
       });
 
-      // Frame loop with RAF optimization
-      let rafId;
-      function raf(time) {
+      let rafId: number;
+      function raf(time: number) {
         lenis.raf(time);
         rafId = requestAnimationFrame(raf);
       }
 
       rafId = requestAnimationFrame(raf);
 
-      // Cleanup on page transition
       document.addEventListener("astro:before-swap", () => {
-        if (rafId) cancelAnimationFrame(rafId);
+        cancelAnimationFrame(rafId);
         lenis.destroy();
       });
 
-      // Handle iframes (map, etc)
       document.querySelectorAll("iframe").forEach((iframe) => {
         iframe.addEventListener("mouseenter", () => lenis.stop());
         iframe.addEventListener("mouseleave", () => lenis.start());
       });
 
-      // Reveal animations with content-visibility support
       const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
+        threshold: 0,
+        rootMargin: "0px"
       };
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            // Remove content-visibility once revealed for smooth animation
-            entry.target.style.contentVisibility = "visible";
+            (entry.target as HTMLElement).classList.add("active");
+            (entry.target as HTMLElement).classList.remove("reveal-hidden");
+            observer.unobserve(entry.target);
           }
         });
       }, observerOptions);
 
-      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      document.querySelectorAll(".reveal").forEach((el) => {
+        (el as HTMLElement).classList.add("reveal-hidden");
+        observer.observe(el);
+      });
     </script>
   </body>
 </html>

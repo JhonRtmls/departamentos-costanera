@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://JhonRtmls.github.io',
+  site: 'https://departamentoscostanera.com',
   base: '/departamentos-costanera',
 
   i18n: {
