@@ -7,13 +7,16 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <section class="hero" id="inicio">
-  <img
-    src={`${baseUrl}/hero.webp`}
-    alt="Vista de Punta Arenas, Patagonia Chilena"
-    class="hero-bg-img"
-    fetchpriority="high"
-    decoding="async"
-  />
+  <video
+    class="hero-bg-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster={`${baseUrl}/hero.webp`}
+  >
+    <source src={`${baseUrl}/hero.webm`} type="video/webm" />
+  </video>
   <div class="hero-bg-overlay"></div>
   <div class="hero-content">
     <span class="hero-badge">{t("hero.badge")}</span>
@@ -139,7 +142,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     background: var(--primary);
   }
 
-  .hero-bg-img {
+  .hero-bg-video {
     position: absolute;
     inset: 0;
     width: 100%;
