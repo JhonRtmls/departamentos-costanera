@@ -7,7 +7,6 @@ import ContactForm from "../../components/ContactForm.astro";
 import { useTranslations } from "../../i18n/utils";
 
 const t = useTranslations("es");
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Layout
@@ -27,8 +26,10 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       title={t("sustain.title") as string}
       description={t("sustain.p1") as string}
       images={[
-        `${baseUrl}/gallery/u67a8631.webp`,
-        `${baseUrl}/gallery/u67a8640.webp`
+        'costanera-5.webp',
+        'costanera-8.webp',
+        'costanera-9.webp',
+        'costanera-10.webp'
       ]}
     />
 
@@ -37,7 +38,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       title={t("sustain.solar_title") as string}
       description={t("sustain.solar_desc") as string}
       images={[
-        `${baseUrl}/gallery/estacionamiento.webp`
+        'estacionamiento.webp'
       ]}
       reverse={true}
       logo="crece-sostenible-color.svg"
@@ -49,7 +50,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       title={t("sustain.recycling_title") as string}
       description={t("sustain.recycling_desc") as string}
       images={[
-        `${baseUrl}/gallery/u67a9664.webp`
+        'u67a9664.webp'
       ]}
       logo="resimple.svg"
       logoAlt="Gestión de residuos por Resimple"
