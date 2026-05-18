@@ -8,10 +8,10 @@ const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const introImages = [
-  { src: `${base}/gallery/U67A9037.webp`, alt: t("intro.img_alt") as string },
-  { src: `${base}/gallery/U67A8631.webp`, alt: t("intro.img_alt") as string },
-  { src: `${base}/gallery/U67A8640.webp`, alt: t("intro.img_alt") as string },
-  { src: `${base}/gallery/U67A8691.webp`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/u67a9037.webp`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/u67a8631.webp`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/u67a8640.webp`, alt: t("intro.img_alt") as string },
+  { src: `${base}/gallery/u67a8691.webp`, alt: t("intro.img_alt") as string },
 ];
 ---
 
@@ -20,13 +20,13 @@ const introImages = [
     <div class="intro-visual reveal">
       <div class="mosaic-container">
         <div class="mosaic-item main">
-          <img src={introImages[0].src} alt={introImages[0].alt} loading="lazy" />
+          <img src={introImages[0].src} alt={introImages[0].alt} loading="lazy" decoding="async" />
         </div>
         <div class="mosaic-item secondary">
-          <img src={introImages[1].src} alt={introImages[1].alt} loading="lazy" />
+          <img src={introImages[1].src} alt={introImages[1].alt} loading="lazy" decoding="async" />
         </div>
         <div class="mosaic-item tertiary">
-          <img src={introImages[2].src} alt={introImages[2].alt} loading="lazy" />
+          <img src={introImages[2].src} alt={introImages[2].alt} loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
@@ -46,6 +46,8 @@ const introImages = [
     padding: 8rem 0;
     background: transparent;
     overflow: hidden;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 700px;
   }
 
   .intro-inner {

@@ -91,8 +91,13 @@ const faqSchema = {
     />
     <link
       rel="icon"
-      href={`${baseUrl}/favicon.svg`}
+      type="image/x-icon"
+      href={`${baseUrl}/favicon.ico`}
     />
+
+    {/* Performance: Preconnect to font origin */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -151,24 +156,31 @@ const faqSchema = {
     <script>
       import Lenis from "lenis";
 
-      // Initialize Lenis
+      // Initialize Lenis with optimized settings
       const lenis = new Lenis({
         duration: 1.0,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         touchMultiplier: 2,
         infinite: false,
+        syncTouch: true,
+        syncTouchLerp: 0.075,
+        touchInertiaMultiplier: 35,
       });
 
-      // Frame loop
-      function raf(time: number) {
+      // Frame loop with RAF optimization
+      let rafId;
+      function raf(time) {
         lenis.raf(time);
-        requestAnimationFrame(raf);
+        rafId = requestAnimationFrame(raf);
       }
 
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
 
-      // Debug: confirm initialization
-      console.log("Lenis initialized", lenis);
+      // Cleanup on page transition
+      document.addEventListener("astro:before-swap", () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        lenis.destroy();
+      });
 
       // Handle iframes (map, etc)
       document.querySelectorAll("iframe").forEach((iframe) => {
@@ -176,7 +188,7 @@ const faqSchema = {
         iframe.addEventListener("mouseleave", () => lenis.start());
       });
 
-      // Reveal animations
+      // Reveal animations with content-visibility support
       const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
@@ -186,6 +198,8 @@ const faqSchema = {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
+            // Remove content-visibility once revealed for smooth animation
+            entry.target.style.contentVisibility = "visible";
           }
         });
       }, observerOptions);
