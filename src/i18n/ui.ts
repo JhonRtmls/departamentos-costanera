@@ -12,7 +12,7 @@ export const ui = {
     // Navbar
     'nav.inicio': 'Inicio',
     'nav.departamentos': 'Departamentos',
-    'nav.sostenibilidad': 'Sostenibilidad',
+    'nav.sustentabilidad': 'Sustentabilidad',
     'nav.que_hacer': '¿Qué hacer?',
     'nav.reservar_ahora': 'Reservar Ahora',
     'nav.reservas': 'Reservas',
@@ -187,7 +187,7 @@ export const ui = {
     // Navbar
     'nav.inicio': 'Home',
     'nav.departamentos': 'Apartments',
-    'nav.sostenibilidad': 'Sustainability',
+    'nav.sustentabilidad': 'Sustainability',
     'nav.que_hacer': 'What to do?',
     'nav.reservar_ahora': 'Book Now',
     'nav.reservas': 'Reservations',
@@ -362,7 +362,7 @@ export const ui = {
     // Navbar
     'nav.inicio': '首页',
     'nav.departamentos': '公寓',
-    'nav.sostenibilidad': '可持续发展',
+    'nav.sustentabilidad': '可持续发展',
     'nav.que_hacer': '做什么？',
     'nav.reservar_ahora': '立即预订',
     'nav.reservas': '预订',

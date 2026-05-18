@@ -6,17 +6,17 @@ import ApartmentArea from "../../components/ApartmentArea.astro";
 import ContactForm from "../../components/ContactForm.astro";
 import { useTranslations } from "../../i18n/utils";
 
-const t = useTranslations("es");
+const t = useTranslations("en");
 ---
 
 <Layout
-  title={`${t("nav.sostenibilidad")} | Departamentos Costanera`}
+  title={`${t("nav.sustentabilidad")} | Departamentos Costanera`}
   description={t("sustain.desc") as string}
 >
   <Navbar />
   <main>
     <SubPageHero 
-      title={t("nav.sostenibilidad") as string} 
+      title={t("nav.sustentabilidad") as string} 
       subtitle={t("sustain.desc") as string}
       tag={t("sustain.tag") as string}
     />
@@ -42,7 +42,7 @@ const t = useTranslations("es");
       ]}
       reverse={true}
       logo="crece-sostenible-color.svg"
-      logoAlt="Financiado por Crece Sostenible"
+      logoAlt="Funded by Crece Sostenible"
     />
 
     <ApartmentArea 
@@ -53,7 +53,7 @@ const t = useTranslations("es");
         'u67a9664.webp'
       ]}
       logo="resimple.svg"
-      logoAlt="Gestión de residuos por Resimple"
+      logoAlt="Waste management by Resimple"
     />
 
     <ContactForm />
