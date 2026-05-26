@@ -12,9 +12,11 @@ export const ui = {
     // Navbar
     'nav.inicio': 'Inicio',
     'nav.departamentos': 'Departamentos',
-    'nav.sostenibilidad': 'Sostenibilidad',
+    'nav.sustentabilidad': 'Sustentabilidad',
     'nav.que_hacer': '¿Qué hacer?',
     'nav.reservar_ahora': 'Reservar Ahora',
+    'nav.reservas': 'Reservas',
+    'nav.contacto': 'Contacto',
     // Home
     'home.title': 'Departamentos Costanera',
     'home.welcome': 'Tu hogar en el fin del mundo',
@@ -110,6 +112,12 @@ export const ui = {
     'policies.rates_2_1': '1-2 pasajeros',
     'policies.low_season': 'Temporada Baja',
     'policies.high_season': 'Temporada Alta',
+    'policies.price_4_low': '$100.000 CLP',
+    'policies.price_4_high': '$120.000 CLP',
+    'policies.price_3_low': '$90.000 CLP',
+    'policies.price_3_high': '$110.000 CLP',
+    'policies.price_2_low': '$80.000 CLP',
+    'policies.price_2_high': '$100.000 CLP',
     // FAQ
     'faq.tag': 'Preguntas Frecuentes',
     'faq.title': 'Resolvemos tus dudas',
@@ -142,7 +150,7 @@ export const ui = {
     'contact.form_message_placeholder': 'Cuéntanos sobre tu estadía...',
     'contact.form_submit': 'Enviar consulta',
     // Footer
-    'footer.tagline': 'La mejor experiencia de alojamiento en Punta Arenas, Chile.',
+    'footer.tagline': 'Tu refugio en el corazón de Punta Arenas',
     'footer.map_title': 'Mapa del sitio',
     'footer.contact_title': 'Contáctanos',
     'footer.payment_title': 'Métodos de pago',
@@ -179,9 +187,11 @@ export const ui = {
     // Navbar
     'nav.inicio': 'Home',
     'nav.departamentos': 'Apartments',
-    'nav.sostenibilidad': 'Sustainability',
+    'nav.sustentabilidad': 'Sustainability',
     'nav.que_hacer': 'What to do?',
     'nav.reservar_ahora': 'Book Now',
+    'nav.reservas': 'Reservations',
+    'nav.contacto': 'Contact',
     // Home
     'home.title': 'Costanera Apartments',
     'home.welcome': 'Welcome to the best accommodation experience.',
@@ -277,6 +287,12 @@ export const ui = {
     'policies.rates_2_1': '1-2 guests',
     'policies.low_season': 'Low Season',
     'policies.high_season': 'High Season',
+    'policies.price_4_low': '$100.000 CLP',
+    'policies.price_4_high': '$120.000 CLP',
+    'policies.price_3_low': '$90.000 CLP',
+    'policies.price_3_high': '$110.000 CLP',
+    'policies.price_2_low': '$80.000 CLP',
+    'policies.price_2_high': '$100.000 CLP',
     // FAQ
     'faq.tag': 'Frequently Asked Questions',
     'faq.title': 'Common Questions',
@@ -309,7 +325,7 @@ export const ui = {
     'contact.form_message_placeholder': 'Tell us about your stay...',
     'contact.form_submit': 'Send inquiry',
     // Footer
-    'footer.tagline': 'The best accommodation experience in Punta Arenas, Chile.',
+    'footer.tagline': 'Your home at the end of the world',
     'footer.map_title': 'Sitemap',
     'footer.contact_title': 'Contact us',
     'footer.payment_title': 'Payment methods',
@@ -346,9 +362,11 @@ export const ui = {
     // Navbar
     'nav.inicio': '首页',
     'nav.departamentos': '公寓',
-    'nav.sostenibilidad': '可持续发展',
+    'nav.sustentabilidad': '可持续发展',
     'nav.que_hacer': '做什么？',
     'nav.reservar_ahora': '立即预订',
+    'nav.reservas': '预订',
+    'nav.contacto': '联系我们',
     // Home
     'home.title': 'Costanera 公寓',
     'home.welcome': '欢迎来到最佳住宿体验。',
@@ -444,6 +462,12 @@ export const ui = {
     'policies.rates_2_1': '1-2人',
     'policies.low_season': '淡季',
     'policies.high_season': '旺季',
+    'policies.price_4_low': '$100.000 CLP',
+    'policies.price_4_high': '$120.000 CLP',
+    'policies.price_3_low': '$90.000 CLP',
+    'policies.price_3_high': '$110.000 CLP',
+    'policies.price_2_low': '$80.000 CLP',
+    'policies.price_2_high': '$100.000 CLP',
     // FAQ
     'faq.tag': '常见问题',
     'faq.title': '解答您的疑问',
@@ -476,7 +500,7 @@ export const ui = {
     'contact.form_message_placeholder': '告诉我们您的住宿需求...',
     'contact.form_submit': '发送咨询',
     // Footer
-    'footer.tagline': '智利蓬塔阿雷纳斯最佳住宿体验。',
+    'footer.tagline': '世界尽头的您的家',
     'footer.map_title': '网站地图',
     'footer.contact_title': '联系我们',
     'footer.payment_title': '付款方式',

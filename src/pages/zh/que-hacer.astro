@@ -16,29 +16,29 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 >
   <Navbar />
   <main>
-    <SubPageHero 
-      title={t("que_hacer.title") as string} 
+    <SubPageHero
+      title={t("que_hacer.title") as string}
       subtitle={t("que_hacer.subtitle") as string}
       tag={t("que_hacer.tag") as string}
     />
-    
-    <ApartmentArea 
+
+    <ApartmentArea
       tag="历史中心"
       title={t("que_hacer.circuito_urbano_title") as string}
       description={t("que_hacer.circuito_urbano_desc") as string}
       images={[
-        `${baseUrl}/atracciones/Museo-Sara-Brown-Punta-Arenas.webp`,
-        `${baseUrl}/atracciones/Monumento-Al-Ovejero-Punta-Arenas-Chile.webp`
+        `${baseUrl}/atracciones/Museo-Sara-Brown-Punta-Arenas.png`,
+        `${baseUrl}/atracciones/Monumento-Al-Ovejero-Punta-Arenas-Chile.png`,
       ]}
     />
 
-    <ApartmentArea 
+    <ApartmentArea
       tag="巴塔哥尼亚"
       title={t("que_hacer.imperdibles_title") as string}
       description={t("que_hacer.imperdibles_desc") as string}
       images={[
-        `${baseUrl}/atracciones/Museo-Nao-Victoria-Magallanes-Chile.webp`,
-        `${baseUrl}/atracciones/Cementerio-Municipal-Atracciones-Punta-Arenas.webp`
+        `${baseUrl}/atracciones/Museo-Nao-Victoria-Magallanes-Chile.png`,
+        `${baseUrl}/atracciones/Cementerio-Municipal-Atracciones-Punta-Arenas.png`,
       ]}
       reverse={true}
     />

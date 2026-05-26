@@ -4,9 +4,6 @@ import Navbar from "../../components/navbar.astro";
 import SubPageHero from "../../components/SubPageHero.astro";
 import ApartmentArea from "../../components/ApartmentArea.astro";
 import ContactForm from "../../components/ContactForm.astro";
-import { useTranslations } from "../../i18n/utils";
-
-const t = useTranslations("es");
 ---
 
 <Layout
@@ -25,7 +22,7 @@ const t = useTranslations("es");
       tag="Espacios Comunes"
       title="Living"
       description="Un espacio amplio y luminoso, diseñado para el relax absoluto con mobiliario moderno y una atmósfera acogedora que te hará sentir como en casa."
-      images={['living-1.webp', 'living-2.webp', 'living-3.webp', 'living-4.webp']}
+      images={['living-6.webp', 'living-2.webp', 'living-3.webp', 'living-5.webp']}
     />
 
     <ApartmentArea 
@@ -40,14 +37,14 @@ const t = useTranslations("es");
       tag="Descanso"
       title="Habitaciones"
       description="Dormitorios pensados para un descanso profundo, equipados con ropa de cama premium, calefacción central y un diseño que invita a la calma."
-      images={['habitacion-1.webp', 'habitacion-2.webp']}
+      images={['habitacion-1.webp', 'habitacion-2.webp', 'camas.webp', 'camas-2.webp']}
     />
 
     <ApartmentArea 
       tag="Funcionalidad"
       title="Cocina"
       description="Totalmente equipada con electrodomésticos de última generación, encimeras modernas y todo lo necesario para preparar tus platos favoritos."
-      images={['cocina-1.webp', 'cocina-2.webp']}
+      images={['cocina-1.webp', 'cocina-2.webp', 'cocina-3-thumb.webp', 'cocina-4.webp']}
       reverse={true}
     />
 
@@ -55,14 +52,14 @@ const t = useTranslations("es");
       tag="Bienestar"
       title="Baño"
       description="Baños modernos y minimalistas, con acabados de alta calidad y equipados con amenities premium para tu comodidad diaria."
-      images={['baño.webp']}
+      images={['bano.webp', 'bano-2.webp', 'bano-3-thumb.webp']}
     />
 
     <ApartmentArea 
       tag="Seguridad"
       title="Estacionamiento"
       description="Contamos con estacionamiento privado y gratuito dentro del recinto, brindándote la tranquilidad y seguridad que necesitas para tu vehículo."
-      images={['estacionamiento.webp', 'estacionamiento-2.webp']}
+      images={['estacionamiento-3.webp', 'estacionamiento.webp', 'estacionamiento-2.webp', 'estacionamiento-4.webp']}
       reverse={true}
     />
 

@@ -22,9 +22,10 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       <div class="sustainability-visual">
         <div class="sustain-placeholder">
           <img
-            src={`${baseUrl}/gallery/U67A8807.webp`}
+            src={`${baseUrl}/gallery/u67a8807.webp`}
             alt="Sustentabilidad Costanera"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
@@ -37,6 +38,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     padding: 6rem 0;
     background: transparent;
     color: var(--text-main);
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
   }
 
   .rates-table td {

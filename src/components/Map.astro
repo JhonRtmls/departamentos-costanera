@@ -76,6 +76,8 @@ const mapImg = `${base}/mapa.webp`;
   .map-section {
     padding: 8rem 0 0;
     background: transparent;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
   }
   .section-header {
     text-align: center;
@@ -173,8 +175,9 @@ const mapImg = `${base}/mapa.webp`;
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    color: var(--text-main);
+    color: var(--espresso);
     font-size: 1rem;
+    font-weight: 500;
   }
   .map-icon {
     color: var(--espresso);

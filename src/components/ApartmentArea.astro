@@ -5,9 +5,11 @@ interface Props {
   images: string[];
   reverse?: boolean;
   tag?: string;
+  logo?: string;
+  logoAlt?: string;
 }
 
-const { title, description, images, reverse = false, tag } = Astro.props;
+const { title, description, images, reverse = false, tag, logo, logoAlt } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const mainImage = images[0];
@@ -46,6 +48,17 @@ const thumbImages = images.slice(1, 4);
                 />
               </div>
             ))}
+          </div>
+        )
+      }
+      {
+        logo && (
+          <div class="gallery-logo">
+            <img
+              src={`${baseUrl}/${logo}`}
+              alt={logoAlt || ''}
+              loading="lazy"
+            />
           </div>
         )
       }
@@ -146,6 +159,29 @@ const thumbImages = images.slice(1, 4);
   }
 
   .area-gallery:hover img {
+    transform: scale(1.05);
+  }
+
+  .gallery-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .gallery-logo img {
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(1.1);
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-logo:hover img {
     transform: scale(1.05);
   }
 

@@ -20,8 +20,8 @@
   --secondary-hover: var(--cream-peach);
   --white: #ffffff;
   --title-color: #ffffff;
-  --text-main: rgba(255, 255, 255, 0.85);
-  --text-muted: rgba(255, 255, 255, 0.6);
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.8);
   --bg-body: #0a0706;
   --bg-gradient: linear-gradient(135deg, #0f0a09 0%, #1a1210 100%);
   --mesh-gradient: transparent;
@@ -37,8 +37,8 @@
 
 .glass-card {
   background: var(--glass-bg);
-  -webkit-backdrop-filter: blur(50px) saturate(90%);
-  backdrop-filter: blur(50px) saturate(90%);
+  -webkit-backdrop-filter: blur(20px) saturate(90%);
+  backdrop-filter: blur(20px) saturate(90%);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   border-radius: 24px;
@@ -101,12 +101,17 @@ ul {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: translateY(0);
   will-change: opacity, transform;
   transition:
     opacity 1s ease,
     transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.reveal-hidden {
+  opacity: 0;
+  transform: translateY(40px);
 }
 
 .reveal.active {
@@ -290,10 +295,9 @@ html.lenis body {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(150px);
+  filter: blur(80px);
   opacity: 0.12;
   will-change: transform;
-  /* Ajustado para que sea muy sutil sobre el fondo original */
   animation: float 35s infinite alternate ease-in-out;
 }
 

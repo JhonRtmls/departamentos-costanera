@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../styles/Gallery.css";
 
 interface Image {
@@ -60,10 +60,8 @@ export default function GalleryReact({ images, tag, title, desc }: GalleryProps)
         >
           {images.map((img, i) => (
             <div key={i} className={`carousel-card ${activeIndex === i ? 'active' : ''}`}>
-              <div 
-                className="carousel-card-content" 
-                style={{ backgroundImage: `url("${img.src}")` }}
-              >
+              <div className="carousel-card-content">
+                <img src={img.src} alt={img.alt} className="carousel-card-image" />
                 <div className="carousel-card-overlay">
                   <div className="carousel-card-title">
                     <span className="card-index">0{i + 1}</span>

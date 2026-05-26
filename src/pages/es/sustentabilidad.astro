@@ -1,0 +1,67 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import SubPageHero from "../../components/SubPageHero.astro";
+import ApartmentArea from "../../components/ApartmentArea.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("es");
+---
+
+<Layout
+  title={`${t("nav.sustentabilidad")} | Departamentos Costanera`}
+  description={t("sustain.desc") as string}
+>
+  <Navbar />
+  <main>
+    <SubPageHero 
+      title={t("nav.sustentabilidad") as string} 
+      subtitle={t("sustain.desc") as string}
+      tag={t("sustain.tag") as string}
+    />
+    
+    <ApartmentArea 
+      tag="Nuestro Compromiso"
+      title={t("sustain.title") as string}
+      description={t("sustain.p1") as string}
+      images={[
+        'costanera-5.webp',
+        'costanera-8.webp',
+        'costanera-9.webp',
+        'costanera-10.webp'
+      ]}
+    />
+
+    <ApartmentArea 
+      tag="Energía Limpia"
+      title={t("sustain.solar_title") as string}
+      description={t("sustain.solar_desc") as string}
+      images={[
+        'estacionamiento.webp'
+      ]}
+      reverse={true}
+      logo="crece-sostenible-color.svg"
+      logoAlt="Financiado por Crece Sostenible"
+    />
+
+    <ApartmentArea 
+      tag="Economía Circular"
+      title={t("sustain.recycling_title") as string}
+      description={t("sustain.recycling_desc") as string}
+      images={[
+        'u67a9664.webp'
+      ]}
+      logo="resimple.svg"
+      logoAlt="Gestión de residuos por Resimple"
+    />
+
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 4rem;
+  }
+</style>

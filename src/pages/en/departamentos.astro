@@ -4,9 +4,6 @@ import Navbar from "../../components/navbar.astro";
 import SubPageHero from "../../components/SubPageHero.astro";
 import ApartmentArea from "../../components/ApartmentArea.astro";
 import ContactForm from "../../components/ContactForm.astro";
-import { useTranslations } from "../../i18n/utils";
-
-const t = useTranslations("en");
 ---
 
 <Layout
@@ -25,7 +22,7 @@ const t = useTranslations("en");
       tag="Common Spaces"
       title="Living Room"
       description="A spacious and bright area, designed for absolute relaxation with modern furniture and a cozy atmosphere that will make you feel at home."
-      images={['living-1.webp', 'living-2.webp', 'living-3.webp', 'living-4.webp']}
+      images={['living-6.webp', 'living-2.webp', 'living-3.webp', 'living-5.webp']}
     />
 
     <ApartmentArea 
@@ -40,14 +37,14 @@ const t = useTranslations("en");
       tag="Rest"
       title="Bedrooms"
       description="Rooms designed for deep rest, equipped with premium bedding, central heating, and a design that invites tranquility."
-      images={['habitacion-1.webp', 'habitacion-2.webp']}
+      images={['habitacion-1.webp', 'habitacion-2.webp', 'camas.webp', 'camas-2.webp']}
     />
 
     <ApartmentArea 
       tag="Functionality"
       title="Kitchen"
       description="Fully equipped with state-of-the-art appliances, modern countertops, and everything needed to prepare your favorite dishes."
-      images={['cocina-1.webp', 'cocina-2.webp']}
+      images={['cocina-1.webp', 'cocina-2.webp', 'cocina-3-thumb.webp', 'cocina-4.webp']}
       reverse={true}
     />
 
@@ -55,14 +52,14 @@ const t = useTranslations("en");
       tag="Wellness"
       title="Bathroom"
       description="Modern and minimalist bathrooms, with high-quality finishes and equipped with premium amenities for your daily comfort."
-      images={['baño.webp']}
+      images={['bano.webp', 'bano-2.webp', 'bano-3-thumb.webp']}
     />
 
     <ApartmentArea 
       tag="Security"
       title="Parking"
       description="We have private and free parking within the premises, providing you with the peace of mind and security you need for your vehicle."
-      images={['estacionamiento.webp', 'estacionamiento-2.webp']}
+      images={['estacionamiento-3.webp', 'estacionamiento.webp', 'estacionamiento-2.webp', 'estacionamiento-4.webp']}
       reverse={true}
     />
 

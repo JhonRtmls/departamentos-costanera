@@ -17,14 +17,14 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 <header class="navbar">
   <div class="container navbar-content">
     <a href={l("/")} class="logo">
-      <img src={`${baseUrl}/logo%20blanco.svg`} alt="logo costanera" />
+      <img src={`${baseUrl}/logo%20blanco.svg`} alt="Departamentos Costanera — Inicio" />
     </a>
 
     <nav class="nav-links">
       <ul>
         <li><a href={l("/")}>{t("nav.inicio")}</a></li>
         <li><a href={l("/departamentos")}>{t("nav.departamentos")}</a></li>
-        <li><a href={l("/sostenibilidad")}>{t("nav.sostenibilidad")}</a></li>
+        <li><a href={l("/sustentabilidad")}>{t("nav.sustentabilidad")}</a></li>
         <li><a href={l("/que-hacer")}>{t("nav.que_hacer")}</a></li>
       </ul>
     </nav>
@@ -96,7 +96,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       <ul>
         <li><a href={l("/")}>{t("nav.inicio")}</a></li>
         <li><a href={l("/departamentos")}>{t("nav.departamentos")}</a></li>
-        <li><a href={l("/sostenibilidad")}>{t("nav.sostenibilidad")}</a></li>
+        <li><a href={l("/sustentabilidad")}>{t("nav.sustentabilidad")}</a></li>
         <li><a href={l("/que-hacer")}>{t("nav.que_hacer")}</a></li>
       </ul>
     </nav>
@@ -266,27 +266,28 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     gap: 0.75rem;
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--espresso);
     transition: var(--transition);
   }
 
   .lang-menu a:hover {
-    background: rgba(59, 130, 246, 0.05);
-    color: var(--accent);
+    background: rgba(178, 89, 61, 0.08);
+    color: var(--espresso);
   }
 
   .lang-menu a.active {
-    background: rgba(11, 18, 21, 0.03);
-    color: var(--primary);
-    font-weight: 600;
+    background: rgba(178, 89, 61, 0.06);
+    color: var(--espresso);
+    font-weight: 700;
   }
 
   .lang-code {
     font-size: 0.75rem;
     padding: 2px 4px;
-    background: rgba(11, 18, 21, 0.05);
+    background: rgba(178, 89, 61, 0.1);
     border-radius: 4px;
-    color: var(--primary);
+    color: var(--espresso);
+    font-weight: 600;
   }
 
   .lang-label {
