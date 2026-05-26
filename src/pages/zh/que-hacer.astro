@@ -32,6 +32,19 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       ]}
     />
 
+    <ul class="circuito-urbano-list">
+      <li>Parque del Estrecho</li>
+      <li>Club Andino</li>
+      <li>Reserva Nacional Magallanes</li>
+      <li>Cerro de la Cruz</li>
+      <li>Zona Franca</li>
+      <li>Museo Nao Victoria</li>
+      <li>Cementerio de Punta Arenas</li>
+      <li>Plaza de Armas</li>
+      <li>Entorno patrimonial</li>
+      <li>Monumento al Ovejero</li>
+    </ul>
+
     <ApartmentArea
       tag="巴塔哥尼亚"
       title={t("que_hacer.imperdibles_title") as string}
@@ -50,5 +63,31 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 <style>
   main {
     padding-bottom: 4rem;
+  }
+  .circuito-urbano-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.75rem;
+    max-width: 800px;
+    margin: -3rem auto 0;
+    padding: 2rem 2.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .circuito-urbano-list li {
+    color: var(--text-main);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .circuito-urbano-list li::before {
+    content: "•";
+    color: var(--soft-apricot);
+    position: absolute;
+    left: 0.5rem;
   }
 </style>

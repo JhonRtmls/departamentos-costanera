@@ -15,13 +15,13 @@ const t = useTranslations("es");
 >
   <Navbar />
   <main>
-    <SubPageHero 
-      title={t("nav.sustentabilidad") as string} 
+    <SubPageHero
+      title={t("nav.sustentabilidad") as string}
       subtitle={t("sustain.desc") as string}
       tag={t("sustain.tag") as string}
     />
-    
-    <ApartmentArea 
+
+    <ApartmentArea
       tag="Nuestro Compromiso"
       title={t("sustain.title") as string}
       description={t("sustain.p1") as string}
@@ -33,19 +33,19 @@ const t = useTranslations("es");
       ]}
     />
 
-    <ApartmentArea 
+    <ApartmentArea
       tag="Energía Limpia"
       title={t("sustain.solar_title") as string}
       description={t("sustain.solar_desc") as string}
       images={[
-        'estacionamiento.webp'
+        'paneles_solares.webp'
       ]}
       reverse={true}
       logo="crece-sostenible-color.svg"
       logoAlt="Financiado por Crece Sostenible"
     />
 
-    <ApartmentArea 
+    <ApartmentArea
       tag="Economía Circular"
       title={t("sustain.recycling_title") as string}
       description={t("sustain.recycling_desc") as string}

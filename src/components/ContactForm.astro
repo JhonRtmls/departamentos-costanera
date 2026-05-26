@@ -146,7 +146,7 @@ const t = useTranslations(lang);
             const adults = (document.getElementById('adults') as HTMLSelectElement).value;
             const children = (document.getElementById('children') as HTMLSelectElement).value;
             const infants = (document.getElementById('infants') as HTMLSelectElement).value;
-            
+
             if (!checkin || !checkout) {
               const msg = {
                 es: "Por favor selecciona las fechas de llegada y salida",
@@ -161,12 +161,12 @@ const t = useTranslations(lang);
               }
               return;
             }
-            
+
             if (formError) formError.hidden = true;
-            
+
             const baseUrl = "https://direct-book.com/properties/departamentoscostaneradirect";
             const url = `${baseUrl}?locale=${document.documentElement.lang}&items[0][adults]=${adults}&items[0][children]=${children}&items[0][infants]=${infants}&currency=USD&checkInDate=${checkin}&checkOutDate=${checkout}&trackPage=yes`;
-            
+
             window.open(url, '_blank');
           });
           // Trigger date picker on click

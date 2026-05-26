@@ -14,10 +14,10 @@ interface IntroGalleryProps {
 
 export default function IntroGallery({ images }: IntroGalleryProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true }, 
+    { loop: true },
     [Autoplay({ delay: 4000, stopOnInteraction: false })]
   );
-  
+
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {

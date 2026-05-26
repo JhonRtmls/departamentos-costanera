@@ -17,7 +17,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       <div class="rates-card glass-card">
         <div class="rates-header">
           <div class="rates-icon">
-             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
           <h3>{t("policies.rates_title")}</h3>
         </div>
@@ -33,18 +34,18 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
             <tbody>
               <tr>
                 <td>{t("policies.rates_4")}</td>
-                 <td class="price">{t("policies.price_4_low")}</td>
-                 <td class="price high-season">{t("policies.price_4_high")}</td>
+                <td class="price">{t("policies.price_4_low")}</td>
+                <td class="price high-season">{t("policies.price_4_high")}</td>
               </tr>
               <tr>
                 <td>{t("policies.rates_3")}</td>
-                 <td class="price">{t("policies.price_3_low")}</td>
-                 <td class="price high-season">{t("policies.price_3_high")}</td>
+                <td class="price">{t("policies.price_3_low")}</td>
+                <td class="price high-season">{t("policies.price_3_high")}</td>
               </tr>
               <tr>
                 <td>{t("policies.rates_2_1")}</td>
-                 <td class="price">{t("policies.price_2_low")}</td>
-                 <td class="price high-season">{t("policies.price_2_high")}</td>
+                <td class="price">{t("policies.price_2_low")}</td>
+                <td class="price high-season">{t("policies.price_2_high")}</td>
               </tr>
             </tbody>
           </table>
@@ -62,7 +63,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         <p>{t("policies.payment_desc")}</p>
         <p class="policy-note">{t("policies.business_note")}</p>
         <div class="payment-icons">
-           <img src={`${baseUrl}/paylogos.svg`} alt="Métodos de pago" class="payment-logo-full" />
+          <img src={`${baseUrl}/paylogos.svg`} alt="Métodos de pago" class="payment-logo-full" />
         </div>
       </div>
 
@@ -72,8 +73,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4c0-.5.2-1 .5-1.5s.8-.5 1.5-.5h8c.7 0 1.2.2 1.5.5s.5 1 .5 1.5v18l-4-2-4 2-4-2Z"/><path d="M18 12h4"/><path d="M18 16h4"/><path d="M18 8h4"/></svg>
         </div>
         <h3>{t("policies.vat_exemption_title")}</h3>
-         <p class="vat-text-main">{t("policies.vat_exemption_desc")}</p>
-         <p class="policy-note">{t("policies.dollar_note")}</p>
+          <p class="vat-text-main">{t("policies.vat_exemption_desc")}</p>
+          <p class="policy-note">{t("policies.dollar_note")}</p>
       </div>
 
       <!-- Times -->
@@ -344,7 +345,6 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     .policies {
       padding: 4rem 0;
     }
-    
     .policy-card {
       padding: 2rem;
     }

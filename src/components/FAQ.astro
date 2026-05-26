@@ -9,6 +9,10 @@ const faqs = [
   { q: t("faq.q2"), a: t("faq.a2") },
   { q: t("faq.q3"), a: t("faq.a3") },
   { q: t("faq.q4"), a: t("faq.a4") },
+  { q: t("faq.q5"), a: t("faq.a5") },
+  { q: t("faq.q6"), a: t("faq.a6").replace("{{LINK}}", `<a href="/${lang}/que-hacer">${t("nav.que_hacer")}</a>`) },
+  { q: t("faq.q7"), a: t("faq.a7") },
+  { q: t("faq.q8"), a: t("faq.a8") },
 ];
 
 const faqSchema = {
@@ -19,7 +23,7 @@ const faqSchema = {
     "name": faq.q,
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": faq.a,
+      "text": faq.a.replace(/<[^>]*>/g, ''),
     },
   })),
 };
@@ -42,7 +46,7 @@ const faqSchema = {
             </button>
             <div class="faq-answer">
               <div class="answer-content">
-                <p>{faq.a}</p>
+                <p set:html={faq.a}></p>
               </div>
             </div>
           </div>
@@ -57,11 +61,11 @@ const faqSchema = {
 <script>
   function initFAQ() {
     const questions = document.querySelectorAll('.faq-question');
-    
+
     questions.forEach(question => {
       question.addEventListener('click', () => {
         const expanded = question.getAttribute('aria-expanded') === 'true';
-        
+
         // Close other items
         questions.forEach(q => {
           if (q !== question) {
@@ -74,7 +78,7 @@ const faqSchema = {
         // Toggle current item
         question.setAttribute('aria-expanded', (!expanded).toString());
         const answer = question.nextElementSibling as HTMLElement;
-        
+
         if (!expanded) {
           answer.style.maxHeight = answer.scrollHeight + 'px';
         } else {
