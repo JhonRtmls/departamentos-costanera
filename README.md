@@ -45,4 +45,4 @@ Bienvenido al repositorio oficial de **Departamentos Costanera**, el mejor aloja
 Nos encontramos en **Mejicana Nº 1481, Punta Arenas, Chile**. A pasos de la Costanera del Estrecho de Magallanes.
 
 ---
-Desarrollado con ❤️ por [Gestoo Agencia Creativa](https://gestoo.cl)
+Desarrollado con ❤️ por JhonRetamales y [Gestoo Agencia Creativa](https://gestoo.cl)
