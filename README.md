@@ -4,7 +4,7 @@
 **Español** | [English](README.en.md) | [中文](README.zh.md)
 <!-- language-selector: end -->
 
-Bienvenido al repositorio oficial de **Departamentos Costanera**, el mejor alojamiento boutique en el corazón de Punta Arenas, Patagonia Chilena. Este proyecto está construido con **Astro** y **React**, diseñado para ofrecer una experiencia de usuario rápida, moderna y multilingüe.
+Bienvenido al repositorio oficial de **Departamentos Costanera**, el mejor alojamiento en el corazón de Punta Arenas, Patagonia Chilena. Este proyecto está construido con **Astro**, diseñado para ofrecer una experiencia de usuario rápida, moderna y multilingüe.
 
 ## 🌟 Características
 
