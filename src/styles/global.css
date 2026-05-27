@@ -30,6 +30,7 @@
   --glass-bg: linear-gradient(135deg,
       rgba(204, 105, 94, 0.18) 0%,
       rgba(204, 105, 94, 0.08) 100%);
+
   --glass-border: rgba(204, 105, 94, 0.25);
   --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -378,7 +379,6 @@ html.lenis body {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
 .bg-texture {
   position: fixed;
   z-index: -1;
@@ -397,6 +397,7 @@ html.lenis body {
   filter: brightness(0) invert(1);
 }
 
+@media (prefers-reduced-motion: reduce) {
 .blob {
     animation: none;
   }
@@ -425,3 +426,4 @@ html.lenis body {
     font-size: 0.85rem;
   }
 }
+
