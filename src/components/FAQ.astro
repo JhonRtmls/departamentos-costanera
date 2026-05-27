@@ -134,6 +134,29 @@ const faqSchema = {
     padding: 1.5rem 2.5rem;
   }
 
+  @media (max-width: 768px) {
+    .faq-grid {
+      padding: 1rem 1.5rem;
+    }
+    .faq-question {
+      font-size: 1rem;
+      padding: 1.25rem 0;
+    }
+    .faq {
+      padding: 4rem 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .faq-grid {
+      padding: 0.75rem 1rem;
+    }
+    .faq-question {
+      font-size: 0.95rem;
+      padding: 1rem 0;
+    }
+  }
+
   .faq-item {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }

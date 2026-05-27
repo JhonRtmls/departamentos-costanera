@@ -178,29 +178,39 @@ const services = [
   @media (max-width: 768px) {
     .services-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .service-icon svg,
     .service-icon img {
-      width: 100px;
-      height: 100px;
+      width: 90px;
+      height: 90px;
     }
 
     .service-card {
-      padding: 2.5rem 1rem;
+      padding: 2rem 1rem;
+    }
+
+    .services {
+      padding: 4rem 0;
     }
   }
 
   @media (max-width: 480px) {
     .services-grid {
       grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     .service-icon svg,
     .service-icon img {
-      width: 120px;
-      height: 120px;
+      width: 80px;
+      height: 80px;
+    }
+
+    .service-card {
+      padding: 1.5rem 1rem;
+      gap: 1.25rem;
     }
   }
 </style>

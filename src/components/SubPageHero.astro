@@ -110,5 +110,15 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       padding: 8rem 0 4rem 0;
       min-height: 40vh;
     }
+    .hero-title {
+      font-size: clamp(2rem, 7vw, 2.5rem);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .subpage-hero {
+      padding: 7rem 0 3rem 0;
+      min-height: 35vh;
+    }
   }
 </style>

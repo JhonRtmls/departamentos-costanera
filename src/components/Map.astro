@@ -184,9 +184,15 @@ const mapImg = `${base}/mapa.webp`;
   }
 
   @media (max-width: 768px) {
-    .map-section { padding-top: 5rem; }
-    .static-map { height: 350px; }
-    .map-info-panel { padding: 1.5rem; }
-    .map-info-panel ul { gap: 1.5rem; flex-direction: column; align-items: flex-start; }
+    .map-section { padding: 5rem 0 0; }
+    .static-map { height: 300px; }
+    .map-info-panel { padding: 1.25rem; }
+    .map-info-panel ul { gap: 1rem; flex-direction: column; align-items: flex-start; }
+    .map-wrapper { border-radius: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .static-map { height: 220px; }
+    .map-section .section-header { margin-bottom: 2.5rem; }
   }
 </style>

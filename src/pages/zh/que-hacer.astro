@@ -2,12 +2,138 @@
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/navbar.astro";
 import SubPageHero from "../../components/SubPageHero.astro";
-import ApartmentArea from "../../components/ApartmentArea.astro";
 import ContactForm from "../../components/ContactForm.astro";
 import { useTranslations } from "../../i18n/utils";
 
 const t = useTranslations("zh");
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const urbano = [
+  {
+    image: `${baseUrl}/atracciones/Museo-Sara-Brown-Punta-Arenas.webp`,
+    title: "莎拉·布朗博物馆",
+    dist: "0.9 公里",
+    desc: "位于穆尼奥斯·加梅罗广场前的历史建筑，建于1895年至1905年之间，被列为国家 monument。",
+  },
+  {
+    image: `${baseUrl}/atracciones/Monumento-Al-Ovejero-Punta-Arenas-Chile.webp`,
+    title: "牧羊人纪念碑",
+    dist: "3.5 公里",
+    desc: "由十二个真人大小的雕像组成的雕塑群，向巴塔哥尼亚的劳动者致敬。",
+  },
+  {
+    image: `${baseUrl}/atracciones/Museo-Nao-Victoria-Magallanes-Chile.webp`,
+    title: "维多利亚号博物馆",
+    dist: "7.5 公里",
+    desc: "位于麦哲伦海峡沿岸，展示维多利亚号和贝格尔号等历史船只的全尺寸复制品。",
+  },
+  {
+    image: `${baseUrl}/atracciones/Cementerio-Municipal-Atracciones-Punta-Arenas.webp`,
+    title: "莎拉·布朗市立公墓",
+    dist: "1.4 公里",
+    desc: "被认为是世界上最美丽的公墓之一，拥有雕刻柏树和历史陵墓。",
+  },
+  {
+    image: `${baseUrl}/gallery/costanera-1.webp`,
+    title: "武器广场",
+    dist: "0.5 公里",
+    desc: "蓬塔阿雷纳斯的心脏，周围环绕着历史建筑和标志性的鹰喷泉。",
+  },
+  {
+    image: `${baseUrl}/gallery/costanera-7.webp`,
+    title: "克鲁斯山",
+    dist: "1.5 公里",
+    desc: "天然观景台，可欣赏城市和麦哲伦海峡的壮丽全景。",
+  },
+  {
+    image: `${baseUrl}/gallery/costanera-5.webp`,
+    title: "自贸区",
+    dist: "3 公里",
+    desc: "巴塔哥尼亚的主要购物中心，提供免税商品和各类商店。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a8631.webp`,
+    title: "安迪诺俱乐部",
+    dist: "2 公里",
+    desc: "山地和滑雪活动中心，适合雪上运动和冒险爱好者。",
+  },
+  {
+    image: `${baseUrl}/gallery/costanera-3.webp`,
+    title: "遗产街区",
+    dist: "0.3 公里",
+    desc: "漫步历史中心街道，欣赏欧式豪宅和彩色外墙。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a9037.webp`,
+    title: "麦哲伦国家保护区",
+    dist: "10 公里",
+    desc: "受保护区域，步道两旁环绕着伦加和科伊韦树，适合徒步和观鸟。",
+  },
+  {
+    image: `${baseUrl}/gallery/costanera-8.webp`,
+    title: "基奥斯科罗卡",
+    dist: "0.2 公里",
+    desc: "海滨的传统遗产亭，是欣赏海峡美景的聚会地点。",
+  },
+];
+
+const imperdibles = [
+  {
+    image: `${baseUrl}/gallery/u67a9608.avif`,
+    title: "百内国家公园",
+    desc: "智利最具标志性的公园，以高耸的花岗岩山峰、冰川和世界级生物多样性闻名。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a8867.webp`,
+    title: "阿尔贝托·德·阿戈斯蒂尼国家公园",
+    desc: "位于火地岛的广阔公园，拥有冰川、峡湾和原始森林，适合偏远地区探险。",
+  },
+  {
+    image: `${baseUrl}/gallery/costanera-10.webp`,
+    title: "合恩角国家公园",
+    desc: "世界最南端的国家公园，被列为生物圈保护区，拥有亚南极景观和独特海洋生物。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a9633.webp`,
+    title: "马格达莱纳岛国家公园",
+    desc: "南美洲最大的企鹅栖息地之一，可从蓬塔阿雷纳斯乘渡轮抵达。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a9408.webp`,
+    title: "帕利·艾克国家公园",
+    desc: "独特的火山地貌，有火山口、熔岩洞穴和犹如外星球的岩石构造。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a9576.webp`,
+    title: "贝尔纳多·奥希金斯国家公园",
+    desc: "智利最大的公园，拥有南巴塔哥尼亚冰原和南半球最大的皮奥十一世冰川。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a9316.webp`,
+    title: "弗朗西斯科·科洛阿内海洋公园",
+    desc: "海洋保护区，是观赏座头鲸、海豚和海狮自然栖息地的理想之地。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a9009.webp`,
+    title: "火地岛",
+    desc: "海峡南部的群岛，拥有偏远景观、原始森林、湖泊和丰富的土著历史。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a9281.webp`,
+    title: "海峡公园",
+    desc: "历史公园，内有布尔内斯堡，智利在麦哲伦海峡的第一个定居点，拥有壮丽景色。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a9686.webp`,
+    title: "圣伊西德罗灯塔",
+    desc: "海峡海岸上孤独的灯塔，周围是原始自然风光，充满海难历史。",
+  },
+  {
+    image: `${baseUrl}/gallery/u67a8691.webp`,
+    title: "国王企鹅",
+    desc: "因蒂尔湾的国王企鹅栖息地，在野外观察这些雄伟鸟类的独特体验。",
+  },
+];
 ---
 
 <Layout
@@ -22,39 +148,55 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       tag={t("que_hacer.tag") as string}
     />
 
-    <ApartmentArea
-      tag="历史中心"
-      title={t("que_hacer.circuito_urbano_title") as string}
-      description={t("que_hacer.circuito_urbano_desc") as string}
-      images={[
-        `${baseUrl}/atracciones/Museo-Sara-Brown-Punta-Arenas.png`,
-        `${baseUrl}/atracciones/Monumento-Al-Ovejero-Punta-Arenas-Chile.png`,
-      ]}
-    />
+    <section class="section urbano" id="circuito-urbano">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">历史中心</span>
+          <h2>{t("que_hacer.circuito_urbano_title")}</h2>
+          <p>{t("que_hacer.circuito_urbano_desc")}</p>
+        </div>
+        <div class="cards-grid">
+          {urbano.map((item, i) => (
+            <div class="card glass-card" style={`animation-delay: ${i * 0.05}s;`}>
+              <div class="card-image">
+                <img src={item.image} alt={item.title} loading="lazy" />
+              </div>
+              <div class="card-content">
+                <h3>{item.title}</h3>
+                <div class="distance-tag">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>{item.dist}</span>
+                </div>
+                <p>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-    <ul class="circuito-urbano-list">
-      <li>Parque del Estrecho</li>
-      <li>Club Andino</li>
-      <li>Reserva Nacional Magallanes</li>
-      <li>Cerro de la Cruz</li>
-      <li>Zona Franca</li>
-      <li>Museo Nao Victoria</li>
-      <li>Cementerio de Punta Arenas</li>
-      <li>Plaza de Armas</li>
-      <li>Entorno patrimonial</li>
-      <li>Monumento al Ovejero</li>
-    </ul>
-
-    <ApartmentArea
-      tag="巴塔哥尼亚"
-      title={t("que_hacer.imperdibles_title") as string}
-      description={t("que_hacer.imperdibles_desc") as string}
-      images={[
-        `${baseUrl}/atracciones/Museo-Nao-Victoria-Magallanes-Chile.png`,
-        `${baseUrl}/atracciones/Cementerio-Municipal-Atracciones-Punta-Arenas.png`,
-      ]}
-      reverse={true}
-    />
+    <section class="section imperdibles" id="imperdibles">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">巴塔哥尼亚</span>
+          <h2>{t("que_hacer.imperdibles_title")}</h2>
+          <p>{t("que_hacer.imperdibles_desc")}</p>
+        </div>
+        <div class="cards-grid">
+          {imperdibles.map((item, i) => (
+            <div class="card glass-card" style={`animation-delay: ${i * 0.05}s;`}>
+              <div class="card-image">
+                <img src={item.image} alt={item.title} loading="lazy" />
+              </div>
+              <div class="card-content">
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <ContactForm />
   </main>
@@ -64,30 +206,144 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   main {
     padding-bottom: 4rem;
   }
-  .circuito-urbano-list {
-    list-style: none;
+
+  .section {
+    padding: 5rem 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .section-header h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0.75rem;
-    max-width: 800px;
-    margin: -3rem auto 0;
-    padding: 2rem 2.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    padding: 1rem;
+    border-radius: 28px;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    border-color: var(--soft-apricot);
+  }
+
+  .card-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
   }
-  .circuito-urbano-list li {
-    color: var(--text-main);
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 0.5rem 0.75rem;
-    padding-left: 1.5rem;
-    position: relative;
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .circuito-urbano-list li::before {
-    content: "•";
+
+  .card:hover .card-image img {
+    transform: scale(1.1);
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 0.5rem 0.5rem;
+  }
+
+  .card-content h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .distance-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     color: var(--soft-apricot);
-    position: absolute;
-    left: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .card-content p {
+    font-size: 0.88rem;
+    color: var(--text-main);
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .imperdibles .card p {
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 1100px) {
+    .cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section {
+      padding: 3.5rem 0;
+    }
+    .cards-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+    .card {
+      padding: 0.75rem;
+    }
+    .card-content {
+      padding: 0 0.25rem 0.25rem;
+    }
   }
 </style>

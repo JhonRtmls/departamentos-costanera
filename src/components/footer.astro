@@ -86,14 +86,8 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
       <ul class="footer-links">
         <li><a href={l("/")}>{t("nav.inicio")}</a></li>
         <li><a href={l("/departamentos")}>{t("nav.departamentos")}</a></li>
-        <li>
-          <a
-            href="https://direct-book.com/properties/departamentoscostaneradirect"
-            target="_blank"
-            rel="noopener noreferrer">{t("nav.reservas")}</a
-          >
-        </li>
-        <li><a href={l("/contacto")}>{t("nav.contacto")}</a></li>
+        <li><a href={l("/sustentabilidad")}>{t("nav.sustentabilidad")}</a></li>
+        <li><a href={l("/que-hacer")}>{t("nav.que_hacer")}</a></li>
       </ul>
     </nav>
 
@@ -155,7 +149,6 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   <!-- Partner Logos -->
   <div class="footer-partners container">
-    <h3 class="footer-heading center">{t("footer.partners_title")}</h3>
     <div class="partners-grid">
       <div class="partner-logo" style={`background-image: url(${baseUrl}/crece-sostenible.svg)`} role="img" aria-label="Crece Sostenible"></div>
       <div class="partner-logo" style={`background-image: url(${baseUrl}/escnna.svg)`} role="img" aria-label="ESCNNA"></div>
@@ -332,6 +325,19 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     }
   }
 
+  @media (max-width: 768px) {
+    .footer-partners {
+      padding-bottom: 2.5rem;
+    }
+    .partners-grid {
+      gap: 1.5rem;
+    }
+    .partner-logo {
+      width: 120px;
+      height: 40px;
+    }
+  }
+
   @media (max-width: 600px) {
     .footer-main {
       grid-template-columns: 1fr;
@@ -350,12 +356,25 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     }
 
     .partners-grid {
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .partner-logo {
+      width: 100px;
+      height: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-logo {
+      height: 36px;
+    }
+    .partner-logo {
+      width: 80px;
       height: 25px;
-      max-width: 100px;
+    }
+    .partners-grid {
+      gap: 1rem;
     }
   }
 

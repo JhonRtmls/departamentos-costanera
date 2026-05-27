@@ -90,10 +90,30 @@ h2 {
   padding: 0 2rem;
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
   transition: var(--transition);
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
 }
 
 ul {
@@ -292,6 +312,8 @@ html.lenis body {
   opacity: 0.3;
 }
 
+
+
 .blob {
   position: absolute;
   border-radius: 50%;
@@ -338,5 +360,68 @@ html.lenis body {
 
   100% {
     transform: translate(-3%, 4%) scale(1) rotate(-2deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .blob-1 {
+    width: 120vw;
+    height: 120vw;
+  }
+  .blob-2 {
+    width: 100vw;
+    height: 100vw;
+  }
+  .blob-3 {
+    width: 90vw;
+    height: 90vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.bg-texture {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5vw;
+  pointer-events: none;
+}
+
+.bg-texture img {
+  width: min(90vw, 600px);
+  height: auto;
+  opacity: 0.035;
+  filter: brightness(0) invert(1);
+}
+
+.blob {
+    animation: none;
+  }
+  .btn-iridescent::before,
+  .btn-iridescent-sm::before {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .reveal.reveal-hidden,
+  .reveal.active {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    font-size: 0.95rem;
+  }
+  .btn-iridescent {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
   }
 }

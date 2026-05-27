@@ -192,7 +192,22 @@ const introImages = [
       padding: 5rem 0;
     }
     .intro-visual {
-      height: 400px;
+      height: 350px;
+    }
+    .intro-text p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .intro {
+      padding: 3.5rem 0;
+    }
+    .intro-visual {
+      height: 280px;
+    }
+    .intro-text h2 {
+      font-size: clamp(1.8rem, 7vw, 2.5rem);
     }
   }
 </style>
