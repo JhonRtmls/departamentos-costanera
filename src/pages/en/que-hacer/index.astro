@@ -1,0 +1,105 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Navbar from "../../../components/navbar.astro";
+import SubPageHero from "../../../components/SubPageHero.astro";
+import ContactForm from "../../../components/ContactForm.astro";
+import { useTranslations } from "../../../i18n/utils";
+import { getCollection } from "astro:content";
+
+const t = useTranslations("en");
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+const lang = "en";
+const allEntries = await getCollection("attractions", (e) => e.data.lang === "en");
+const urbanoAttractions = allEntries.filter((e) => e.data.category === "urbano");
+const imperdiblesAttractions = allEntries.filter((e) => e.data.category === "imperdibles");
+const slug = (e) => e.id.replace(/^[a-z]{2}\//, "");
+---
+
+<Layout
+  title={`${t("que_hacer.title")} | Departamentos Costanera`}
+  description={t("que_hacer.subtitle") as string}
+>
+  <Navbar />
+  <main>
+    <SubPageHero
+      title={t("que_hacer.title") as string}
+      subtitle={t("que_hacer.subtitle") as string}
+      tag={t("que_hacer.tag") as string}
+    />
+
+    <section class="section urbano" id="circuito-urbano">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Historic Center</span>
+          <h2>{t("que_hacer.circuito_urbano_title")}</h2>
+          <p>{t("que_hacer.circuito_urbano_desc")}</p>
+        </div>
+        <div class="cards-grid">
+          {urbanoAttractions.map((entry, i) => (
+            <a href={`${baseUrl}/${lang}/que-hacer/${slug(entry)}/`} class="card glass-card" style={`animation-delay: ${i * 0.05}s;`}>
+              <div class="card-image">
+                <img src={`${baseUrl}${entry.data.image}`} alt={entry.data.title} loading="lazy" />
+              </div>
+              <div class="card-content">
+                <h3>{entry.data.title}</h3>
+                <div class="distance-tag">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>{entry.data.dist}</span>
+                </div>
+                <p>{entry.data.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section imperdibles" id="imperdibles">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Patagonia</span>
+          <h2>{t("que_hacer.imperdibles_title")}</h2>
+          <p>{t("que_hacer.imperdibles_desc")}</p>
+        </div>
+        <div class="cards-grid">
+          {imperdiblesAttractions.map((entry, i) => (
+            <a href={`${baseUrl}/${lang}/que-hacer/${slug(entry)}/`} class="card glass-card" style={`animation-delay: ${i * 0.05}s;`}>
+              <div class="card-image">
+                <img src={`${baseUrl}${entry.data.image}`} alt={entry.data.title} loading="lazy" />
+              </div>
+              <div class="card-content">
+                <h3>{entry.data.title}</h3>
+                <p>{entry.data.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main { padding-bottom: 4rem; }
+  .section { padding: 5rem 0; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-tag { display: inline-block; color: var(--white); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem; opacity: 0.9; }
+  .section-header h2 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 800; color: #ffffff; margin-bottom: 0.75rem; }
+  .section-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+  .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; max-width: 1100px; margin: 0 auto; }
+  .card { display: flex; flex-direction: column; transition: var(--transition); padding: 1rem; border-radius: 28px; text-decoration: none; color: inherit; }
+  .card:hover { transform: translateY(-8px); border-color: var(--soft-apricot); }
+  .card-image { width: 100%; aspect-ratio: 16 / 10; border-radius: 20px; overflow: hidden; margin-bottom: 1rem; flex-shrink: 0; }
+  .card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+  .card:hover .card-image img { transform: scale(1.1); }
+  .card-content { display: flex; flex-direction: column; flex-grow: 1; padding: 0 0.5rem 0.5rem; }
+  .card-content h3 { font-size: 1.15rem; font-weight: 700; color: var(--title-color); margin-bottom: 0.4rem; line-height: 1.3; }
+  .distance-tag { display: flex; align-items: center; gap: 0.4rem; color: var(--soft-apricot); font-size: 0.8rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .card-content p { font-size: 0.88rem; color: var(--text-main); line-height: 1.6; opacity: 0.9; }
+  .imperdibles .card p { margin-top: 0.5rem; }
+  @media (max-width: 1100px) { .cards-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 768px) { .section { padding: 3.5rem 0; } .cards-grid { grid-template-columns: 1fr 1fr; gap: 1rem; } }
+  @media (max-width: 480px) { .cards-grid { grid-template-columns: 1fr; } .card { padding: 0.75rem; } .card-content { padding: 0 0.25rem 0.25rem; } }
+</style>

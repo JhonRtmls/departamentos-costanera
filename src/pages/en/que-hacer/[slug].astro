@@ -1,0 +1,42 @@
+---
+import { getCollection, render } from "astro:content";
+import AttractionLayout from "../../../components/AttractionLayout.astro";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("attractions", (e) => e.data.lang === "en");
+  return entries.map((e) => ({
+    params: { slug: e.id.replace(/^[a-z]{2}\//, "") },
+    props: { entry: e },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { data } = entry;
+const slug = entry.id.replace(/^[a-z]{2}\//, "");
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<AttractionLayout
+  title={data.title}
+  desc={data.description}
+  image={data.image}
+  dist={data.dist}
+  slug={slug}
+  lang="en"
+  category={data.category}
+>
+  <Content />
+</AttractionLayout>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": data.title,
+  "description": data.description,
+  "image": `${baseUrl}${data.image}`,
+  "url": `${baseUrl}/en/que-hacer/${slug}/`,
+  "audience": { "@type": "Audience", "audienceType": "Tourist" },
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+})} />
