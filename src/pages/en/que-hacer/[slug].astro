@@ -38,5 +38,29 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
   "url": `${baseUrl}/en/que-hacer/${slug}/`,
   "audience": { "@type": "Audience", "audienceType": "Tourist" },
   "inLanguage": "en",
-  "isAccessibleForFree": true
+  "isAccessibleForFree": true,
+  "location": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Punta Arenas",
+      "addressRegion": "Magallanes",
+      "addressCountry": "CL"
+    },
+    ...(data.lat && data.lng ? {
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": data.lat,
+        "longitude": data.lng
+      }
+    } : {})
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${baseUrl}/en/?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
 })} />

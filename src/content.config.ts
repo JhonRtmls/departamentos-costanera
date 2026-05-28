@@ -10,6 +10,9 @@ const attractions = defineCollection({
     category: z.enum(["urbano", "imperdibles"]),
     dist: z.string().optional(),
     lang: z.enum(["es", "en", "zh"]),
+    lat: z.number().optional(),
+    lng: z.number().optional(),
+    address: z.string().optional(),
   }),
 });
 

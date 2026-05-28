@@ -8,6 +8,7 @@ import WhatsAppButton from "../components/WhatsAppButton.astro";
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
 const lang = getLangFromUrl(Astro.url);
@@ -16,11 +17,14 @@ const t = useTranslations(lang);
 const {
   title,
   description = t('site.description'),
+  ogImage,
 } = Astro.props;
 
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-const ogImageUrl = new URL(`${baseUrl}/hero.webp`, Astro.site).href;
+const ogImageUrl = ogImage
+  ? new URL(`${baseUrl}${ogImage}`, Astro.site).href
+  : new URL(`${baseUrl}/hero.webp`, Astro.site).href;
 
 // Gallery images for ImageObject schema
 const galleryImageNames = [
@@ -111,10 +115,10 @@ const breadcrumbList = {
 
     {/* SEO & GEO Optimizations */}
     <link rel="canonical" href={Astro.url.href} />
-    <link rel="alternate" hreflang="es" href={new URL('/departamentos-costanera/es/', Astro.site).href} />
-    <link rel="alternate" hreflang="en" href={new URL('/departamentos-costanera/en/', Astro.site).href} />
-    <link rel="alternate" hreflang="zh" href={new URL('/departamentos-costanera/zh/', Astro.site).href} />
-    <link rel="alternate" hreflang="x-default" href={new URL('/departamentos-costanera/es/', Astro.site).href} />
+    <link rel="alternate" hreflang="es" href={new URL(Astro.url.pathname.replace(new RegExp('^/[a-z]{2}/'), '/es/'), Astro.site).href} />
+    <link rel="alternate" hreflang="en" href={new URL(Astro.url.pathname.replace(new RegExp('^/[a-z]{2}/'), '/en/'), Astro.site).href} />
+    <link rel="alternate" hreflang="zh" href={new URL(Astro.url.pathname.replace(new RegExp('^/[a-z]{2}/'), '/zh/'), Astro.site).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL(Astro.url.pathname.replace(new RegExp('^/[a-z]{2}/'), '/es/'), Astro.site).href} />
 
     {/* Structured Data / JSON-LD for GEO - LodgingBusiness */}
     <script type="application/ld+json" is:inline set:html={JSON.stringify({
