@@ -4,7 +4,7 @@
 [Español](README.md) | [English](README.en.md) | **中文**
 <!-- language-selector: end -->
 
-欢迎来到 **Costanera 公寓** 的官方代码库，这是位于智利巴塔哥尼亚蓬塔阿雷纳斯中心地带的最佳精品住宿。该项目使用 **Astro** 和 **React** 构建，旨在提供快速、现代且多语言的用户体验。
+欢迎来到 **Costanera 公寓** 的官方代码库，这是位于智利巴塔哥尼亚蓬塔阿雷纳斯中心地带的最佳精品住宿。该项目使用 **Astro** 构建，旨在提供快速、现代且多语言的用户体验。
 
 ## 🌟 特性
 
@@ -17,7 +17,6 @@
 ## 🛠️ 技术栈
 
 - [Astro](https://astro.build/) - 追求速度的 Web 框架。
-- [React](https://reactjs.org/) - 用于交互式组件（画廊、地图）。
 - [GSAP](https://greensock.com/gsap/) - 高性能动画。
 - [Lenis](https://lenis.darkroom.engineering/) - 平滑滚动。
 
@@ -39,10 +38,6 @@
    ```sh
    npm run build
    ```
-
-## 📍 地点
-
-我们位于 **智利蓬塔阿雷纳斯 Mejicana Nº 1481**。距离麦哲伦海峡海滨仅几步之遥。
 
 ---
 由 [Gestoo 创意机构](https://gestoo.cl) 用 ❤️ 开发
