@@ -17,7 +17,7 @@ Bienvenido al repositorio oficial de **Departamentos Costanera**, el mejor aloja
 ## 🛠️ Tecnologías
 
 - [Astro](https://astro.build/) - Framework web para la velocidad.
-- [React](https://reactjs.org/) - Para componentes interactivos (Galería, Mapas).
+- [TypeScript](https://typescriptlang.org/) - Para componentes interactivos (Galería, Mapas).
 - [GSAP](https://greensock.com/gsap/) - Animaciones de alto rendimiento.
 - [Lenis](https://lenis.darkroom.engineering/) - Smooth scrolling.
 
@@ -39,10 +39,6 @@ Bienvenido al repositorio oficial de **Departamentos Costanera**, el mejor aloja
    ```sh
    npm run build
    ```
-
-## 📍 Ubicación
-
-Nos encontramos en **Mejicana Nº 1481, Punta Arenas, Chile**. A pasos de la Costanera del Estrecho de Magallanes.
 
 ---
 Desarrollado con ❤️ por JhonRetamales y [Gestoo Agencia Creativa](https://gestoo.cl)
