@@ -86,7 +86,7 @@ export const ui = {
     'sustain.solar_title': 'Energía Solar',
     'sustain.solar_desc': 'Utilizamos paneles fotovoltaicos para reducir nuestra dependencia de combustibles fósiles, aprovechando la luz solar de la región.',
     'sustain.recycling_title': 'Gestión de Residuos',
-    'sustain.recycling_desc': 'Trabajamos activamente con Resimple y otras entidades para asegurar un reciclaje eficiente de todos nuestros desechos.',
+    'sustain.recycling_desc': 'Trabajamos activamente con Resimple para asegurar un reciclaje eficiente de todos nuestros desechos.',
     // Policies
     'policies.tag': 'Políticas y Pagos',
     'policies.title': 'Información para tu estadía',
@@ -269,7 +269,7 @@ export const ui = {
     'sustain.solar_title': 'Solar Energy',
     'sustain.solar_desc': 'We use photovoltaic panels to reduce our dependence on fossil fuels, taking advantage of the region\'s sunlight.',
     'sustain.recycling_title': 'Waste Management',
-    'sustain.recycling_desc': 'We actively work with Resimple and other entities to ensure efficient recycling of all our waste.',
+    'sustain.recycling_desc': 'We actively work with Resimple to ensure efficient recycling of all our waste.',
     // Policies
     'policies.tag': 'Policies & Payments',
     'policies.title': 'Stay Information',
@@ -452,7 +452,7 @@ export const ui = {
     'sustain.solar_title': '太阳能',
     'sustain.solar_desc': '我们使用光伏电池板来减少对化石燃料的依赖，利用该地区的阳光。',
     'sustain.recycling_title': '废物管理',
-    'sustain.recycling_desc': '我们与 Resimple 等机构积极合作，确保所有废物的有效回收。',
+    'sustain.recycling_desc': '我们与 Resimple 积极合作，确保所有废物的有效回收。',
     // Policies
     'policies.tag': '政策与付款',
     'policies.title': '住宿信息',
