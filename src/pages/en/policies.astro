@@ -1,0 +1,301 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import SubPageHero from "../../components/SubPageHero.astro";
+import Policies from "../../components/Policies.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("en");
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<Layout
+  title={`${t("policies.tag")} | Departamentos Costanera`}
+  description={t("policies.title") as string}
+>
+  <Navbar />
+  <main>
+    <SubPageHero
+      title={t("policies.tag") as string}
+      subtitle={t("policies.title") as string}
+    />
+
+    <section class="esnna-section">
+      <div class="container">
+        <div class="esnna-card glass-card">
+          <div class="esnna-header">
+            <img src={`${baseUrl}/escnna.svg`} alt="ESNNA" class="esnna-logo" />
+            <img src={`${baseUrl}/sernatur.svg`} alt="Sernatur" class="esnna-logo" />
+          </div>
+          <h3>Prevention against the sexual exploitation of children and adolescents (ESNNA)</h3>
+          <blockquote>
+            "The exploitation of human beings in any of its forms, especially sexual exploitation and particularly when it affects children and adolescents, violates the fundamental objectives of tourism and constitutes a denial of its essence."
+            <cite>— Global Code of Ethics for Tourism</cite>
+          </blockquote>
+          <p>Departamentos Costanera is recognized by the National Tourism Service for having signed the Code of Conduct for the prevention of sexual exploitation of children and adolescents in the context of tourism (ESNNA VT).</p>
+          <h4>Actions taken by Departamentos Costanera for the protection of children and adolescents:</h4>
+          <ol>
+            <li><strong>Verify Relationship:</strong> Upon arrival of an adult guest accompanied by a minor, identity documents will be requested to verify the relationship.</li>
+            <li><strong>Verify Authorization:</strong> If there is no relationship with the minor, the adult must present a legal authorization letter allowing them to travel with the minor.</li>
+            <li><strong>Non-Facilitation:</strong> Staff will not provide information nor take tourists to places where ESNNA is coordinated or practiced.</li>
+            <li><strong>Reporting:</strong> If staff detect any risk situation, they may report it to Carabineros (147), Investigative Police (134), or the hotline *4242 (Safe Report).</li>
+            <li><strong>Inform:</strong> Every citizen, Chilean or foreign, must know that transgressing Law 19.617 (sexual offenses), 20.507 (Grooming), 20.526 (trafficking in persons) and their amendments implies criminal penalties.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="general-policies-section">
+      <div class="container">
+        <div class="general-policies-card glass-card">
+          <h3>General Policies</h3>
+          <p class="intro">Dear guest, thank you for staying with us and respecting our policies.</p>
+
+          <div class="policy-block">
+            <h4>Reservations and Cancellations</h4>
+            <p>For reservations of 3 nights or more in High Season (October to March), a 50% deposit of the total stay value is required. The balance must be paid at check-in.</p>
+            <p>If you modify or cancel your reservation up to five (5) days before the arrival date, there will be no charge and 100% of the deposit will be refunded in the same payment method (bank transfer or credit card).</p>
+            <p>If you cancel the reservation less than five (5) days before the Check-In date, the deposit will not be refunded.</p>
+            <p>Reservations of less than 3 nights in High Season (October to March) require payment at the time of booking.</p>
+            <p>Reservations made during Low Season (April to September) do not require advance payment.</p>
+            <p><strong>No Show:</strong> If the guest does not show up, the full stay penalty will be charged, meaning no refund will be made. Exceptions will be made only in cases of force majeure such as natural disasters, flight cancellations or accidents, with prior evidence or support of the event. This applies only during high season.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>Privacy Policy</h4>
+            <p>Guests' personal data will be properly handled in compliance with data protection laws.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>Loss or Damage to Property</h4>
+            <p>The accommodation shall not be liable for any loss or damage to a guest's property caused or contributed to by the guest's negligence, or not reported promptly to staff.</p>
+            <p>Guests will be responsible for any loss or damage to the accommodation's infrastructure and furniture.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>Lost Items</h4>
+            <p>When a staff member finds items belonging to guests and the owner can be clearly identified, the guest will be contacted and a return method coordinated. If the owner of a found item cannot be identified, it will be kept safely for a period of three months. If after this period the owner has not contacted the property or has not been otherwise identified, the item will be discarded or donated.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>6. Smoking</h4>
+            <p>Smoking is not permitted inside the apartment.</p>
+          </div>
+          <div class="policy-block">
+            <h4>7. Parties</h4>
+            <p>Parties are not allowed inside the apartment.</p>
+          </div>
+          <div class="policy-block">
+            <h4>8. Guests</h4>
+            <p>Lodging is not permitted for persons who are not properly registered.</p>
+          </div>
+          <div class="policy-block">
+            <h4>9. Pets</h4>
+            <p>Not allowed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Policies />
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 4rem;
+  }
+
+  .esnna-section {
+    padding: 4rem 0;
+  }
+
+  .esnna-card {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .esnna-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .esnna-logo {
+    height: 60px;
+    width: auto;
+  }
+
+  .esnna-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .esnna-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .esnna-card blockquote {
+    font-style: italic;
+    color: var(--text-main);
+    border-left: 3px solid var(--soft-apricot);
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .esnna-card blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .esnna-card p {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .esnna-card ul,
+  .esnna-card ol {
+    padding-left: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  .esnna-card ol {
+    list-style: decimal;
+  }
+
+  .esnna-card ul li,
+  .esnna-card ol li {
+    margin-bottom: 0.75rem;
+    padding-left: 0.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .esnna-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .esnna-logo {
+      height: 45px;
+    }
+
+    .esnna-card h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .esnna-card {
+      padding: 1.5rem 1rem;
+    }
+
+    .esnna-logo {
+      height: 35px;
+    }
+  }
+
+  .general-policies-section {
+    padding: 4rem 0;
+  }
+
+  .general-policies-card {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .general-policies-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .general-policies-card .intro {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+  }
+
+  .policy-block {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .policy-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .policy-block h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .policy-block p {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .policy-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  .policy-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .policy-block ul li {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .policy-block ul li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    .general-policies-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .general-policies-card {
+      padding: 1.5rem 1rem;
+    }
+  }
+</style>

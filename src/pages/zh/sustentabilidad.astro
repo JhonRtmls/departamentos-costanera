@@ -21,17 +21,22 @@ const t = useTranslations("zh");
       tag={t("sustain.tag") as string}
     />
     
-    <ApartmentArea 
-      tag="Nuestro Compromiso"
-      title={t("sustain.title") as string}
-      description={t("sustain.p1") as string}
-      images={[
-        'costanera-5.webp',
-        'costanera-8.webp',
-        'costanera-9.webp',
-        'costanera-10.webp'
-      ]}
-    />
+    <section class="sustain-content">
+      <div class="container">
+        <div class="sustain-card glass-card">
+          <h3>我们对可持续发展的承诺</h3>
+          <p class="sustain-intro">我们相信，舒适的住宿也可以为环境保护做出贡献。因此，我们采用可持续的做法，在不影响客人质量和舒适度的前提下减少对环境的影响。</p>
+          <ul>
+            <li>我们通过光伏板产生部分能源，利用清洁可再生的能源。</li>
+            <li>我们在设施中使用低功耗 LED 照明。</li>
+            <li>我们提倡负责任地用水，邀请客人选择减少毛巾更换频率。</li>
+            <li>我们设有内部垃圾分类计划，并积极参与 Resimple 回收管理系统。</li>
+            <li>我们提供可补充的肥皂、洗发水和护发素分配器，有助于减少一次性塑料的使用。</li>
+          </ul>
+          <p class="sustain-closing">这些小小的行动帮助我们为子孙后代保护巴塔哥尼亚的自然环境。</p>
+        </div>
+      </div>
+    </section>
 
     <ApartmentArea 
       tag="Energía Limpia"
@@ -64,5 +69,64 @@ const t = useTranslations("zh");
 <style>
   main {
     padding-bottom: 4rem;
+  }
+
+  .sustain-content {
+    padding: 4rem 0;
+  }
+
+  .sustain-card {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .sustain-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .sustain-intro {
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    text-align: center;
+  }
+
+  .sustain-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  .sustain-card ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .sustain-closing {
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .sustain-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sustain-card {
+      padding: 1.5rem 1rem;
+    }
   }
 </style>

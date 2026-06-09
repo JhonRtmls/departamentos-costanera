@@ -4,6 +4,10 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const l = (path: string) => {
+  return `${baseUrl}/${lang}${path}`.replace(/\/+$/, "/");
+};
 ---
 
 <section class="policies reveal" id="politicas">
@@ -94,6 +98,10 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         </ul>
         <p class="time-note">{t("policies.check_note")}</p>
       </div>
+    </div>
+
+    <div class="policies-footer">
+      <a href={l("/politicas")} class="btn-iridescent"><span>{t("policies.see_all")}</span></a>
     </div>
   </div>
 </section>
@@ -339,6 +347,12 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   .policy-card:hover .payment-logo-full {
     filter: grayscale(0) opacity(1);
+  }
+
+  .policies-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
   }
 
   @media (max-width: 768px) {

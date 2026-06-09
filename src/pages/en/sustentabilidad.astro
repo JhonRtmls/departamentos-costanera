@@ -21,17 +21,22 @@ const t = useTranslations("en");
       tag={t("sustain.tag") as string}
     />
     
-    <ApartmentArea 
-      tag="Nuestro Compromiso"
-      title={t("sustain.title") as string}
-      description={t("sustain.p1") as string}
-      images={[
-        'costanera-5.webp',
-        'costanera-8.webp',
-        'costanera-9.webp',
-        'costanera-10.webp'
-      ]}
-    />
+    <section class="sustain-content">
+      <div class="container">
+        <div class="sustain-card glass-card">
+          <h3>Our Commitment to Sustainability</h3>
+          <p class="sustain-intro">We believe that a comfortable stay can also contribute to caring for the environment. That is why we incorporate sustainable practices that allow us to reduce our environmental impact without compromising the quality and comfort of our guests.</p>
+          <ul>
+            <li>We generate part of our energy through photovoltaic panels, harnessing a clean and renewable source.</li>
+            <li>We use low-consumption LED lighting throughout our facilities.</li>
+            <li>We promote responsible water use by inviting our guests to opt for less frequent towel changes.</li>
+            <li>We have an internal waste separation program and actively participate in the Resimple recycling management system.</li>
+            <li>We provide refillable dispensers for soap, shampoo and conditioner, helping to reduce single-use plastics.</li>
+          </ul>
+          <p class="sustain-closing">Small actions that help us preserve Patagonia's natural environment for future generations.</p>
+        </div>
+      </div>
+    </section>
 
     <ApartmentArea 
       tag="Energía Limpia"
@@ -64,5 +69,64 @@ const t = useTranslations("en");
 <style>
   main {
     padding-bottom: 4rem;
+  }
+
+  .sustain-content {
+    padding: 4rem 0;
+  }
+
+  .sustain-card {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .sustain-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .sustain-intro {
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    text-align: center;
+  }
+
+  .sustain-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  .sustain-card ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .sustain-closing {
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .sustain-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sustain-card {
+      padding: 1.5rem 1rem;
+    }
   }
 </style>

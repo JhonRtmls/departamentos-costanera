@@ -1,0 +1,303 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import SubPageHero from "../../components/SubPageHero.astro";
+import Policies from "../../components/Policies.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("es");
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<Layout
+  title={`${t("policies.tag")} | Departamentos Costanera`}
+  description={t("policies.title") as string}
+>
+  <Navbar />
+  <main>
+    <SubPageHero
+      title={t("policies.tag") as string}
+      subtitle={t("policies.title") as string}
+    />
+
+    <section class="esnna-section">
+      <div class="container">
+        <div class="esnna-card glass-card">
+          <div class="esnna-header">
+            <img src={`${baseUrl}/escnna.svg`} alt="ESNNA" class="esnna-logo" />
+            <img src={`${baseUrl}/sernatur.svg`} alt="Sernatur" class="esnna-logo" />
+          </div>
+          <h3>Prevención contra la explotación sexual de niños, niñas y adolescentes (ESNNA)</h3>
+          <blockquote>
+            “La explotación de los seres humanos en cualquiera de sus formas, especialmente la sexual y en particular cuando afecta a niñas, niños y adolescentes (NNA), vulnera los objetivos fundamentales del turismo y constituye una negación a su esencia.”
+            <cite>— Código ético mundial para el turismo</cite>
+          </blockquote>
+          <p>Departamentos Costanera cuenta con el reconocimiento del Servicio Nacional de Turismo por haber suscrito el Código de Conducta para la prevención de la explotación sexual de niños, niñas y adolescentes en el contexto del turismo (ESNNA VT).</p>
+          <h4>Las acciones que ha tomado Departamentos Costanera para la protección de sus NNA son:</h4>
+          <ol>
+            <li><strong>Acreditar Parentesco:</strong> A la llegada de un huésped adulto acompañado por un NNA, se solicitarán los documentos de identidad para acreditar parentesco.</li>
+            <li><strong>Acreditar Autorización:</strong> Si no tuviera parentesco con el NNA, el adulto deberá presentar carta de autorización legal que lo autoriza a viajar con el menor.</li>
+            <li><strong>No Facilitación:</strong> El personal no entregará información ni conducirá a los turistas a lugares en los cuales se coordine o se practique ESNNA.</li>
+            <li><strong>Denuncia:</strong> El personal, en caso de detectar alguna situación de riesgo, podrá realizar la denuncia a Carabineros (147), Policía de Investigaciones (134) o al fono *4242 (Denuncia Seguro).</li>
+            <li><strong>Informar:</strong> Todo ciudadano, chileno o extranjero, debe saber que la transgresión de la ley 19.617 (delitos sexuales), 20.507 (Grooming), 20.526 (trata de personas) y sus modificatorias implican sanciones penales.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="general-policies-section">
+      <div class="container">
+        <div class="general-policies-card glass-card">
+          <h3>Políticas Generales</h3>
+          <p class="intro">Estimado huésped, gracias por hospedarse con nosotros y respetar nuestra política.</p>
+
+          <div class="policy-block">
+            <h4>1. Reservas y Cancelaciones</h4>
+            <p><strong>a)</strong> Para reservas de 3 noches o más en Temporada Alta (Octubre a Marzo), se requiere un abono del 50% del valor total de la estadía. El saldo se deberá pagar a más tardar al momento de realizar el check in.</p>
+            <p>Si modifica o cancela su reserva hasta cinco (5) días antes de la fecha de llegada, no tendrá ningún tipo de cobro y se devolverá el 100% del monto abonado de la misma forma en que fue pagado (transferencia bancaria o pago con tarjeta de crédito).</p>
+            <p>Si cancela la reserva en un plazo menor a cinco (5) días antes de la fecha de Check In, no se devolverá el monto abonado.</p>
+            <p><strong>b)</strong> Reservas de menos de 3 noches en Temporada Alta (Octubre a Marzo), se solicitará el pago al momento de realizar la reserva.</p>
+            <p><strong>c)</strong>  Reservas realizadas durante la Temporada Baja (Abril a Septiembre) no se exigirá pago por adelantado.</p>
+            </div>
+          <div class="policy-block">
+            <h4>2. No Show</h4>
+            <p>Si el huésped no se presenta, se cobrará la penalidad de la estancia completa, es decir, no se hará ninguna devolución. Habrá excepciones siempre y cuando se trate de hechos de fuerza mayor como desastres naturales, suspensión de vuelos o accidentes, previa evidencia o soporte del hecho ocurrido. Esto se aplica sólo durante la temporada alta.</p>
+          </div>
+          <div class="policy-block">
+            <h4>3. Políticas de Privacidad</h4>
+            <p>Los datos personales de los huéspedes serán debidamente cuidados, cumpliendo con las leyes de protección de datos.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>4. Pérdidas o daño a la propiedad</h4>
+            <p>El alojamiento no será responsable por ninguna pérdida o daño a la propiedad de un huésped que sea causado o contribuido por la negligencia del huésped; o no informado oportunamente al personal.</p>
+            <p>Los huéspedes serán responsables de cualquier pérdida o daño a la infraestructura y mobiliario del alojamiento.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>5. Artículos Perdidos</h4>
+            <p>Cuando un miembro del personal encuentra artículos que pertenecen a los huéspedes y se puede identificar claramente al propietario, se contactará a los huéspedes y coordinará con este la forma de devolución. En caso de que no se pueda identificar al propietario de algún artículo encontrado, se mantendrá en seguridad por un período de tres meses. Si después de este período el propietario del artículo perdido no se ha puesto en contacto con la propiedad o no ha sido identificado de otra manera, el artículo será desechado o donado.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>6. Fumadores</h4>
+            <p>No se permite fumar dentro del departamento.</p>
+          </div>
+          <div class="policy-block">
+            <h4>7. Fiestas</h4>
+            <p>No se permite realizar fiestas dentro del departamento.</p>
+          </div>
+          <div class="policy-block">
+            <h4>8. Huéspedes</h4>
+            <p>No se permite el alojamiento a personas que no estén debidamente registradas.</p>
+          </div>
+          <div class="policy-block">
+            <h4>9. Mascotas</h4>
+            <p>No se admiten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Policies />
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 4rem;
+  }
+
+  .esnna-section {
+    padding: 4rem 0;
+  }
+
+  .esnna-card {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .esnna-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .esnna-logo {
+    height: 60px;
+    width: auto;
+  }
+
+  .esnna-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .esnna-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .esnna-card blockquote {
+    font-style: italic;
+    color: var(--text-main);
+    border-left: 3px solid var(--soft-apricot);
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .esnna-card blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .esnna-card p {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .esnna-card ul,
+  .esnna-card ol {
+    padding-left: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  .esnna-card ol {
+    list-style: decimal;
+  }
+
+  .esnna-card ul li,
+  .esnna-card ol li {
+    margin-bottom: 0.75rem;
+    padding-left: 0.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .esnna-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .esnna-logo {
+      height: 45px;
+    }
+
+    .esnna-card h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .esnna-card {
+      padding: 1.5rem 1rem;
+    }
+
+    .esnna-logo {
+      height: 35px;
+    }
+  }
+
+  .general-policies-section {
+    padding: 4rem 0;
+  }
+
+  .general-policies-card {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .general-policies-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .general-policies-card .intro {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+  }
+
+  .policy-block {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .policy-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .policy-block h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .policy-block p {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .policy-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  .policy-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .policy-block ul li {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .policy-block ul li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    .general-policies-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .general-policies-card {
+      padding: 1.5rem 1rem;
+    }
+  }
+</style>

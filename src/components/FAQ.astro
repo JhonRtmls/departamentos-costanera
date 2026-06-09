@@ -13,6 +13,7 @@ const faqs = [
   { q: t("faq.q6"), a: t("faq.a6").replace("{{LINK}}", `<a href="/${lang}/que-hacer">${t("nav.que_hacer")}</a>`) },
   { q: t("faq.q7"), a: t("faq.a7") },
   { q: t("faq.q8"), a: t("faq.a8") },
+  { q: t("faq.q9"), a: t("faq.a9") },
 ];
 
 const faqSchema = {
@@ -215,7 +216,7 @@ const faqSchema = {
   }
 
   .faq-question[aria-expanded="true"] {
-    color: var(--soft-apricot);
+    color: var(--white);
   }
 
   .faq-answer {

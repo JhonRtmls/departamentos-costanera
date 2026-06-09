@@ -61,7 +61,6 @@ export default function GalleryReact({ images, tag, title, desc }: GalleryProps)
                 <img src={img.src} alt={img.alt} className="carousel-card-image" />
                 <div className="carousel-card-overlay">
                   <div className="carousel-card-title">
-                    <span className="card-index">0{i + 1}</span>
                     {img.caption}
                   </div>
                 </div>

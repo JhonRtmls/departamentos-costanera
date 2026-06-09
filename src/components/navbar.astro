@@ -26,6 +26,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         <li><a href={l("/departamentos")}>{t("nav.departamentos")}</a></li>
         <li><a href={l("/sustentabilidad")}>{t("nav.sustentabilidad")}</a></li>
         <li><a href={l("/que-hacer")}>{t("nav.que_hacer")}</a></li>
+        <li><a href={l("/promos")}>{t("nav.promos")}</a></li>
       </ul>
     </nav>
 
@@ -98,6 +99,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
         <li><a href={l("/departamentos")}>{t("nav.departamentos")}</a></li>
         <li><a href={l("/sustentabilidad")}>{t("nav.sustentabilidad")}</a></li>
         <li><a href={l("/que-hacer")}>{t("nav.que_hacer")}</a></li>
+        <li><a href={l("/promos")}>{t("nav.promos")}</a></li>
       </ul>
     </nav>
     <div class="mobile-menu-footer">
@@ -141,7 +143,7 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1.25rem;
+    gap: 0.75rem;
   }
 
   .logo {
@@ -169,11 +171,11 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   .nav-links ul {
     display: flex;
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
 
   .nav-links a {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.8);
     position: relative;

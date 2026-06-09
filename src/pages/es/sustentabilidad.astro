@@ -21,17 +21,20 @@ const t = useTranslations("es");
       tag={t("sustain.tag") as string}
     />
 
-    <ApartmentArea
-      tag="Nuestro Compromiso"
-      title={t("sustain.title") as string}
-      description={t("sustain.p1") as string}
-      images={[
-        'costanera-5.webp',
-        'costanera-8.webp',
-        'costanera-9.webp',
-        'costanera-10.webp'
-      ]}
-    />
+    <section class="sustain-content">
+      <div class="container">
+        <div class="sustain-card glass-card">
+          <h3>Nuestro Compromiso con la Sustentabilidad</h3>
+          <p class="sustain-intro">Creemos que una estadía confortable también puede contribuir al cuidado del entorno. Por ello, incorporamos prácticas sostenibles que nos permiten reducir nuestro impacto ambiental sin comprometer la calidad y comodidad de nuestros huéspedes.</p>
+          <ul>
+            <li>Utilizamos iluminación LED de bajo consumo en nuestras instalaciones.</li>
+            <li>Promovemos el uso responsable del agua, invitando a nuestros huéspedes a optar por un cambio menos frecuente de toallas.</li>
+            <li>Disponemos de dispensadores rellenables de jabón, champú y acondicionador, contribuyendo a la reducción de plásticos de un solo uso.</li>
+          </ul>
+          <p class="sustain-closing">Pequeñas acciones que nos ayudan a preservar el entorno natural de la Patagonia para las futuras generaciones.</p>
+        </div>
+      </div>
+    </section>
 
     <ApartmentArea
       tag="Energía Limpia"
@@ -64,5 +67,64 @@ const t = useTranslations("es");
 <style>
   main {
     padding-bottom: 4rem;
+  }
+
+  .sustain-content {
+    padding: 4rem 0;
+  }
+
+  .sustain-card {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .sustain-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .sustain-intro {
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    text-align: center;
+  }
+
+  .sustain-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  .sustain-card ul li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .sustain-closing {
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .sustain-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sustain-card {
+      padding: 1.5rem 1rem;
+    }
   }
 </style>

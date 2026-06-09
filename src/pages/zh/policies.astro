@@ -1,0 +1,301 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import SubPageHero from "../../components/SubPageHero.astro";
+import Policies from "../../components/Policies.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("zh");
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<Layout
+  title={`${t("policies.tag")} | Departamentos Costanera`}
+  description={t("policies.title") as string}
+>
+  <Navbar />
+  <main>
+    <SubPageHero
+      title={t("policies.tag") as string}
+      subtitle={t("policies.title") as string}
+    />
+
+    <section class="esnna-section">
+      <div class="container">
+        <div class="esnna-card glass-card">
+          <div class="esnna-header">
+            <img src={`${baseUrl}/escnna.svg`} alt="ESNNA" class="esnna-logo" />
+            <img src={`${baseUrl}/sernatur.svg`} alt="Sernatur" class="esnna-logo" />
+          </div>
+          <h3>预防儿童和青少年性剥削 (ESNNA)</h3>
+          <blockquote>
+            "任何形式的剥削，尤其是性剥削，特别是当涉及儿童和青少年时，都违背了旅游的基本目标，并构成了对其本质的否定。"
+            <cite>— 全球旅游业道德守则</cite>
+          </blockquote>
+          <p>Costanera 公寓获得智利国家旅游局认可，已签署《旅游环境中预防儿童和青少年性剥削行为守则》(ESNNA VT)。</p>
+          <h4>Costanera 公寓为保护儿童和青少年所采取的行动：</h4>
+          <ol>
+            <li><strong>核实亲属关系：</strong>当成年客人携带未成年人抵达时，将要求提供身份证件以核实亲属关系。</li>
+            <li><strong>核实授权：</strong>若与未成年人无亲属关系，成年人必须出示合法的授权书，证明其有权携带未成年人旅行。</li>
+            <li><strong>不协助：</strong>员工不得提供信息或引导游客前往任何协调或实施 ESNNA 的场所。</li>
+            <li><strong>举报：</strong>员工如发现任何风险情况，可向武警 (147)、调查警察 (134) 或拨打 *4242（安全举报热线）进行举报。</li>
+            <li><strong>告知：</strong>每位公民，无论是智利人还是外国人，都必须知道违反第 19.617 号法律（性犯罪）、第 20.507 号法律（诱骗未成年人）、第 20.526 号法律（人口贩运）及其修正案将面临刑事处罚。</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="general-policies-section">
+      <div class="container">
+        <div class="general-policies-card glass-card">
+          <h3>一般政策</h3>
+          <p class="intro">尊敬的客人，感谢您入住并遵守我们的政策。</p>
+
+          <div class="policy-block">
+            <h4>预订与取消</h4>
+            <p>对于旺季（10月至3月）3晚及以上的预订，需支付总住宿费的50%作为定金。余额须在办理入住时支付。</p>
+            <p>如果在抵达日期前五（5）天内修改或取消预订，将不收取任何费用，定金将按原支付方式（银行转账或信用卡）全额退还。</p>
+            <p>如果在入住日期前五（5）天以内取消预订，定金将不予退还。</p>
+            <p>旺季（10月至3月）少于3晚的预订，需在预订时付款。</p>
+            <p>淡季（4月至9月）的预订无需提前付款。</p>
+            <p><strong>未入住：</strong>如客人未出现，将收取全额住宿罚金，不予退款。不可抗力情况除外，如自然灾害、航班取消或事故，需提供相关证明。此政策仅适用于旺季。</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>隐私政策</h4>
+            <p>客人的个人数据将按照数据保护法律妥善处理。</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>财产损失或损坏</h4>
+            <p>对于因客人疏忽造成或促成的任何财产损失或损坏，或未及时向工作人员报告的，住宿方不承担责任。</p>
+            <p>客人将对住宿设施基础设施和家具的任何损失或损坏负责。</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>失物招领</h4>
+            <p>当工作人员发现属于客人的物品且能明确识别主人时，将联系客人并协调归还方式。如果无法识别失物主人，物品将安全保管三个月。若此期限后失主未联系住宿方或无法通过其他方式确认，该物品将被丢弃或捐赠。</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>6. 吸烟</h4>
+            <p>公寓内禁止吸烟。</p>
+          </div>
+          <div class="policy-block">
+            <h4>7. 聚会</h4>
+            <p>公寓内禁止举办聚会。</p>
+          </div>
+          <div class="policy-block">
+            <h4>8. 访客</h4>
+            <p>不允许未经正式登记的人员入住。</p>
+          </div>
+          <div class="policy-block">
+            <h4>9. 宠物</h4>
+            <p>不允许。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Policies />
+    <ContactForm />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding-bottom: 4rem;
+  }
+
+  .esnna-section {
+    padding: 4rem 0;
+  }
+
+  .esnna-card {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .esnna-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .esnna-logo {
+    height: 60px;
+    width: auto;
+  }
+
+  .esnna-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .esnna-card h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .esnna-card blockquote {
+    font-style: italic;
+    color: var(--text-main);
+    border-left: 3px solid var(--soft-apricot);
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .esnna-card blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .esnna-card p {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .esnna-card ul,
+  .esnna-card ol {
+    padding-left: 1.5rem;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  .esnna-card ol {
+    list-style: decimal;
+  }
+
+  .esnna-card ul li,
+  .esnna-card ol li {
+    margin-bottom: 0.75rem;
+    padding-left: 0.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .esnna-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .esnna-logo {
+      height: 45px;
+    }
+
+    .esnna-card h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .esnna-card {
+      padding: 1.5rem 1rem;
+    }
+
+    .esnna-logo {
+      height: 35px;
+    }
+  }
+
+  .general-policies-section {
+    padding: 4rem 0;
+  }
+
+  .general-policies-card {
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .general-policies-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--title-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .general-policies-card .intro {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+  }
+
+  .policy-block {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .policy-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .policy-block h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .policy-block p {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .policy-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  .policy-block ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .policy-block ul li {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .policy-block ul li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    .general-policies-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .general-policies-card {
+      padding: 1.5rem 1rem;
+    }
+  }
+</style>
