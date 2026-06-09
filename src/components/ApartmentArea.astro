@@ -5,11 +5,12 @@ interface Props {
   images: string[];
   reverse?: boolean;
   tag?: string;
+  tagIcon?: string;
   logo?: string;
   logoAlt?: string;
 }
 
-const { title, description, images, reverse = false, tag, logo, logoAlt } = Astro.props;
+const { title, description, images, reverse = false, tag, tagIcon, logo, logoAlt } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const mainImage = images[0];
@@ -19,7 +20,7 @@ const thumbImages = images.slice(1, 4);
 <section class={`area-section ${reverse ? "reverse" : ""}`}>
   <div class="container area-grid">
     <div class="area-content reveal">
-      {tag && <span class="area-tag">{tag}</span>}
+      {tag && <span class="area-tag">{tagIcon && <span class="tag-icon" set:html={tagIcon}></span>}{tag}</span>}
       <h2 class="area-title">{title}</h2>
       <p class="area-description">{description}</p>
     </div>
@@ -92,7 +93,9 @@ const thumbImages = images.slice(1, 4);
   }
 
   .area-tag {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     color: var(--white);
     font-size: 0.8rem;
     font-weight: 700;
@@ -100,6 +103,15 @@ const thumbImages = images.slice(1, 4);
     text-transform: uppercase;
     margin-bottom: 1rem;
     opacity: 0.9;
+  }
+
+  .tag-icon {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .tag-icon svg {
+    display: block;
   }
 
   .area-title {
