@@ -417,6 +417,38 @@ html.lenis body {
   }
 }
 
+/* Focus indicators for accessibility */
+:focus-visible {
+  outline: 2.5px solid var(--soft-apricot);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.booking-field input:focus-visible,
+.booking-field select:focus-visible {
+  outline: 2.5px solid var(--soft-apricot);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 2.5px solid var(--espresso);
+  outline-offset: 2px;
+}
+
+.btn-iridescent:focus-visible,
+.btn-iridescent-sm:focus-visible {
+  outline: 2.5px solid var(--soft-apricot);
+  outline-offset: 3px;
+}
+
+.whatsapp-float:focus-visible {
+  outline: 2.5px solid #25d366;
+  outline-offset: 4px;
+}
+
 @media (max-width: 360px) {
   body {
     font-size: 0.95rem;
