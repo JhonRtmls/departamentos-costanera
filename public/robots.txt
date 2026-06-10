@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://JhonRtmls.github.io/departamentos-costanera/sitemap-index.xml
+Sitemap: https://departamentoscostanera.com/departamentos-costanera/sitemap-index.xml

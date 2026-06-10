@@ -27,9 +27,9 @@ const t = useTranslations("es");
           <h3>Nuestro Compromiso con la Sustentabilidad</h3>
           <p class="sustain-intro">Creemos que una estadía confortable también puede contribuir al cuidado del entorno. Por ello, incorporamos prácticas sostenibles que nos permiten reducir nuestro impacto ambiental sin comprometer la calidad y comodidad de nuestros huéspedes.</p>
           <ul>
-            <li>Utilizamos iluminación LED de bajo consumo en nuestras instalaciones.</li>
-            <li>Promovemos el uso responsable del agua, invitando a nuestros huéspedes a optar por un cambio menos frecuente de toallas.</li>
-            <li>Disponemos de dispensadores rellenables de jabón, champú y acondicionador, contribuyendo a la reducción de plásticos de un solo uso.</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor" aria-hidden="true"><path d="M423.5-103.5Q400-127 400-160h160q0 33-23.5 56.5T480-80q-33 0-56.5-23.5ZM320-200v-80h320v80H320Zm10-120q-69-41-109.5-110T180-580q0-125 87.5-212.5T480-880q125 0 212.5 87.5T780-580q0 81-40.5 150T630-320H330Zm24-80h252q45-32 69.5-79T700-580q0-92-64-156t-156-64q-92 0-156 64t-64 156q0 54 24.5 101t69.5 79Zm126 0Z"/></svg><span>Utilizamos iluminación LED de bajo consumo en nuestras instalaciones.</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor" aria-hidden="true"><path d="M491-200q12-1 20.5-9.5T520-230q0-14-9-22.5t-23-7.5q-41 3-87-22.5T343-375q-2-11-10.5-18t-19.5-7q-14 0-23 10.5t-6 24.5q17 91 80 130t127 35Zm-239.5 26Q160-268 160-408q0-100 79.5-217.5T480-880q161 137 240.5 254.5T800-408q0 140-91.5 234T480-80q-137 0-228.5-94ZM652-230.5Q720-301 720-408q0-73-60.5-165T480-774Q361-665 300.5-573T240-408q0 107 68 177.5T480-160q104 0 172-70.5ZM480-480Z"/></svg><span>Promovemos el uso responsable del agua, invitando a nuestros huéspedes a optar por un cambio menos frecuente de toallas.</span></li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor" aria-hidden="true"><path d="m280-220 278 76 238-74q-5-9-14.5-15.5T760-240H558q-27 0-43-2t-33-8l-93-31 22-78 81 27q17 5 40 8t68 4q0-11-6.5-21T578-354l-234-86h-64v220ZM40-80v-440h304q7 0 14 1.5t13 3.5l235 87q33 12 53.5 42t20.5 66h80q50 0 85 33t35 87v40L560-60l-280-78v58H40Zm80-80h80v-280h-80v280Zm480-334-80-30q-2-48-36.5-82T400-640q-33 0-60.5 16.5T296-580h-86q17-51 56.5-88t93.5-48v-84h-60v-80h220q34 0 64 11t55 30l-57 57q-14-8-29.5-13t-32.5-5h-80v84q69 14 114.5 68.5T600-520v26Zm-200-86Zm303.5-3.5Q680-607 680-640q0-23 17-57t63-103q46 69 63 103t17 57q0 33-23.5 56.5T760-560q-33 0-56.5-23.5Z"/></svg><span>Disponemos de dispensadores rellenables de jabón, champú y acondicionador, contribuyendo a la reducción de plásticos de un solo uso.</span></li>
           </ul>
           <p class="sustain-closing">Pequeñas acciones que nos ayudan a preservar el entorno natural de la Patagonia para las futuras generaciones.</p>
         </div>
@@ -38,6 +38,7 @@ const t = useTranslations("es");
 
     <ApartmentArea
       tag="Energía Limpia"
+      tagIcon={`<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="m80-80 80-400h640l80 400H80Zm40-720v-80h120v80H120Zm58 640h262v-80H194l-16 80Zm67-427-57-56 85-85 57 56-85 85Zm-35 267h230v-80H226l-16 80Zm128.5-418.5Q280-797 280-880h80q0 50 35 85t85 35q50 0 85-35t35-85h80q0 83-58.5 141.5T480-680q-83 0-141.5-58.5ZM480-880Zm-40 360v-120h80v120h-80Zm80 360h262l-16-80H520v80Zm0-160h230l-16-80H520v80Zm195-267-84-85 56-56 85 84-57 57Zm5-213v-80h120v80H720Z"/></svg>`}
       title={t("sustain.solar_title") as string}
       description={t("sustain.solar_desc") as string}
       images={[
@@ -51,6 +52,7 @@ const t = useTranslations("es");
 
     <ApartmentArea
       tag="Economía Circular"
+      tagIcon={`<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="m368-592 89-147-59-98q-12-20-34.5-20T329-837l-98 163 137 82Zm387 272-89-148 139-80 64 107q11 17 12 38t-9 39q-10 20-29.5 32T800-320h-45ZM640-40 480-200l160-160v80h190l-58 116q-11 20-30 32t-42 12h-60v80Zm-387-80q-20 0-36.5-10.5T192-158q-8-16-7.5-33.5T194-224l34-56h172v160H253Zm-99-114L89-364q-9-18-8.5-38.5T92-441l16-27-68-41 219-55 55 220-69-42-91 152Zm540-342-219-55 69-41-125-208h141q21 0 39.5 10.5T629-841l52 87 68-42-55 220Z"/></svg>`}
       title={t("sustain.recycling_title") as string}
       description={t("sustain.recycling_desc") as string}
       images={[
@@ -96,15 +98,25 @@ const t = useTranslations("es");
   }
 
   .sustain-card ul {
-    list-style: disc;
-    padding-left: 1.5rem;
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     color: var(--text-main);
     line-height: 1.7;
   }
 
   .sustain-card ul li {
-    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
     font-size: 1rem;
+  }
+
+  .sustain-card ul li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
   }
 
   .sustain-closing {

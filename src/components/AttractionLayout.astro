@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "./navbar.astro";
 import ContactForm from "./ContactForm.astro";
+import { useTranslations } from "../i18n/utils";
 
 interface Props {
   title: string;
@@ -14,13 +15,13 @@ interface Props {
 }
 
 const { title, desc, image, dist, slug, lang, category } = Astro.props;
+const t = useTranslations(lang);
 const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 const categoryLabel = category === "urbano"
-  ? (lang === "es" ? "Circuito Urbano" : lang === "en" ? "Urban Circuit" : "城市环线")
-  : (lang === "es" ? "Imperdibles" : lang === "en" ? "Must-Sees" : "必看景点");
+  ? t("attractions.category_urbano")
+  : t("attractions.category_imperdibles");
 const categorySlug = category === "urbano" ? "circuito-urbano" : "imperdibles";
-const backLabel = lang === "es" ? "Volver a ¿Qué hacer?" : lang === "en" ? "Back to What to do?" : "返回做什么？";
-const readMoreLabel = lang === "es" ? "Tiempo de lectura: 3 min" : lang === "en" ? "Reading time: 3 min" : "阅读时间：3分钟";
+const backLabel = t("attractions.back");
 ---
 
 <Layout
@@ -43,8 +44,8 @@ const readMoreLabel = lang === "es" ? "Tiempo de lectura: 3 min" : lang === "en"
           </nav>
           {dist && (
             <span class="attraction-dist">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              {dist} {lang === "es" ? "del departamento" : lang === "en" ? "from the apartment" : "从公寓出发"}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              {dist} {t("attractions.from_apt")}
             </span>
           )}
           <h1>{title}</h1>
